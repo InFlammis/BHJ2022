@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameManager
+  - SceneManager
+  - Enemy
+  - Weapon
+  - Bullet
+  - PowerUp
+  - ScoreManager
+  - Layout
+  - SpawnPoint
+  - EnemyBullet
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemies
+  - Player
+  - Bullets
+  - PowerUps
+  - Layout
+  - SpawnPoints
+  - EnemyBullets
+  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 937795107
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: PowerUps
+    uniqueID: 3412933259
+    locked: 0
+  - name: Enemies
+    uniqueID: 957884037
+    locked: 0
+  - name: Player
+    uniqueID: 2209764363
+    locked: 0

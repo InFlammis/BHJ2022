@@ -1,0 +1,54 @@
+Groovy General Free Font License
+---------------------------------
+
+This Licence Agreement (“Agreement”) is an agreement between
+You ("User") and Zdenek Gromnica ("Creator").
+
+By using and/or publishing and/or distributing software from the Creator,
+the User agrees to the terms of this Agreement.
+
+The User is hereby granted a non-exclusive, non-assignable,
+non-transferable license to access the font software
+only in a Licensed Unit and only subject to all of the terms
+and conditions of this Agreement. The User has no rights
+to the software other than as expressly set forth in this Agreement.
+The User agrees that the Creator owns all right, title and interest 
+in and to the software, its structure, organization, code,
+and related files, including all property rights therein
+such as copyright, design and trademarks rights. The User agrees
+that the font software, its structure, organization, code,
+and related files are valuable property of the Creator and that any
+intentional Use of the software not expressly permitted
+by this Agreement constitutes a theft of valuable property.
+All rights not expressly granted in this Agreement are
+expressly reserved to the Creator.
+
+The User is transferred the right to use an arbitary number of copies
+of the original font software in an arbitary number of products
+EXCLUDING any kinds of commercial, business or corporate products
+and the rights to create professional client based work.
+This Agreement is non-exclusive and not transferable to third parties.
+The Agreement includes the right to distribute the unchanged software
+along with this agreement. The Agreement DOES NOT include the right
+of resale, sub-Licence and electronic transmission of any kind.
+The Agreement DOES NOT include the right of modify, reformat
+or otherwise change the software.
+
+The User agrees to identify the Creator by name and credit the Creator’s
+ownership of the trademarks and copyrights in any credits.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL
+THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE SOFTWARE
+OR FROM OTHER DEALINGS IN THE SOFTWARE.
+
+Violations against this Agreement by the User automatically causes
+this Agreement to be terminated. In such cases all available copies
+of the software shall promptly be destroyed. The Creator reserves
+the right to initiate civil and criminal proceedings
+for violations against the Agreement.

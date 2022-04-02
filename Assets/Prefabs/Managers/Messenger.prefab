@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8786310759323626480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8786310759323626482}
+  - component: {fileID: 8786310759323626483}
+  m_Layer: 0
+  m_Name: Messenger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8786310759323626482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786310759323626480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8786310759323626483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786310759323626480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3bea14be129b149b74a327d032d876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Enemy_HasDied:
+    m_PersistentCalls:
+      m_Calls: []
+  _Enemy_PlayerScored:
+    m_PersistentCalls:
+      m_Calls: []
+  _HealthManager_HasDied:
+    m_PersistentCalls:
+      m_Calls: []
+  _HealthManager_HealthLevelChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _Hud_SetCentralMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  _Level_GameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  _Level_GameStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  _Level_PlayerWins:
+    m_PersistentCalls:
+      m_Calls: []
+  _Orchestration_OrchestrationStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  _Orchestration_OrchestrationCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  _Orchestration_OrchestrationComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _Player_HasDied:
+    m_PersistentCalls:
+      m_Calls: []
+  _Player_ScoreMultiplierCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  _Player_HealthLevelChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _ScoreManager_ScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _ScoreManager_MultiplierChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _ScoreManager_HiScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []

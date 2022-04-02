@@ -10,7 +10,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     /// </summary>
     public interface ILevelManagerCore
     {
-        IMessenger Messenger { get; }
+        //IMessenger Messenger { get; }
 
         /// <summary>
         /// Current state of the levelManagerCore

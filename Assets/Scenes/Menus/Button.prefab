@@ -305,11 +305,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverSound:
     Name: 
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 09ef8eb288193b744906928d67ece908, type: 3}
     Volume: 0
   ClickSound:
     Name: 
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 5dd426f6baf62ee4bb43f713e7aa3b99, type: 3}
     Volume: 0
   SceneManager: {fileID: 0}
 --- !u!114 &1495652133062524246

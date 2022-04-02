@@ -8,10 +8,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
     /// </summary>
     public interface IGameManager
     {
-        /// <summary>
-        /// Reference to the ISoundManager instance
-        /// </summary>
-        ISoundManager SoundManager { get; }
+        public StaticObjectsSO StaticObjects { get; }
 
         #region Unity Methods
 

@@ -1,3 +1,4 @@
+using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,18 +8,18 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
     /// <summary>
     /// Game manager. Coordinates the game and its components.
     /// </summary>
-    public class GameManager : MyMonoBehaviour, IGameManager
+    public class GameManager : SceneManager, IGameManager
     {
         /// <summary>
         /// Reference to the GameManager core instance
         /// </summary>
         public IGameManager Core { get; protected set; }
 
-        [SerializeField]
-        private SoundManager _SoundManager;
+        //[SerializeField]
+        //private SoundManager _SoundManager;
 
-        /// <inheritdoc/>
-        public ISoundManager SoundManager => _SoundManager;
+        ///// <inheritdoc/>
+        //public ISoundManager SoundManager => StaticObjects.SoundManager;
 
         #region MonoBehaviour methods
 

@@ -48,7 +48,20 @@ MonoBehaviour:
       m_Calls: []
   _Enemy_PlayerScored:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement.ScoreManager,
+          BulletHellJam2022
+        m_MethodName: EnemyPlayerScored
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _HealthManager_HasDied:
     m_PersistentCalls:
       m_Calls: []
@@ -57,40 +70,316 @@ MonoBehaviour:
       m_Calls: []
   _Hud_SetCentralMessage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8778676827465396949, guid: d22421c01eead23418780b285e8833c8, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.HudManagement.HudManager,
+          BulletHellJam2022
+        m_MethodName: SetCentralText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Level_GameOver:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement.OrchestrationManager,
+          BulletHellJam2022
+        m_MethodName: LevelGameOver
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement.ScoreManager,
+          BulletHellJam2022
+        m_MethodName: LevelGameOver
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: LevelGameOver
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Level_GameStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement.OrchestrationManager,
+          BulletHellJam2022
+        m_MethodName: LevelGameStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement.ScoreManager,
+          BulletHellJam2022
+        m_MethodName: LevelGameStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: LevelGameStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Level_PlayerWins:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement.ScoreManager,
+          BulletHellJam2022
+        m_MethodName: LevelPlayerWins
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Orchestration_OrchestrationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: OrchestrationStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Orchestration_OrchestrationCancelled:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: OrchestrationCancelled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Orchestration_OrchestrationComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: OrchestrationComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.Levels.Level_01Manager,
+          BulletHellJam2022
+        m_MethodName: OrchestrationManagerOrchestrationComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Player_HasDied:
     m_PersistentCalls:
-      m_Calls: []
-  _Player_ScoreMultiplierCollected:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: PlayerHasDied
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.Levels.Level_01Manager,
+          BulletHellJam2022
+        m_MethodName: PlayerHasDied
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _Player_HealthLevelChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8671914249125888608, guid: 83f8166579efcf9469e312356395e353, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.LogManagement.Logger,
+          BulletHellJam2022
+        m_MethodName: PlayerHealthLevelChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8778676827465396949, guid: d22421c01eead23418780b285e8833c8, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.HudManagement.HudManager,
+          BulletHellJam2022
+        m_MethodName: SetHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _PowerUp_HealthCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 420153996349222508, guid: 6d2ebf83af878014f91c5f20df03c4fb, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Player.PlayerController,
+          BulletHellJam2022
+        m_MethodName: HealthChargerCollected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _PowerUp_MultiplierCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement.ScoreManager,
+          BulletHellJam2022
+        m_MethodName: PowerUpScoreMultiplierCollected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _ScoreManager_ScoreChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8778676827465396949, guid: d22421c01eead23418780b285e8833c8, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.HudManagement.HudManager,
+          BulletHellJam2022
+        m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _ScoreManager_MultiplierChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8778676827465396949, guid: d22421c01eead23418780b285e8833c8, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.HudManagement.HudManager,
+          BulletHellJam2022
+        m_MethodName: SetMultiplier
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _ScoreManager_HiScoreChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8778676827465396949, guid: d22421c01eead23418780b285e8833c8, type: 3}
+        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Managers.HudManagement.HudManager,
+          BulletHellJam2022
+        m_MethodName: SetHiScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

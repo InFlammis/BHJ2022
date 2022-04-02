@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e38f5de33be83429623bd591075017, type: 3}
+  m_Name: StaticObjects
+  m_EditorClassIdentifier: 
+  _SoundManager: {fileID: 816831598740868321, guid: 1a3a83235ec08694293fcea5a0a0369f, type: 3}
+  _Messenger: {fileID: 8786310759323626483, guid: 4ea382cb9780cb54b8a835599ecdc1af, type: 3}

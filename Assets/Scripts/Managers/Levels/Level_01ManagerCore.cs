@@ -17,7 +17,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// <inheritdoc/>
         public ILevelManager LevelManager { get; set; }
 
-        public IMessenger Messenger => LevelManager.Messenger;
+        //public IMessenger Messenger => LevelManager.StaticObjects.Messenger;
 
         public bool SpawnEnemiesEnabled = true;
 
@@ -47,7 +47,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             this.PlayerControllerCore.HealthManager.Heal();
 
             _stateConfiguration = new StateConfiguration(
-                messenger: Messenger,
+                messenger: LevelManager.StaticObjects.Messenger,
                 levelManagerCore: this,
                 spawnEnemiesEnabled: true
             );
@@ -112,7 +112,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 
         private void GameOver()
         {
-            Messenger.PublishGameOver(this, null);
+            LevelManager.StaticObjects.Messenger.PublishGameOver(this, null);
             ChangeStateRequestEventHandler(this, new StateMachine.GameOver(_stateConfiguration));
 
         }

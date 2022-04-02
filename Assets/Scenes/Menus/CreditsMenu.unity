@@ -606,7 +606,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495652133462302128, guid: ac8c44d832c2a954a86f7f8779b62ffb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FightShipArena.Assets.Scripts.Managers.Menus.CreditsMenuManager, FightShipArena
+      value: BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits.CreditsMenuManager,
+        BulletHellJam2022
       objectReference: {fileID: 0}
     - target: {fileID: 1495652133462302129, guid: ac8c44d832c2a954a86f7f8779b62ffb, type: 3}
       propertyPath: m_Pivot.x
@@ -977,6 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -1059,9 +1061,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222860805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1908427ed9932544aa3145903bfe8e2b, type: 3}
+  m_Script: {fileID: 11500000, guid: ed295ad408683de4c80b0f8c25e2c00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _StaticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
 --- !u!1001 &2011343094
 PrefabInstance:
   m_ObjectHideFlags: 0

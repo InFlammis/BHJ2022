@@ -13,6 +13,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     /// </summary>
     public interface ILevelManager : IMyMonoBehaviour
     {
+        public StaticObjectsSO StaticObjects { get; }
 
         /// <summary>
         /// Event raised to play a sound
@@ -24,7 +25,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// </summary>
         event Action ReturnToMainEvent;
 
-        IMessenger Messenger { get; }
+        //IMessenger Messenger { get; }
 
         /// <summary>
         /// Reference to the PlayerControllerCore instance

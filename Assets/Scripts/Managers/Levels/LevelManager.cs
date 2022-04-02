@@ -12,8 +12,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         SceneManager, 
         ILevelManager
     {
-        [SerializeField] private Messenger _messenger;
-        public IMessenger Messenger => _messenger;
+        //[SerializeField] private Messenger _messenger;
+        //public IMessenger Messenger => _messenger;
 
         /// <inheritdoc/>
         public abstract event EventHandler<Sound> PlaySoundEvent;

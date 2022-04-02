@@ -27,7 +27,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = monoBehaviourMock
                 .As<IGameManager>()
-                .Setup(x=>x.SoundManager)
+                .Setup(x=>x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
 
             var monoBehaviour = monoBehaviourMock.Object;
@@ -54,7 +54,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
 
             var parent = parentMock.Object;
@@ -97,7 +97,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var parent = parentMock.Object;
 
@@ -139,7 +139,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var parent = parentMock.Object;
 
@@ -170,7 +170,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
@@ -214,7 +214,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var core = new GameManagerCoreMock(gameManager);
@@ -256,7 +256,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
@@ -300,7 +300,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var stateStackMock = new Mock<StateStack>();
@@ -337,7 +337,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
@@ -375,7 +375,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
@@ -410,7 +410,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
@@ -446,7 +446,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
@@ -481,7 +481,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
@@ -522,7 +522,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             var mbAsGameManager = parentMock
                 .As<IGameManager>()
-                .Setup(x => x.SoundManager)
+                .Setup(x => x.StaticObjects.SoundManager)
                 .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 

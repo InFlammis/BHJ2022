@@ -10,7 +10,7 @@ namespace BulletHellJam2022.Assets.Scripts.Weapons
     /// <summary>
     /// Settings for a weapon
     /// </summary>
-    [CreateAssetMenu(fileName = "New Weapon InitSettings", menuName = "Weapons/Weapon InitSettings")]
+    [CreateAssetMenu(fileName = "New Weapon InitSettings", menuName = "Game/Init Settings/Weapon InitSettings")]
     public class WeaponSettings : ScriptableObject
     {
         /// <summary>

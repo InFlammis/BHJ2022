@@ -581,147 +581,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8778676827144207532, guid: d22421c01eead23418780b285e8833c8, type: 3}
   m_PrefabInstance: {fileID: 8778676827886170733}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1455586401
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1455586402}
-  - component: {fileID: 1455586404}
-  - component: {fileID: 1455586403}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: SceneManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1455586402
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455586401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455586403
+--- !u!114 &1455586403 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+  m_PrefabInstance: {fileID: 7645537737945131767}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455586401}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6e9274dd20c23b4ba5826e3e3c49060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messenger: {fileID: 2029613971}
---- !u!114 &1455586404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455586401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9949a310347dfff439c788f7cf03982c, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1455586403}
-        m_TargetAssemblyTypeName: FightShipArena.Assets.Scripts.Managers.Levels.LevelMockManager,
-          FightShipArena
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c8b67a6c-a20e-4dd8-be3b-bb55d19275e9
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e445d392-53b8-4722-98e9-c281156f1111
-    m_ActionName: Player/Fire[/Keyboard/j]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 586b2380-7d8d-4f54-8ae0-b90f661c5cc4
-    m_ActionName: Player/Fire Alt[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 852733ef-7290-4c41-b1bd-81d5abd10e3e
-    m_ActionName: Player/Open Selection Menu[/Keyboard/l]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d2ed8da1-6c65-4bfc-b56a-2b866f64a6b3
-    m_ActionName: GameManager/Pause[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FightShipArena.Assets.Scripts.Managers.EnemyManagement.EnemyManager,
-          FightShipArena
-        m_MethodName: SpawnPawnAtRandomLocation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6968d789-3b4d-42d4-b790-912e82f372f9
-    m_ActionName: Test/SpawnPawn[/Keyboard/p]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6e002fbe-34e4-464c-9238-a208ef54c6d5
-    m_ActionName: Player/Turn Left[/Keyboard/l,/Keyboard/a]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8356ffb9-3d32-4a6d-a4d2-e35283eb52f8
-    m_ActionName: Player/Turn Right[/Keyboard/l,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7aa41dab-03f5-4357-9557-1514a6897443
-    m_ActionName: Player/Turn Up[/Keyboard/l,/Keyboard/w]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9f96ccdb-ca9d-40dc-b2d1-d22d987e3ab6
-    m_ActionName: Player/Turn Down[/Keyboard/l,/Keyboard/s]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Test
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &1579269459 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7651529651254808239, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
@@ -1656,6 +1526,63 @@ PrefabInstance:
       objectReference: {fileID: 2029613971}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbd919166f2e36428fbd34b4c0c97d0, type: 3}
+--- !u!1001 &7645537737945131767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717718, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_Name
+      value: SceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
 --- !u!1001 &8314202308669417412
 PrefabInstance:
   m_ObjectHideFlags: 0

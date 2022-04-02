@@ -10,7 +10,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
     /// <summary>
     /// Configuration for the enemy type
     /// </summary>
-    [CreateAssetMenu(fileName = "New Enemy InitSettings", menuName = "Enemy/Enemy InitSettings")]
+    [CreateAssetMenu(fileName = "New Enemy InitSettings", menuName = "Game/Init Settings/Enemy InitSettings")]
     public class EnemySettings : ScriptableObject
     {
         /// <summary>

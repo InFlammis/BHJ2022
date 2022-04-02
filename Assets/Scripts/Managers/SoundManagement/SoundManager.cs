@@ -13,20 +13,21 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
     /// </summary>
     public class SoundManager : MyMonoBehaviour, ISoundManager
     {
-        [SerializeField]
-        private AudioClip _MenuMusic;
-        [SerializeField]
-        private AudioClip _GameMusic;
+        [SerializeField] SoundManagerInitSettingsSO settings;
+        //[SerializeField]
+        //private AudioClip _MenuMusic;
+        //[SerializeField]
+        //private AudioClip _GameMusic;
 
         /// <summary>
         /// Audio clip for the menu music
         /// </summary>
-        public AudioClip MenuMusic => _MenuMusic;
+        public AudioClip MenuMusic => settings.MenuMusic;
 
         /// <summary>
         /// Audio clip for the game music
         /// </summary>
-        public AudioClip GameMusic => _GameMusic;
+        public AudioClip GameMusic => settings.GameMusic;
 
         private AudioSource _MusicSource;
 
@@ -35,20 +36,24 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
         /// </summary>
         private AudioSourcePool _AudioSourcePool;
 
-        /// <summary>
-        /// Size of the pool
-        /// </summary>
-        [SerializeField]
-        private int _AudioSourcePoolSize = 10;
+        ///// <summary>
+        ///// Size of the pool
+        ///// </summary>
+        //[SerializeField]
+        //private int _AudioSourcePoolSize = 10;
 
-        void Awake()
+        public void OnAwake()
         {
-            _AudioSourcePool = new AudioSourcePool(this, _AudioSourcePoolSize);
+        }
+
+        public void OnEnable2()
+        {
+            _AudioSourcePool = new AudioSourcePool(this, settings.AudioSourcePoolSize);
 
             _MusicSource = gameObject.AddComponent<AudioSource>();
             _MusicSource.loop = true;
         }
-        
+
         /// <summary>
         /// Play an audioclip for music
         /// </summary>

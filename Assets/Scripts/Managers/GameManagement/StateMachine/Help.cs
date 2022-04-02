@@ -1,4 +1,5 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus;
+using BulletHellJam2022.Assets.Scripts.Managers.Menus.Help;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnEnter();
 
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
-            GameManager.SoundManager.PlayMusic(GameManager.SoundManager.MenuMusic);
+            GameManager.StaticObjects.SoundManager.PlayMusic(GameManager.StaticObjects.SoundManager.MenuMusic);
         }
 
         /// <inheritdoc/>
@@ -100,7 +101,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// <param name="e">Sound to play</param>
         private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
         {
-            GameManager.SoundManager.PlaySound(e);
+            GameManager.StaticObjects.SoundManager.PlaySound(e);
         }
 
         /// <inheritdoc/>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BulletHellJam2022.Assets.Scripts.Managers.Menus;
+using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -73,7 +74,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             SetTimeScale();
 
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
-            GameManager.SoundManager.PlayMusic(GameManager.SoundManager.MenuMusic);
+            GameManager.StaticObjects.SoundManager.PlayMusic(GameManager.StaticObjects.SoundManager.MenuMusic);
 
         }
 
@@ -109,7 +110,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// <param name="e">Sound to play</param>
         private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
         {
-            GameManager.SoundManager.PlaySound(e);
+            GameManager.StaticObjects.SoundManager.PlaySound(e);
         }
 
         //This method is non-testable because it accesses Scene's methods and GameObject's methods, which are not mockable.

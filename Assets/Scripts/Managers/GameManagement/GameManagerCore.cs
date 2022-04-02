@@ -1,5 +1,6 @@
 using System;
 using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
+using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +27,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         /// <inheritdoc/>
         public ISoundManager SoundManager { get; protected set; }
 
+        public StaticObjectsSO StaticObjects => (Parent as IGameManager).StaticObjects;
+
         /// <summary>
         /// Create an instance of the class
         /// </summary>
@@ -33,7 +36,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         public GameManagerCore(IMyMonoBehaviour parent)
         {
             Parent = parent;
-            SoundManager = (Parent as IGameManager).SoundManager;
+            SoundManager = StaticObjects.SoundManager;
             _sceneManagerWrapper = UnitySceneManagerWrapper.Instance;
         }
 

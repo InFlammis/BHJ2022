@@ -22,6 +22,5 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker
         {
             _PlayMusic.Invoke(publisher, target, sound);
         }
-
     }
 }

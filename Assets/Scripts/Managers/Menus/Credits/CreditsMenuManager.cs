@@ -5,11 +5,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManager : MenuManager, ICreditsMenuManager
     {
-        /// <inheritdoc/>
         public event EventHandler BackEvent;
-
-        ///// <inheritdoc/>
-        //public event EventHandler<Sound> PlaySoundEvent;
 
         public ICreditsMenuManager Core { get; protected set; }
 
@@ -26,26 +22,22 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
             StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
         }
 
-        /// <inheritdoc/>
         public void OnAwake()
         {
             Core.OnAwake();
             Core.BackEvent += (sender, args) => BackEvent?.Invoke(sender, args);
         }
 
-        /// <inheritdoc/>
         public void OnStart()
         {
             Core.OnStart();
         }
 
-        /// <inheritdoc/>
         public void BackToMainMenu()
         {
             StaticObjects.Messenger.PublishBackToMain(this, null);
         }
 
-        /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
             StaticObjects.Messenger.PublishPlaySound(this, null, sound);

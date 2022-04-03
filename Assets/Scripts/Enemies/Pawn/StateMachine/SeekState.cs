@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
@@ -13,7 +9,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
     /// </summary>
     public class SeekState : PawnState
     {
-        /// <inheritdoc/>
         public override void Move()
         {
             var mag = UnityEngine.Random.value * Parent.InitSettings.MaxMovementMagnitude;
@@ -22,14 +17,12 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
             Parent.Rigidbody.AddForce(impulse);
         }
 
-        /// <inheritdoc/>
         public override void OnEnter()
         {
             base.OnEnter();
             Parent.Parent.StartCoroutine(SeekPlayer());
         }
 
-        /// <inheritdoc/>
         public override void OnExit()
         {
             base.OnExit();
@@ -62,7 +55,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
             Factory = factory;
         }
 
-        /// <inheritdoc/>
         public override event Action<IPawnState> ChangeState;
     }
 }

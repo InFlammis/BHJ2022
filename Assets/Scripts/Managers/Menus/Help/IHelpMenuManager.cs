@@ -1,5 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
+﻿using System;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
 {
@@ -14,11 +13,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         /// Event raised by the Back button
         /// </summary>
         event EventHandler BackEvent;
-
-        ///// <summary>
-        ///// Event raised to play a sound
-        ///// </summary>
-        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Invoked on Start

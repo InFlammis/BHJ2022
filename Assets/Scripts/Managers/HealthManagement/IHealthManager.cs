@@ -2,20 +2,8 @@
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 {
-    /// <summary>
-    /// This class takes count of the health status of a game character
-    /// </summary>
     public interface IHealthManager
     {
-        ///// <summary>
-        ///// Event raised when the character Health level changes
-        ///// </summary>
-        //event Action<int, int> HealthLevelChanged;
-
-        ///// <summary>
-        ///// Event raised when the character dies
-        ///// </summary>
-        //event Action HasDied;
         public string Target { get; set; }
 
         /// <summary>

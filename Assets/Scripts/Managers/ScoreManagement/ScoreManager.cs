@@ -1,10 +1,6 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
 {
@@ -59,7 +55,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
             NotifyHighScoreValue();
             ResetCurrentScore();
             ResetMultiplier();
-
         }
 
         #region UnityEvent Handlers

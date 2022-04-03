@@ -3,10 +3,7 @@ using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
@@ -70,8 +67,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// Total enemies killed during the wave execution
         /// </summary>
         [HideInInspector] public int TotEnemiesKilled;
-
-        //private OrchestrationManager.CancellationToken RunCancellationToken;
 
         /// <summary>
         /// Status of the execution

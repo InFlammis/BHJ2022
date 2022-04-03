@@ -1,10 +1,9 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
@@ -29,7 +28,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
             CheckWeaponsConfiguration();
 
             Core = new InfantryControllerCore(this, HealthManager, InitSettings);
-
         }
 
         public virtual void SubscribeToHealthManagerEvents()
@@ -55,16 +53,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
                 Debug.LogError("SceneManager not found");
             }
 
-            //_SoundManager = gameObject.GetComponent<EnemySoundManager>();
-
-            //if(_SoundManager == null)
-            //{
-            //    Debug.LogError("SoundManager not found");
-            //}
-
-            //_SoundManager.SceneManager = sceneManager;
-
-
             if (InitSettings == null)
             {
                 throw new NullReferenceException("InitSettings");
@@ -86,8 +74,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         void OnCollisionEnter2D(Collision2D col)
         {
-            //Debug.Log($"Collision detected with {col.gameObject.name}");
-
             switch (col.gameObject.tag)
             {
                 case "Player":

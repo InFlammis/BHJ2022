@@ -116,7 +116,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new InitMock(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.PlayGameEvent += (sender, args) => { eventCalled = true; };
+            //state.PlayGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.StartGameEventHandler_Caller();
@@ -140,7 +140,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             
             var eventCalled = false;
 
-            state.QuitGameEvent += (sender, args) => { eventCalled = true; };
+            //state.QuitGameEvent += (sender, args) => { eventCalled = true; };
             //act
 
             state.QuitGameEventHandler_Caller();

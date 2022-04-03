@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
@@ -15,7 +11,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
     {
         private Coroutine _seekPlayerCoroutine;
 
-        /// <inheritdoc/>
         public override void Move()
         {
             if (Parent.PlayerControllerCore == null || Parent.PlayerControllerCore.Transform == null) return;
@@ -38,10 +33,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
             Parent.Rigidbody.velocity = Vector2.ClampMagnitude(Parent.Rigidbody.velocity, Parent.InitSettings.MaxSpeed);
         }
 
-        /// <inheritdoc/>
         public override void Rotate() { }
 
-        /// <inheritdoc/>
         public override void OnEnter()
         {
             base.OnEnter();
@@ -63,7 +56,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
             }
         }
 
-        /// <inheritdoc/>
         public override void OnExit()
         {
             base.OnExit();
@@ -81,7 +73,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
             Factory = factory;
         }
 
-        /// <inheritdoc/>
         public override event Action<IPawnState> ChangeState;
     }
 }

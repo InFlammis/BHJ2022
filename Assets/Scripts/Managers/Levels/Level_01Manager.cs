@@ -1,21 +1,12 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using UnityEngine.InputSystem;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 {
     public class Level_01Manager : LevelManager
     {
-        /// <inheritdoc/>
         public ILevelManagerCore Core { get; protected set; }
         private PlayerInput _playerInput;
-
-        ///// <inheritdoc/>
-        //public override event EventHandler<Sound> PlaySoundEvent;
-
-        ///// <inheritdoc/>
-        //public override event Action ReturnToMainEvent;
 
         void Awake()
         {

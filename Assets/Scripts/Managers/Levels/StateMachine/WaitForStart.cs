@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
@@ -18,16 +14,13 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
             ChangeStateDelay = 2;
         }
 
-        /// <inheritdoc/>
         public override event EventHandler<State> ChangeStateRequestEvent;
 
-        /// <inheritdoc/>
         public override void OnEnter()
         {
             base.OnEnter();
             var manager = Configuration.LevelManagerCore.LevelManager as MonoBehaviour;
             manager.StartCoroutine(CoChangeState(new Play(Configuration)));
-            //Configuration.LevelManagerCore.LevelManager.StartCoroutine(CoChangeState(new Play(Configuration)));
         }
 
         /// <summary>

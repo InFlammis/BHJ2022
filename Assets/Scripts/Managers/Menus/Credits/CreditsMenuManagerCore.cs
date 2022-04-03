@@ -1,12 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
-using UnityEngine;
+﻿using System;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManagerCore : ICreditsMenuManager
     {
-        /// <inheritdoc/>
         public event EventHandler BackEvent;
 
         public readonly ICreditsMenuManager Parent;
@@ -18,16 +15,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
             Parent = parent;
         }
 
-        /// <inheritdoc/>
         public void OnAwake() { }
 
-        /// <inheritdoc/>
         public void OnStart()
         {
-            //Debug.Log($"Credits menu opened");
         }
 
-        /// <inheritdoc/>
         public void BackToMainMenu()
         {
         }

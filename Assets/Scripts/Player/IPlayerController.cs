@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;

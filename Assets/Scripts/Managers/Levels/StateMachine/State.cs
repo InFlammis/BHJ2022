@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 {
@@ -33,7 +28,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         /// </summary>
         public virtual void OnEnter()
         {
-            //Debug.Log($"Entering { GetType().Name} state");
         }
 
         /// <summary>
@@ -41,8 +35,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         /// </summary>
         public virtual void OnExit()
         {
-            //Debug.Log($"Exiting { GetType().Name} state");
         }
-
     }
 }

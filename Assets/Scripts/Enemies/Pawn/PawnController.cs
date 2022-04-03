@@ -1,9 +1,8 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
+using System;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
@@ -37,15 +36,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
             {
                 Debug.LogError("SceneManager not found");
             }
-
-            //_SoundManager = gameObject.GetComponent<EnemySoundManager>();
-
-            //if (_SoundManager == null)
-            //{
-            //    Debug.LogError("SoundManager not found");
-            //}
-
-            //_SoundManager.SceneManager = sceneManager;
 
             if (InitSettings == null)
             {
@@ -81,11 +71,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
             messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
         }
 
-
-
         void OnCollisionEnter2D(Collision2D col)
         {
-            //Debug.Log($"Collision detected with {col.gameObject.name}");
 
             switch (col.gameObject.tag)
             {

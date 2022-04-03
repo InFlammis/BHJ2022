@@ -1,10 +1,5 @@
-﻿using BulletHellJam2022.Assets.Scripts.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies

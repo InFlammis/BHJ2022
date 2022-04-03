@@ -7,36 +7,21 @@ using UnityEngine.InputSystem;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
 {
-    /// <summary>
-    /// Core for the GameManager class. Contains the logic that rules the GameManager behaviour.
-    /// </summary>
     public class GameManagerCore : IGameManager
     {
-        /// <summary>
-        /// Reference to the Parent instance
-        /// </summary>
         public readonly IMyMonoBehaviour Parent;
 
         private IUnitySceneManagerWrapper _sceneManagerWrapper;
 
-        /// <summary>
-        /// Stack for the State machine
-        /// </summary>
         protected StateStack _stateStack = new StateStack();
 
-        /// <inheritdoc/>
         public ISoundManager SoundManager { get; protected set; }
 
         public StaticObjectsSO StaticObjects => (Parent as IGameManager).StaticObjects;
 
-        /// <summary>
-        /// Create an instance of the class
-        /// </summary>
-        /// <param name="parent">Reference to the parent object</param>
         public GameManagerCore(IMyMonoBehaviour parent)
         {
             Parent = parent;
-            //SoundManager = StaticObjects.SoundManager;
             _sceneManagerWrapper = UnitySceneManagerWrapper.Instance;
         }
 
@@ -67,20 +52,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
 
         #region Event Handlers for StateStack events
 
-        /// <summary>
-        /// Attach the eventhandlers to the current state
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="state">New state being pushed into the stack</param>
         protected virtual void StateStack_PushingStateEvent(object sender, State state)
         {
         }
 
-        /// <summary>
-        /// Detache the eventhandlers from the state being popped out of the stack
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="state">The state being popped out of the stack</param>
         protected virtual void StateStack_PoppingStateEvent(object sender, State state)
         {
         }
@@ -240,24 +215,15 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
 
         #region Input Event Handlers
 
-        /// <summary>
-        /// Event Handler for PauseResume actions
-        /// Invokes PauseResume on the current state
-        /// <remarks>This method is not testable, as the input parameter cannot be mocked</remarks>
-        /// </summary>
-        /// <param name="context"></param>
         public void OnPauseResumeGame(InputAction.CallbackContext context)
         {
             switch (context.phase)
             {
                 case InputActionPhase.Performed:
-                    //Debug.Log($"{context.action} Performed");
-
                     _stateStack.Peek()?.PauseResumeGame();
                     break;
             }
         }
-
         #endregion
     }
 }

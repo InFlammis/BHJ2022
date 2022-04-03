@@ -1,11 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
@@ -17,13 +10,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         [SerializeField] private HealthManagerSettingsSO _settings;
         [SerializeField] private StaticObjectsSO _staticObjects;
 
-        /// <inheritdoc/>
         public int MaxHealth { get; set; }
 
-        /// <inheritdoc/>
         private int _health;
 
-        /// <inheritdoc/>
         public int Health
         {
             get => _health;
@@ -40,10 +30,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
             }
         }
         
-        /// <inheritdoc/>
         public bool IsInvulnerable { get; set; }
         
-        /// <inheritdoc/>
         public bool IsDead { get; protected set; }
 
         public string Target { get; set; }
@@ -53,10 +41,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
             this.MaxHealth = _settings.MaxHealth;
             this.Health = _settings.InitHealth;
             this.IsInvulnerable = _settings.IsInvulnerable;
-            //this.Target = _settings.Target;
         }
 
-        /// <inheritdoc/>
         public void Heal(int byValue)
         {
             var newHealthValue =  Health + byValue;
@@ -69,14 +55,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 
         }
 
-        /// <inheritdoc/>
         public void Heal()
         {
             Heal(MaxHealth);
             IsDead = false;
         }
 
-        /// <inheritdoc/>
         public void Damage(int byValue)
         {
             if (IsInvulnerable) return;
@@ -90,7 +74,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
             Health = newHealthValue;
         }
 
-        /// <inheritdoc/>
         public void Kill()
         {
             Damage(Health);

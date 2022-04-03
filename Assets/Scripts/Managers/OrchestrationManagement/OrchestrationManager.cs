@@ -1,12 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
@@ -20,12 +12,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         MyMonoBehaviour, 
         IOrchestrationManager
     {
-        //[SerializeField] private Messenger _messenger;
-        //public IMessenger Messenger => _messenger;
-
         [SerializeField] private StaticObjectsSO _staticObjects;
 
         public StaticObjectsSO StaticObjects => _staticObjects;
+        
         /// <summary>
         /// Collection of waves of enemies to spawn
         /// </summary>
@@ -35,9 +25,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// The cancellation token
         /// </summary>
         private CancellationToken RunCancellationToken;
-
-        ///// <inheritdoc/>
-        //public event Action<int> SendScore;
 
         /// <summary>
         /// Delay between two consecutive waves

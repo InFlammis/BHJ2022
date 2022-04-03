@@ -1,17 +1,12 @@
 ﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 {
     public class Win : State
     {
-        /// <inheritdoc/>
         public override event EventHandler<State> ChangeStateRequestEvent;
         private float _returnToMainDelay = 8;
 
@@ -21,7 +16,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         /// <param name="configuration">Initial state configuration</param>
         public Win(StateConfiguration configuration) : base(configuration)
         {
-
         }
 
         /// <inheritdoc/>
@@ -40,7 +34,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         public IEnumerator CoReturnToMain()
         {
             yield return new WaitForSeconds(_returnToMainDelay);
-            //Configuration.LevelManagerCore.LevelManager.ReturnToMain();
             Configuration.Messenger.PublishBackToMain(this, null);
         }
 

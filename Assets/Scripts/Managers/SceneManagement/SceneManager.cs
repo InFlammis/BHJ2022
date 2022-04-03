@@ -1,5 +1,4 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement

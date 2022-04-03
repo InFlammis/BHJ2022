@@ -1,15 +1,10 @@
 ﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
 {
-    
     public interface ILogManager
     {
     }
@@ -203,6 +198,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
         {
             LogEvent(publisher.GetType().Name, target, $"ScoreChanged ({score})");
         }
-
     }
 }

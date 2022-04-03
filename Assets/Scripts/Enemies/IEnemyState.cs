@@ -1,5 +1,4 @@
 ﻿using System;
-using BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies
 {

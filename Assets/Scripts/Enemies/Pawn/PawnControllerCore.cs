@@ -1,5 +1,4 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine;
+﻿using BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
@@ -16,19 +15,16 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
 
-        //private string _Target;
-
-        /// <inheritdoc/>
         public IPlayerControllerCore PlayerControllerCore { get; set; }
-        /// <inheritdoc/>
+
         public IEnemyController Parent { get; protected set; }
-        /// <inheritdoc/>
+
         public Transform Transform { get; protected set; }
-        /// <inheritdoc/>
+
         public Rigidbody2D Rigidbody { get; protected set; }
-        /// <inheritdoc/>
+
         public EnemySettings InitSettings { get; protected set; }
-        /// <inheritdoc/>
+
         public IHealthManager HealthManager { get; }
 
         /// <summary>

@@ -1,9 +1,5 @@
-﻿using System;
+﻿using BulletHellJam2022.Assets.Scripts.Weapons;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BulletHellJam2022.Assets.Scripts.Weapons;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Player

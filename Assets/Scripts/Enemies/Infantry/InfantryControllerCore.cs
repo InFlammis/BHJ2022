@@ -1,41 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine;
+﻿using BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 {
-    /// <summary>
-    /// Specialization of a IEnemyControllerCore for an Infantry enemy type
-    /// </summary>
     public class InfantryControllerCore : 
         IEnemyControllerCore
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
 
-        /// <inheritdoc/>
         public IPlayerControllerCore PlayerControllerCore { get; set; }
 
-        /// <inheritdoc/>
         public IEnemyController Parent { get; protected set; }
 
-        /// <inheritdoc/>
         public Transform Transform { get; protected set; }
 
-        /// <inheritdoc/>
         public Rigidbody2D Rigidbody { get; protected set; }
 
-        /// <inheritdoc/>
         public EnemySettings InitSettings { get; protected set; }
 
-        /// <inheritdoc/>
         public IHealthManager HealthManager { get; }
 
         /// <summary>

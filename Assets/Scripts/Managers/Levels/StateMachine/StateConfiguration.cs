@@ -1,11 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.HudManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 {
@@ -20,11 +13,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         /// </summary>
         public readonly ILevelManagerCore LevelManagerCore;
 
-        ///// <summary>
-        ///// Reference to the OrchestrationManager instance
-        ///// </summary>
-        //public readonly IOrchestrationManager OrchestrationManager;
-
         /// <summary>
         /// Enable the spawning of enemies
         /// </summary>
@@ -35,19 +23,14 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         /// </summary>
         /// <param name="messenger"><see cref="Messenger"/></param>
         /// <param name="levelManagerCore"><see cref="ILevelManagerCore"/></param>
-        /// <param name="orchestrationManager"><see cref="IOrchestrationManager"/></param>
         /// <param name="spawnEnemiesEnabled"><see cref="SpawnEnemiesEnabled"/></param>
         public StateConfiguration(
             IMessenger messenger,
             ILevelManagerCore levelManagerCore,
-            //IOrchestrationManager orchestrationManager,
-            //IHudManager hudManager,
             bool spawnEnemiesEnabled = true)
         {
             Messenger = messenger;
             LevelManagerCore = levelManagerCore;
-            //OrchestrationManager = orchestrationManager;
-            //HudManager = hudManager;
             SpawnEnemiesEnabled = spawnEnemiesEnabled;
         }
 

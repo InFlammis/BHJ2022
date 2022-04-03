@@ -113,7 +113,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new PauseMock(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
+            //state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.ResumeGameEventHandler_Caller();
@@ -136,7 +136,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new PauseMock(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.QuitCurrentGameEvent += (sender, args) => { eventCalled = true; };
+            //state.QuitCurrentGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.QuitCurrentGameEventHandler_Caller();
@@ -158,7 +158,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new Pause(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
+            //state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.PauseResumeGame();

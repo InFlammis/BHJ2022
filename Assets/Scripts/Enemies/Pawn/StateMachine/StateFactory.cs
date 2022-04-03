@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
+﻿namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
 {
     /// <summary>
     /// Factory that builds all possible states for an Pawn enemy type

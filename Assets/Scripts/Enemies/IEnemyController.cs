@@ -14,7 +14,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
 
         public string Target { get; }
 
-
         /// <summary>
         /// Instance of EnemySettings
         /// </summary>

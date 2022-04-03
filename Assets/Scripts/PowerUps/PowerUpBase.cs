@@ -1,5 +1,4 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -20,9 +19,6 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps
         /// Power-up initial settings
         /// </summary>
         public PowerUpSettings InitSettings;
-
-        //[SerializeField] Messenger _Messenger;
-        //public IMessenger Messenger => _Messenger;
 
         [SerializeField] protected StaticObjectsSO _staticObjects;
 

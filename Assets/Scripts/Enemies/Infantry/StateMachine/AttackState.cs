@@ -4,17 +4,12 @@ using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
 {
-    /// <summary>
-    /// Attack state for an Infantry enemy
-    /// </summary>
     public class AttackState : InfantryState
     {
         private Coroutine _fireCoroutine;
         private Coroutine _seekPlayerCoroutine;
         private bool fireCondition = false;
 
-
-        /// <inheritdoc/>
         public override void Move()
         {
             var mag = UnityEngine.Random.value * Parent.InitSettings.MaxMovementMagnitude;
@@ -23,13 +18,11 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
             Parent.Rigidbody.AddForce(impulse);
         }
 
-        /// <inheritdoc/>
         public override void Rotate()
         {
             LookAtPlayer();
         }
 
-        /// <inheritdoc/>
         public override void OnEnter()
         {
             base.OnEnter();
@@ -38,7 +31,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
             _fireCoroutine = Parent.Parent.StartCoroutine(Fire());
         }
 
-        /// <inheritdoc/>
         public override void OnExit()
         {
             base.OnExit();
@@ -49,9 +41,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
 
         }
 
-        /// <summary>
-        /// Rotate the enemy object so as to face the player object
-        /// </summary>
         protected void LookAtPlayer()
         {
             if (Parent.PlayerControllerCore.Transform == null )
@@ -73,7 +62,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
 
         }
 
-        /// <inheritdoc/>
         public IEnumerator Fire()
         {
             var stopFiringInterval = 1.0f;
@@ -88,7 +76,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
                 var stopFiringAt = Time.fixedTime;
                 Parent.CurrentWeapon.StopFiring();
                 yield return new WaitWhile(() => stopFiringAt + Parent.InitSettings.StopFiringIntervalLength > Time.fixedTime);
-
             }
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies
@@ -43,25 +39,10 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
         /// </summary>
         public float MaxMovementMagnitude;
 
-        ///// <summary>
-        ///// Initial health value
-        ///// </summary>
-        //public int InitHealth;
-
         /// <summary>
         /// Damage applied to the player on direct collision
         /// </summary>
         public int DamageAppliedOnCollision;
-
-        ///// <summary>
-        ///// Is the enemy invulnerable at start.
-        ///// </summary>
-        //public bool InvulnerableAtStart;
-
-        ///// <summary>
-        ///// How many seconds the enemy is invulnerable at start
-        ///// </summary>
-        //public float InvulnerableAtStartForSeconds;
 
         /// <summary>
         /// List of powerups owned by this type of enemy

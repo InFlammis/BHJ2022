@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
 {
@@ -18,28 +15,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
 
         [SerializeField] private SoundManagerInitSettingsSO settings;
 
-        ///// <summary>
-        ///// Audio clip for the menu music
-        ///// </summary>
-        //public AudioClip MenuMusic => settings.MenuMusic;
-
-        ///// <summary>
-        ///// Audio clip for the game music
-        ///// </summary>
-        //public AudioClip GameMusic => settings.GameMusic;
-
         private AudioSource _MusicSource;
 
         /// <summary>
         /// Audio source pool
         /// </summary>
         private AudioSourcePool _AudioSourcePool;
-
-        ///// <summary>
-        ///// Size of the pool
-        ///// </summary>
-        //[SerializeField]
-        //private int _AudioSourcePoolSize = 10;
 
         void Awake()
         {
@@ -50,7 +31,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
 
             _MusicSource = gameObject.AddComponent<AudioSource>();
             _MusicSource.loop = true;
-
         }
 
         private void PlaySound(object publisher, string target, Sound sound)
@@ -72,47 +52,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
             _MusicSource.volume = music.Volume;
             _MusicSource.Play();
         }
-
-        //public void OnEnable2()
-        //{
-        //    _AudioSourcePool = new AudioSourcePool(this, settings.AudioSourcePoolSize);
-
-        //    _MusicSource = gameObject.AddComponent<AudioSource>();
-        //    _MusicSource.loop = true;
-        //}
-
-        ///// <summary>
-        ///// Play an audioclip for music
-        ///// </summary>
-        ///// <param name="audioClip"></param>
-        //public void PlayMusic(AudioClip audioClip)
-        //{
-        //    _MusicSource.clip = audioClip;
-        //    _MusicSource.volume = 0.1f;
-        //    _MusicSource.Play();
-        //}
-
-        ///// <summary>
-        ///// Play a sound
-        ///// </summary>
-        ///// <param name="audioClip">Audio clip to play</param>
-        //public void PlaySound(AudioClip audioClip)
-        //{
-        //    var audioSource = _AudioSourcePool.GetAudioSource();
-        //    audioSource.clip = audioClip;
-        //    audioSource.Play();
-        //}
-
-        ///// <summary>
-        ///// play a sound
-        ///// </summary>
-        ///// <param name="sound">Sound to play</param>
-        //public void PlaySound(Sound sound)
-        //{
-        //    var audioSource = _AudioSourcePool.GetAudioSource();
-        //    audioSource.clip = sound.Clip;
-        //    audioSource.volume = sound.Volume;
-        //    audioSource.Play();
-        //}
     }
 }

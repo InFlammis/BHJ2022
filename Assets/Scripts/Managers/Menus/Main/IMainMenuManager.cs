@@ -1,5 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
+﻿using System;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
 {
@@ -21,11 +20,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// Event raised on Quit Game button click
         /// </summary>
         event EventHandler QuitGameEvent;
-
-        ///// <summary>
-        ///// Event raised to play a sound
-        ///// </summary>
-        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Event raised on Help button click

@@ -1,5 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
+﻿using System;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
 {
@@ -19,11 +18,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// Event raised by the Quit Current Game button
         /// </summary>
         event EventHandler QuitCurrentGameEvent;
-
-        ///// <summary>
-        ///// Event raised to play a sound
-        ///// </summary>
-        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Invoked on Start

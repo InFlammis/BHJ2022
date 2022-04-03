@@ -1,50 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using BulletHellJam2022.Assets.Scripts.Enemies;
 using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
 
 namespace BulletHellJam2022.Assets.Scripts.Player
 {
-    /// <summary>
-    /// Controller for the player.
-    /// Implements the Core pattern. The core logic of the Controller is actually contained in the Core instance.
-    /// </summary>
     public class PlayerController : 
         MyMonoBehaviour, 
         IPlayerController
     {
-        //[SerializeField] private Messenger _messenger;
-
-        //public IMessenger Messenger => _messenger;
         [SerializeField] private StaticObjectsSO _staticObjects;
-
-        ///// <summary>
-        ///// Reference to the SoundManager instance
-        ///// </summary>
-        //protected PlayerSoundManager _SoundManager;
 
         [SerializeField] private PlayerSoundSettingsSO _soundSettings;
 
-        /// <inheritdoc/>
         public IPlayerControllerCore Core { get; set; }
 
-        /// <inheritdoc/>
         public IHealthManager HealthManager { get; protected set; }
 
-        /// <inheritdoc/>
         public PlayerSettings InitSettings => initSettings;
 
-        /// <inheritdoc/>
         public WeaponBase[] Weapons { get; protected set; }
 
 
@@ -56,9 +36,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         [SerializeField]
         private PlayerSettings initSettings;
 
-        /// <inheritdoc/>
-        /// For testing <see cref="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Testing.html"/>
-        /// <param name="context"></param>
         public void OnMove(InputAction.CallbackContext context)
         {
             var inputVector = context.ReadValue<Vector2>();
@@ -67,7 +44,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             {
                 Core.SetPlayerInput(inputVector);
                 Debug.Log($"Moving {inputVector}");
-
             }
             else if (context.canceled)
             {
@@ -91,107 +67,82 @@ namespace BulletHellJam2022.Assets.Scripts.Player
                 Debug.Log("Not rotating");
                 Core.Rotate(inputVector);
             }
-
         }
 
-        /// <inheritdoc/>
-        /// For testing <see cref="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Testing.html"/>
-        /// <param name="context"></param>
         public void OnFire(InputAction.CallbackContext context)
         {
-            
             if (context.started)
             {
-                //Debug.Log("OnFire started");
                 Core.StartFiring();
             }
             else if (context.canceled)
             {
-                //Debug.Log("OnFire canceled");
                 Core.StopFiring();
             }
         }
 
-        /// <inheritdoc/>
-        /// For testing <see cref="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Testing.html"/>
-        /// <param name="context"></param>
         public void OnFireAlt(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                //Debug.Log("OnFireAlt started");
                 //Do an action
                 Core.FireAlt();
             }
             else if (context.canceled)
             {
-                //Debug.Log("OnFireAlt canceled");
             }
         }
 
-        /// <inheritdoc/>
-        /// For testing <see cref="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Testing.html"/>
-        /// <param name="context"></param>
         public void OnOpenSelectionMenu(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                //Debug.Log("OnOpenSelectionMenu started");
                 //Do an action
                 Core.OpenSelectionMenu();
             }
             else if (context.canceled)
             {
-                //Debug.Log("OnOpenSelectionMenu canceled");
             }
         }
 
-        /// <inheritdoc/>
         public void OnTurnLeft(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 Core.TurnLeft();
-                //Debug.Log($"Turning {Core.PlayerInput}");
             }
             else if (context.canceled)
             {
             }
         }
 
-        /// <inheritdoc/>
         public void OnTurnRight(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 Core.TurnRight();
-                //Debug.Log($"Turning {Core.PlayerInput}");
             }
             else if (context.canceled)
             {
             }
         }
 
-        /// <inheritdoc/>
         public void OnTurnUp(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 Core.TurnUp();
-                //Debug.Log($"Turning {Core.PlayerInput}");
             }
             else if (context.canceled)
             {
             }
         }
 
-        /// <inheritdoc/>
         public void OnTurnDown(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 Core.TurnDown();
-                //Debug.Log($"Turning {Core.PlayerInput}");
             }
             else if (context.canceled)
             {
@@ -211,7 +162,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
             leftMouseClick.performed += ctx => LeftMouseClicked();
             leftMouseClick.Enable();
-            //HealthManager = new HealthManager(_Target, initSettings.InitHealth, initSettings.InitHealth, false);
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
 
             SubscribeToHealthManagerEvents();
@@ -249,17 +199,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             {
                 Debug.LogError("SceneManager not found");
             }
-
-            //_SoundManager = gameObject.GetComponent<PlayerSoundManager>();
-
-            //if (_SoundManager == null)
-            //{
-            //    Debug.LogError("SoundManager not found");
-            //}
-
-            //_SoundManager.SceneManager = sceneManager;
-
-
         }
 
         void OnCollisionEnter2D(Collision2D col)

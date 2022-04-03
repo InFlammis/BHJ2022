@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using BulletHellJam2022.Assets.Scripts.Managers;
+﻿using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System.Linq;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies
@@ -13,10 +13,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
     {
         [SerializeField] protected StaticObjectsSO _staticObjects;
         public StaticObjectsSO StaticObjects => _staticObjects;
-        /// <summary>
-        /// Instance of EnemySoundManager
-        /// </summary>
-        //protected EnemySoundManager _SoundManager;
 
         [SerializeField] protected EnemySoundSettingsSO _soundSettings;
         /// <summary>

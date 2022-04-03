@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus.Main;
 using System.Linq;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus.Main;
 using UnityEngine.SceneManagement;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
@@ -12,29 +9,29 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
     /// </summary>
     public class Init : State
     {
-        /// <inheritdoc/>
-        public override event EventHandler PauseGameEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler PauseGameEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler ResumeGameEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler ResumeGameEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler PlayGameEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler PlayGameEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler QuitCurrentGameEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler QuitCurrentGameEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler QuitGameEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler QuitGameEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler CreditsEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler CreditsEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler BackToMainMenuEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler BackToMainMenuEvent;
 
-        /// <inheritdoc/>
-        public override event EventHandler HelpEvent;
+        ///// <inheritdoc/>
+        //public override event EventHandler HelpEvent;
 
         /// <summary>
         /// Name of the scene to open

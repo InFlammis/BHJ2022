@@ -5,10 +5,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
 {
     public class HelpMenuManager : MenuManager, IHelpMenuManager
     {
-        /// <inheritdoc/>
         public event EventHandler BackEvent;
-        ///// <inheritdoc/>
-        //public event EventHandler<Sound> PlaySoundEvent;
 
         public IHelpMenuManager Core { get; protected set; }
 
@@ -24,21 +21,17 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
             OnStart();
         }
 
-        /// <inheritdoc/>
         public void BackToMainMenu()
         {
             StaticObjects.Messenger.PublishBackToMain(this, null);
-
         }
 
-        /// <inheritdoc/>
         public void OnAwake()
         {
             Core.OnAwake();
             Core.BackEvent += (sender, args) => BackEvent?.Invoke(sender, args);
         }
 
-        /// <inheritdoc/>
         public void OnStart()
         {
             Core.OnStart();
@@ -46,7 +39,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
 
         }
 
-        /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
             StaticObjects.Messenger.PublishPlaySound(this, null, sound);

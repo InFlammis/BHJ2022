@@ -1,9 +1,11 @@
 ﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 {
@@ -26,10 +28,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
             base.OnEnter();
 
             Configuration.LevelManagerCore.EnablePlayerInput();
+
             if (Configuration.SpawnEnemiesEnabled)
             {
                 Configuration.Messenger.PublishGameStarted(this, null);
             }
+
         }
 
         /// <inheritdoc/>

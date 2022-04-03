@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BulletHellJam2022.Assets.Scripts.Enemies;
+using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.Levels;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
@@ -22,9 +23,10 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         MyMonoBehaviour, 
         IPlayerController
     {
-        [SerializeField] private Messenger _messenger;
+        //[SerializeField] private Messenger _messenger;
 
-        public IMessenger Messenger => _messenger;
+        //public IMessenger Messenger => _messenger;
+        [SerializeField] private StaticObjectsSO _staticObjects;
 
         /// <summary>
         /// Reference to the SoundManager instance
@@ -207,7 +209,8 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
             leftMouseClick.performed += ctx => LeftMouseClicked();
             leftMouseClick.Enable();
-            HealthManager = new HealthManager(_Target, initSettings.InitHealth, initSettings.InitHealth, false);
+            //HealthManager = new HealthManager(_Target, initSettings.InitHealth, initSettings.InitHealth, false);
+            HealthManager = GameObject.GetComponentInChildren<HealthManager>();
 
             SubscribeToHealthManagerEvents();
             CheckWeaponsConfiguration();
@@ -217,14 +220,14 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
         public virtual void SubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.AddListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
         }
 
         public virtual void UnsubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.RemoveListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
         }
@@ -323,7 +326,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
                 return;
             }
 
-            (Messenger as IPlayerEventsPublisher).PublishHasDied(this, null);
+            (_staticObjects.Messenger as IPlayerEventsPublisher).PublishHasDied(this, null);
 
             _SoundManager.PlayExplodeSound();
 
@@ -344,7 +347,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
                 return;
             }
 
-            (Messenger as IPlayerEventsPublisher).PublishHealthLevelChanged(publisher, target, healthLevel, maxHealthLevel);
+            (_staticObjects.Messenger as IPlayerEventsPublisher).PublishHealthLevelChanged(publisher, target, healthLevel, maxHealthLevel);
         }
 
         public void HealthChargerCollected(object publisher, string target, int health)

@@ -12,7 +12,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
     /// </summary>
     public interface IPlayerController
     {
-        IMessenger Messenger { get; }
+        //IMessenger Messenger { get; }
         /// <summary>
         /// The parent GameObject
         /// </summary>

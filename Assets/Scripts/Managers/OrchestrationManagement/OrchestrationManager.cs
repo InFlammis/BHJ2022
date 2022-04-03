@@ -20,8 +20,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         MyMonoBehaviour, 
         IOrchestrationManager
     {
-        [SerializeField] private Messenger _messenger;
-        public IMessenger Messenger => _messenger;
+        //[SerializeField] private Messenger _messenger;
+        //public IMessenger Messenger => _messenger;
+
+        [SerializeField] private StaticObjectsSO _staticObjects;
 
         /// <summary>
         /// Collection of waves of enemies to spawn
@@ -63,7 +65,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// <returns></returns>
         public IEnumerator CoRun(CancellationToken cancellationToken)
         {
-            Messenger.PublishOrchestrationStarted(this, null);
+            _staticObjects.Messenger.PublishOrchestrationStarted(this, null);
 
             Status = StatusEnum.Running;
 
@@ -72,7 +74,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
             {
                 if(cancellationToken.Cancel == true)
                 {
-                    Messenger.PublishOrchestrationCancelled(this, null);
+                    _staticObjects.Messenger.PublishOrchestrationCancelled(this, null);
                     yield break;
                 }
                 wave.Run(this, cancellationToken);
@@ -86,7 +88,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
             Status = StatusEnum.Done;
 
-            Messenger.PublishOrchestrationComplete(this, null);
+            _staticObjects.Messenger.PublishOrchestrationComplete(this, null);
         }
 
         public void LevelGameOver(object publisher, string target)
@@ -100,6 +102,16 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
             StartCoroutine(CoRun(RunCancellationToken));
         }
 
+        void Awake()
+        {
+
+        }
+
+        void Start()
+        {
+            //RunCancellationToken = new CancellationToken();
+            //StartCoroutine(CoRun(RunCancellationToken));
+        }
         /// <summary>
         /// Simplified version of a CancellationToken.
         /// Used to Cancel an executing Orchestration

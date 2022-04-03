@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BulletHellJam2022.Assets.Scripts.Enemies;
+using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
@@ -15,6 +16,8 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 {
     public class PlayerControllerCore : IPlayerControllerCore
     {
+        [SerializeField] private StaticObjectsSO _staticObjects;
+
         /// <inheritdoc/>
         public IPlayerController Parent { get; protected set; }
 
@@ -39,7 +42,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         /// <inheritdoc/>
         public WeaponBase CurrentWeapon { get; set; }
 
-        public IMessenger Messenger => Parent.Messenger;
+        //public IMessenger Messenger => Parent.Messenger;
 
         /// <summary>
         /// Create a new instance of the PlayerController Core

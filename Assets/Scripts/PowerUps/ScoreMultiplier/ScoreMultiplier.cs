@@ -24,7 +24,7 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps.ScoreMultiplier
             //    return;
             //}
 
-            Messenger.PublishScoreMultiplierCollected(this, "Player", (int)InitSettings.Value);
+            _staticObjects.Messenger.PublishScoreMultiplierCollected(this, "Player", (int)InitSettings.Value);
 
             GameObject.Destroy(this.GameObject);
         }

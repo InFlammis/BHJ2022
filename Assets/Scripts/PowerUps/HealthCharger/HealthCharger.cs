@@ -19,7 +19,7 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps.HealthCharger
             //    return;
             //}
 
-            Messenger.PublishHealthCollected(this, "Player", (int)InitSettings.Value);
+            _staticObjects.Messenger.PublishHealthCollected(this, "Player", (int)InitSettings.Value);
             GameObject.Destroy(this.GameObject);
         }
     }

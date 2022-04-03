@@ -16,6 +16,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         ///// Event raised when the character dies
         ///// </summary>
         //event Action HasDied;
+        public string Target { get; set; }
 
         /// <summary>
         /// Max health of the character

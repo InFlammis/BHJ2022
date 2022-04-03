@@ -14,7 +14,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
     public class PawnController : 
         EnemyController
     {
-        public Messenger Messenger { get; set; }
+        //public Messenger Messenger { get; set; }
 
         private string _Target;
 
@@ -22,30 +22,18 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
 
         void Awake()
         {
-            Messenger = GameObject.FindObjectOfType<Messenger>();
+            //Messenger = GameObject.FindObjectOfType<Messenger>();
             _Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
 
-            HealthManager = new HealthManager(_Target, InitSettings.InitHealth, InitSettings.InitHealth, false);
+            //HealthManager = new HealthManager(_Target, InitSettings.InitHealth, InitSettings.InitHealth, false);
+
+            HealthManager = GameObject.GetComponentInChildren<HealthManager>();
+            HealthManager.Target = _Target;
 
             SubscribeToHealthManagerEvents();
 
             Core = new PawnControllerCore(this, HealthManager, InitSettings);
         }
-
-        public virtual void SubscribeToHealthManagerEvents()
-        {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.AddListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
-        }
-
-        public virtual void UnsubscribeToHealthManagerEvents()
-        {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.RemoveListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
-        }
-
 
         void Start()
         {
@@ -84,6 +72,23 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
 
             Core.OnStart();
         }
+
+
+        public virtual void SubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.AddListener(HealthManagerHasDied);
+            messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
+        }
+
+        public virtual void UnsubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.RemoveListener(HealthManagerHasDied);
+            messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
+        }
+
+
 
         void OnCollisionEnter2D(Collision2D col)
         {

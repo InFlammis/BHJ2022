@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Messenger
       objectReference: {fileID: 0}
+    - target: {fileID: 8786310759323626480, guid: 4ea382cb9780cb54b8a835599ecdc1af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8786310759323626482, guid: 4ea382cb9780cb54b8a835599ecdc1af, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1533,6 +1537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: _staticObjects
+      value: 
+      objectReference: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
     - target: {fileID: 7645537738796717717, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
       propertyPath: m_RootOrder
       value: 1

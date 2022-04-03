@@ -15,11 +15,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
     public class PlayerSettings : ScriptableObject
     {
         /// <summary>
-        /// Initial health
-        /// </summary>
-        public int InitHealth;
-
-        /// <summary>
         /// Damage applied to enemies on collision
         /// </summary>
         public int DamageAppliedOnCollision;

@@ -10,9 +10,13 @@ using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 {
-    public class HealthManager : 
+    public class HealthManager :
+        MyMonoBehaviour,
         IHealthManager
     {
+        [SerializeField] private HealthManagerSettingsSO _settings;
+        [SerializeField] private StaticObjectsSO _staticObjects;
+
         /// <inheritdoc/>
         public int MaxHealth { get; set; }
 
@@ -27,11 +31,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
             {
                 _health = value;
 
-                PublishHealthLevelChanged(this, _Target, _health, MaxHealth);
+                PublishHealthLevelChanged(this, Target, _health, MaxHealth);
 
                 if (_health <= 0)
                 {
-                    PublishHasDied(this, _Target);
+                    PublishHasDied(this, Target);
                 }
             }
         }
@@ -40,10 +44,17 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         public bool IsInvulnerable { get; set; }
         
         /// <inheritdoc/>
-        public bool IsDead { get; protected set;
-        }
+        public bool IsDead { get; protected set; }
 
-        public IMessenger Messenger { get; private set; }
+        public string Target { get; set; }
+
+        void Awake()
+        {
+            this.MaxHealth = _settings.MaxHealth;
+            this.Health = _settings.InitHealth;
+            this.IsInvulnerable = _settings.IsInvulnerable;
+            this.Target = _settings.Target;
+        }
 
         /// <inheritdoc/>
         public void Heal(int byValue)
@@ -87,29 +98,27 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 
         public void PublishHasDied(object publisher, string target)
         {
-            (Messenger as IHealthManagerEventsPublisher).PublishHasDied(this, target);
+            (_staticObjects.Messenger as IHealthManagerEventsPublisher).PublishHasDied(this, target);
         }
 
         public void PublishHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
         {
-            (Messenger as IHealthManagerEventsPublisher).PublishHealthLevelChanged(this, target, healthLevel, maxHealthLevel);
+            (_staticObjects.Messenger as IHealthManagerEventsPublisher).PublishHealthLevelChanged(this, target, healthLevel, maxHealthLevel);
         }
 
-        private string _Target;
-        /// <summary>
-        /// Create an instance of the class
-        /// </summary>
-        /// <param name="health">Initial health level</param>
-        /// <param name="maxHealth">Maximum health level</param>
-        /// <param name="isInvulnerable">It is invulnerable at start</param>
-        public HealthManager(string target, int health, int maxHealth, bool isInvulnerable)
-        {
-            this.Messenger = GameObject.FindObjectOfType<Messenger>();
-            this._Target = target;
-            this.MaxHealth = maxHealth;
-            this.Health = health;
-            this.IsInvulnerable = isInvulnerable;
-        }
+        ///// <summary>
+        ///// Create an instance of the class
+        ///// </summary>
+        ///// <param name="health">Initial health level</param>
+        ///// <param name="maxHealth">Maximum health level</param>
+        ///// <param name="isInvulnerable">It is invulnerable at start</param>
+        //public HealthManager(string target, int health, int maxHealth, bool isInvulnerable)
+        //{
+        //    this._Target = target;
+        //    this.MaxHealth = maxHealth;
+        //    this.Health = health;
+        //    this.IsInvulnerable = isInvulnerable;
+        //}
 
     }
 }

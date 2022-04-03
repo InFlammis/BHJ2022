@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c73506fc2bac67468de3d6b85a91906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StaticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
 --- !u!4 &570206023
 Transform:
   m_ObjectHideFlags: 0

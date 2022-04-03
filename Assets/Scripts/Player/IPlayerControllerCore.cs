@@ -15,7 +15,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         ///// </summary>
         //event System.Action<int> ScoreMultiplierCollected;
 
-        IMessenger Messenger { get; }
+        //IMessenger Messenger { get; }
 
         /// <summary>
         /// Reference to the IPlayerController parent instance

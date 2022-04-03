@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Weapons;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
     /// </summary>
     public abstract class EnemyController : MyMonoBehaviour, IEnemyController
     {
+        [SerializeField] protected StaticObjectsSO _staticObjects;
+
         /// <summary>
         /// Instance of EnemySoundManager
         /// </summary>

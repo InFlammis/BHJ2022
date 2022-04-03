@@ -9,7 +9,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
     /// </summary>
     public interface IScoreManager : IMyMonoBehaviour
     {
-        IMessenger Messenger { get; }
+        //IMessenger Messenger { get; }
 
         void LevelPlayerWins(object publisher, string target);
 

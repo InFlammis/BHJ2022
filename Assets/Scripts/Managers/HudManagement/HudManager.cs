@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,17 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HudManagement
         [SerializeField] private TextMeshProUGUI Central;
 
         [SerializeField] private Gradient HealthGradient;
+
+        [SerializeField] private StaticObjectsSO _staticObjects;
+
+        void Awake()
+        {
+            _staticObjects.Messenger.SetCentralMessage.AddListener(this.SetCentralText);
+            (_staticObjects.Messenger as IPlayerEventsMessenger).HealthLevelChanged.AddListener(this.SetHealth);
+            _staticObjects.Messenger.ScoreChanged.AddListener(this.SetScore);
+            _staticObjects.Messenger.MultiplierChanged.AddListener(this.SetMultiplier);
+            _staticObjects.Messenger.HiScoreChanged.AddListener(this.SetHiScore);
+        }
 
         /// <inheritdoc/>
         public void SetHiScore(int value)

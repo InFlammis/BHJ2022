@@ -114,3 +114,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PowerUpType: 0
   InitSettings: {fileID: 11400000, guid: a394f8274588b3542a69b178254866f5, type: 2}
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}

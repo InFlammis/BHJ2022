@@ -25,6 +25,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
         [SerializeField] private StaticObjectsSO _staticObjects;
 
+        public StaticObjectsSO StaticObjects => _staticObjects;
         /// <summary>
         /// Collection of waves of enemies to spawn
         /// </summary>
@@ -104,14 +105,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
         void Awake()
         {
-
+            _staticObjects.Messenger.GameOver.AddListener(this.LevelGameOver);
+            _staticObjects.Messenger.GameStarted.AddListener(this.LevelGameStarted);
         }
 
-        void Start()
-        {
-            //RunCancellationToken = new CancellationToken();
-            //StartCoroutine(CoRun(RunCancellationToken));
-        }
         /// <summary>
         /// Simplified version of a CancellationToken.
         /// Used to Cancel an executing Orchestration

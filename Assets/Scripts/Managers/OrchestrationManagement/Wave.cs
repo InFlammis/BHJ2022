@@ -86,7 +86,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// <param name="manager"></param>
         public void Run(OrchestrationManager manager, OrchestrationManager.CancellationToken cancellationToken)
         {
-            Messenger = GameObject.FindObjectOfType<Messenger>();
+            Messenger = manager.StaticObjects.Messenger;
             (Messenger as IEnemyEventsMessenger).HasDied.AddListener(EnemyHasDied);
 
             manager.StartCoroutine(CoRun(manager, cancellationToken));

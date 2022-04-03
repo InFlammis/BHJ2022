@@ -53,7 +53,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
             this.MaxHealth = _settings.MaxHealth;
             this.Health = _settings.InitHealth;
             this.IsInvulnerable = _settings.IsInvulnerable;
-            this.Target = _settings.Target;
+            //this.Target = _settings.Target;
         }
 
         /// <inheritdoc/>
@@ -105,20 +105,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         {
             (_staticObjects.Messenger as IHealthManagerEventsPublisher).PublishHealthLevelChanged(this, target, healthLevel, maxHealthLevel);
         }
-
-        ///// <summary>
-        ///// Create an instance of the class
-        ///// </summary>
-        ///// <param name="health">Initial health level</param>
-        ///// <param name="maxHealth">Maximum health level</param>
-        ///// <param name="isInvulnerable">It is invulnerable at start</param>
-        //public HealthManager(string target, int health, int maxHealth, bool isInvulnerable)
-        //{
-        //    this._Target = target;
-        //    this.MaxHealth = maxHealth;
-        //    this.Health = health;
-        //    this.IsInvulnerable = isInvulnerable;
-        //}
-
     }
 }

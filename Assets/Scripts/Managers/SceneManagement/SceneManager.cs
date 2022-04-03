@@ -10,7 +10,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement
     /// </summary>
     public class SceneManager : MyMonoBehaviour, IMyMonoBehaviour
     {
-        [SerializeField] private StaticObjectsSO _staticObjects;
+        [SerializeField] protected StaticObjectsSO _staticObjects;
 
         public StaticObjectsSO StaticObjects => _staticObjects;
 

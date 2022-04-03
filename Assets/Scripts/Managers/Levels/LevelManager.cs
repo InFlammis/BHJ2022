@@ -1,6 +1,7 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
+using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using System;
 using UnityEngine;

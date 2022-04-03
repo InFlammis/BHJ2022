@@ -14,21 +14,14 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
     public class PawnController : 
         EnemyController
     {
-        //public Messenger Messenger { get; set; }
-
-        private string _Target;
-
         #region Unity methods
 
         void Awake()
         {
-            //Messenger = GameObject.FindObjectOfType<Messenger>();
-            _Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
-
-            //HealthManager = new HealthManager(_Target, InitSettings.InitHealth, InitSettings.InitHealth, false);
+            Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
 
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
-            HealthManager.Target = _Target;
+            HealthManager.Target = Target;
 
             SubscribeToHealthManagerEvents();
 
@@ -117,7 +110,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
 
         void HealthManagerHasDied(object publisher, string target)
         {
-            if (target != _Target)
+            if (target != Target)
             {
                 return;
             }

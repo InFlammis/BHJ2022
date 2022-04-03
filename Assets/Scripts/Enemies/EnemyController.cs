@@ -12,7 +12,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
     public abstract class EnemyController : MyMonoBehaviour, IEnemyController
     {
         [SerializeField] protected StaticObjectsSO _staticObjects;
-
+        public StaticObjectsSO StaticObjects => _staticObjects;
         /// <summary>
         /// Instance of EnemySoundManager
         /// </summary>
@@ -42,6 +42,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
         /// Instance of EnemySettings
         /// </summary>
         public EnemySettings InitSettings { get => _initSettings; }
+
+        public string Target { get; protected set; }
 
         /// <summary>
         /// Instance of the explosion effect - This animation is activated when the enemy is destroyed.

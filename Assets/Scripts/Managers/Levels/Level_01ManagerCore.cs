@@ -17,8 +17,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// <inheritdoc/>
         public ILevelManager LevelManager { get; set; }
 
-        //public IMessenger Messenger => LevelManager.StaticObjects.Messenger;
-
         public bool SpawnEnemiesEnabled = true;
 
         protected PlayerInput _playerInput;

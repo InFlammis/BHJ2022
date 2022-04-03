@@ -13,9 +13,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
     /// </summary>
     public class ScoreManager : MyMonoBehaviour, IScoreManager
     {
-        //[SerializeField] private Messenger _messenger;
-        //public IMessenger Messenger => _messenger;
-
         [SerializeField] private StaticObjectsSO _staticObjects;
 
         /// <summary>
@@ -48,9 +45,21 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
             }
         }
 
+        void Awake()
+        {
+            _staticObjects.Messenger.PlayerScored.AddListener(this.EnemyPlayerScored);
+            _staticObjects.Messenger.GameOver.AddListener(this.LevelGameOver);
+            _staticObjects.Messenger.GameStarted.AddListener(this.LevelGameStarted);
+            _staticObjects.Messenger.PlayerWins.AddListener(this.LevelPlayerWins);
+            _staticObjects.Messenger.MultiplierCollected.AddListener(this.PowerUpScoreMultiplierCollected);
+        }
+
         void Start()
         {
             NotifyHighScoreValue();
+            ResetCurrentScore();
+            ResetMultiplier();
+
         }
 
         #region UnityEvent Handlers

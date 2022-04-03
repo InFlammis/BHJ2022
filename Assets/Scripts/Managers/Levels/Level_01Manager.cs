@@ -1,5 +1,6 @@
 ﻿using System;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using UnityEngine.InputSystem;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
@@ -26,6 +27,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         void Start()
         {
             OnStart();
+            (_staticObjects.Messenger as IPlayerEventsMessenger).HasDied.AddListener(this.PlayerHasDied);
+            _staticObjects.Messenger.OrchestrationComplete.AddListener(this.OrchestrationManagerOrchestrationComplete);
         }
 
         /// <inheritdoc/>

@@ -18,9 +18,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
     public class InfantryControllerCore : 
         IEnemyControllerCore
     {
-        public Messenger Messenger { get; set; }
-
-        private string _Target;
+        private IMessenger _messenger => Parent.StaticObjects.Messenger;
 
         /// <inheritdoc/>
         public IPlayerControllerCore PlayerControllerCore { get; set; }
@@ -68,11 +66,9 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
         /// <param name="settings">The initial settings</param>
         public InfantryControllerCore(IEnemyController parent, IHealthManager healthManager, EnemySettings settings)
         {
-            this.Messenger = GameObject.FindObjectOfType<Messenger>();
             Parent = parent;
             Transform = parent.GameObject.transform;
             Rigidbody = parent.GameObject.GetComponent<Rigidbody2D>();
-            _Target = $"{this.Parent.GetType().Name}:{ parent.GameObject.GetInstanceID() }";
 
             HealthManager = healthManager;
 
@@ -90,28 +86,28 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         private void SubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.AddListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
         }
 
         private void UnsubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.RemoveListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
         }
 
         private void SubscribeToPlayerEvents()
         {
-            var messenger = (Messenger as IPlayerEventsMessenger);
+            var messenger = (_messenger as IPlayerEventsMessenger);
 
             messenger.HasDied.AddListener(PlayerHasDied);
         }
 
         private void UnsubscribeToPlayerEvents()
         {
-            var messenger = (Messenger as IPlayerEventsMessenger);
+            var messenger = (_messenger as IPlayerEventsMessenger);
 
             messenger.HasDied.RemoveListener(PlayerHasDied);
         }
@@ -182,7 +178,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         void HealthManagerHasDied(object publisher, string target)
         {
-            if (target != _Target)
+            if (target != Parent.Target)
             {
                 return;
             }
@@ -192,8 +188,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
             UnsubscribeToPlayerEvents();
             UnsubscribeToHealthManagerEvents();
 
-            (Messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"Infantry,{this.Parent.GameObject.GetInstanceID()}");
-            (Messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"Infantry,{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
+            (_messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"Infantry,{this.Parent.GameObject.GetInstanceID()}");
+            (_messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"Infantry,{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
         }
 
         void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)

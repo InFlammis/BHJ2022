@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _logEnabled: 1
   _filterLevel: 0
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}

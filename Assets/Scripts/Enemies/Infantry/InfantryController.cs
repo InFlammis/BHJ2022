@@ -15,20 +15,14 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
     public class InfantryController : 
         EnemyController
     {
-        //public Messenger Messenger { get; set; }
-
-        private string _Target;
-
         #region Unity methods
 
         void Awake()
         {
-            //Messenger = GameObject.FindObjectOfType<Messenger>();
-            _Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
+            Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
 
-            //HealthManager = new HealthManager(this.GetInstanceID().ToString(), InitSettings.InitHealth, InitSettings.InitHealth, false);
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
-            HealthManager.Target = _Target;
+            HealthManager.Target = Target;
 
             SubscribeToHealthManagerEvents();
 
@@ -137,7 +131,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         void HealthManagerHasDied(object publisher, string target)
         {
-            if (target != _Target)
+            if (target != Target)
             {
                 return;
             }

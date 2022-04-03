@@ -1,6 +1,4 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine.InputSystem;
 
@@ -9,15 +7,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     public class Level_01ManagerCore : 
         ILevelManagerCore
     {
-        /// <inheritdoc/>
         public IPlayerControllerCore PlayerControllerCore { get; set; }
 
-        /// <inheritdoc/>
         public State CurrentState { get; private set; }
-        /// <inheritdoc/>
-        public ILevelManager LevelManager { get; set; }
 
-        public IMessenger Messenger => LevelManager.Messenger;
+        public ILevelManager LevelManager { get; set; }
 
         public bool SpawnEnemiesEnabled = true;
 
@@ -34,7 +28,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             LevelManager = levelManager;
         }
 
-        /// <inheritdoc/>
         public void OnStart()
         {
             this.PlayerControllerCore = LevelManager.PlayerControllerCore;
@@ -47,7 +40,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             this.PlayerControllerCore.HealthManager.Heal();
 
             _stateConfiguration = new StateConfiguration(
-                messenger: Messenger,
+                messenger: LevelManager.StaticObjects.Messenger,
                 levelManagerCore: this,
                 spawnEnemiesEnabled: true
             );
@@ -62,7 +55,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// <param name="e">The new state.</param>
         protected void ChangeStateRequestEventHandler(object sender, State e)
         {
-            //Debug.Log($"Changing state from {sender} to {e}");
             if (CurrentState != null)
             {
                 CurrentState.ChangeStateRequestEvent -= ChangeStateRequestEventHandler;
@@ -73,14 +65,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             CurrentState.OnEnter();
         }
 
-        /// <inheritdoc/>
         public void OnAwake() 
         {
             _playerInput = LevelManager.GameObject.GetComponent<PlayerInput>();
         }
 
 
-        /// <inheritdoc/>
         public void Move(InputAction.CallbackContext context)
         {
             switch (context.phase)
@@ -98,13 +88,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             }
         }
 
-        /// <inheritdoc/>
         public void DisablePlayerInput()
         {
             _playerInput.enabled = false;
         }
 
-        /// <inheritdoc/>
         public void EnablePlayerInput()
         {
             _playerInput.enabled = true;
@@ -112,7 +100,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 
         private void GameOver()
         {
-            Messenger.PublishGameOver(this, null);
+            LevelManager.StaticObjects.Messenger.PublishGameOver(this, null);
             ChangeStateRequestEventHandler(this, new StateMachine.GameOver(_stateConfiguration));
 
         }

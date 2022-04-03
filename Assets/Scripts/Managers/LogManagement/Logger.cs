@@ -1,14 +1,10 @@
 ﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
+using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
 {
-    
     public interface ILogManager
     {
     }
@@ -32,8 +28,29 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
         [SerializeField] private bool _logEnabled;
         [SerializeField] private Level _filterLevel;
 
+        [SerializeField] private StaticObjectsSO _staticObjects;
+
+        private IMessenger _messenger => _staticObjects.Messenger;
+
         public bool logEnabled => _logEnabled;
         public Level filterLevel => _filterLevel;
+
+        void Awake()
+        {
+            _messenger.GameOver.AddListener(LevelGameOver);
+            _messenger.GameStarted.AddListener(LevelGameStarted);
+            _messenger.PlayerScored.AddListener(PlayerScored);
+            _messenger.PlayerWins.AddListener(PlayerWins);
+            _messenger.OrchestrationStarted.AddListener(OrchestrationStarted);
+            _messenger.OrchestrationCancelled.AddListener(OrchestrationCancelled);
+            _messenger.OrchestrationComplete.AddListener(OrchestrationComplete);
+            _messenger.ScoreChanged.AddListener(ScoreChanged);
+            _messenger.ScoreChanged.AddListener(MultiplierChanged);
+            _messenger.HiScoreChanged.AddListener(HighScoreChanged);
+            (_messenger as IPlayerEventsMessenger).HasDied.AddListener(PlayerHasDied);
+            (_messenger as IEnemyEventsMessenger).HasDied.AddListener(EnemyHasDied);
+        }
+
 
         public bool IsLogTypeAllowed(Level logType)
         {
@@ -158,5 +175,28 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
             LogEvent(publisher.GetType().Name, target, "ScoreMultiplierCollected");
         }
 
+        private void PlayerScored(object publisher, string target, int score)
+        {
+            LogEvent(publisher.GetType().Name, target, $"PlayerScored ({score})");
+        }
+
+        private void PlayerWins(object publisher, string target)
+        {
+            LogEvent(publisher.GetType().Name, target, "PlayerWins");
+        }
+        private void HighScoreChanged(object publisher, string target, int hiScore)
+        {
+            LogEvent(publisher.GetType().Name, target, $"HighScoreChanged ({hiScore})");
+        }
+
+        private void MultiplierChanged(object publisher, string target, int multiplier)
+        {
+            LogEvent(publisher.GetType().Name, target, $"MultiplierChanged ({multiplier})");
+        }
+
+        private void ScoreChanged(object publisher, string target, int score)
+        {
+            LogEvent(publisher.GetType().Name, target, $"ScoreChanged ({score})");
+        }
     }
 }

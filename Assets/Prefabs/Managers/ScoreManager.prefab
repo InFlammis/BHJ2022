@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a306d30249ad841b069e93c653ffc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messenger: {fileID: 0}
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
   HighScores: {fileID: 11400000, guid: 652c9bcc6b14fe54887174de9a619460, type: 2}

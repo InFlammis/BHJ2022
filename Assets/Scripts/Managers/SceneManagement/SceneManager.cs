@@ -1,5 +1,4 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement
@@ -10,6 +9,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement
     /// </summary>
     public class SceneManager : MyMonoBehaviour, IMyMonoBehaviour
     {
+        [SerializeField] protected StaticObjectsSO _staticObjects;
+
+        public StaticObjectsSO StaticObjects => _staticObjects;
+
         void Start()
         {
         }

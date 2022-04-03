@@ -18,7 +18,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var soundManagerMock = new Mock<ISoundManager>();
 
             var gameManagerCoreMock = new Mock<IGameManager>();
-            gameManagerCoreMock.Setup(x => x.SoundManager).Returns(soundManagerMock.Object);
+            //gameManagerCoreMock.Setup(x => x.StaticObjects.SoundManager).Returns(soundManagerMock.Object);
             var gameManagerCore = gameManagerCoreMock.Object;
 
             var sceneManagerWrapperMock = new Mock<IUnitySceneManagerWrapper>();
@@ -65,7 +65,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var soundManagerMock = new Mock<ISoundManager>();
 
             var gameManagerCoreMock = new Mock<IGameManager>();
-            gameManagerCoreMock.Setup(x => x.SoundManager).Returns(soundManagerMock.Object);
+            //gameManagerCoreMock.Setup(x => x.StaticObjects.SoundManager).Returns(soundManagerMock.Object);
             var gameManagerCore = gameManagerCoreMock.Object;
 
             var sceneManagerWrapperMock = new Mock<IUnitySceneManagerWrapper>();
@@ -122,7 +122,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new Play(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.PauseGameEvent += (sender, args) => { eventCalled = true; };
+            //state.PauseGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.PauseResumeGame();

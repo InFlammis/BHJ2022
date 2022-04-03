@@ -3,10 +3,7 @@ using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
@@ -71,8 +68,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// </summary>
         [HideInInspector] public int TotEnemiesKilled;
 
-        //private OrchestrationManager.CancellationToken RunCancellationToken;
-
         /// <summary>
         /// Status of the execution
         /// </summary>
@@ -86,7 +81,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         /// <param name="manager"></param>
         public void Run(OrchestrationManager manager, OrchestrationManager.CancellationToken cancellationToken)
         {
-            Messenger = GameObject.FindObjectOfType<Messenger>();
+            Messenger = manager.StaticObjects.Messenger;
             (Messenger as IEnemyEventsMessenger).HasDied.AddListener(EnemyHasDied);
 
             manager.StartCoroutine(CoRun(manager, cancellationToken));

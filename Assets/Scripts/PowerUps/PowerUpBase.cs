@@ -1,4 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
+﻿using BulletHellJam2022.Assets.Scripts.Managers;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -20,8 +20,7 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps
         /// </summary>
         public PowerUpSettings InitSettings;
 
-        [SerializeField] Messenger _Messenger;
-        public IMessenger Messenger => _Messenger;
+        [SerializeField] protected StaticObjectsSO _staticObjects;
 
         void Awake()
         {
@@ -38,11 +37,6 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps
 
             StartCoroutine(FloatAround());
             StartCoroutine(StartCountdown());
-        }
-
-        private void Start()
-        {
-            _Messenger = GameObject.FindObjectOfType<Messenger>();
         }
 
         /// <summary>

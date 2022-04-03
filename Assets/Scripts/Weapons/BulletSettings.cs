@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Weapons
 {
     /// <summary>
     /// Settings for a bullet
     /// </summary>
-    [CreateAssetMenu(fileName = "New Bullet InitSettings", menuName = "Weapons/Bullet InitSettings")]
+    [CreateAssetMenu(fileName = "New Bullet InitSettings", menuName = "Game/Init Settings/Bullet InitSettings")]
     public class BulletSettings : ScriptableObject
     {
         /// <summary>

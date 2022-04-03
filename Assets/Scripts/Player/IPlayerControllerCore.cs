@@ -1,7 +1,6 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Enemies;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using UnityEngine;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 
 namespace BulletHellJam2022.Assets.Scripts.Player
 {
@@ -10,13 +9,6 @@ namespace BulletHellJam2022.Assets.Scripts.Player
     /// </summary>
     public interface IPlayerControllerCore
     {
-        ///// <summary>
-        ///// Event raised when a score multiplier power-up is collected
-        ///// </summary>
-        //event System.Action<int> ScoreMultiplierCollected;
-
-        IMessenger Messenger { get; }
-
         /// <summary>
         /// Reference to the IPlayerController parent instance
         /// </summary>

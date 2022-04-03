@@ -1,5 +1,4 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine.InputSystem;
 
@@ -10,8 +9,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     /// </summary>
     public interface ILevelManagerCore
     {
-        IMessenger Messenger { get; }
-
         /// <summary>
         /// Current state of the levelManagerCore
         /// </summary>
@@ -56,6 +53,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         void PlayerHasDied(object publisher, string target);
 
         void OrchestrationManagerOrchestrationComplete(object publisher, string target);
-
     }
 }

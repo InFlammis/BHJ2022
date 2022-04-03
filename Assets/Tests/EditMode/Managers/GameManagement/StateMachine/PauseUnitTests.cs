@@ -2,6 +2,7 @@
 using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
 using BulletHellJam2022.Assets.Scripts.Managers.Menus;
+using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
 using Moq;
 using Moq.Protected;
@@ -20,7 +21,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var soundManagerMock = new Mock<ISoundManager>();
 
             var gameManagerCoreMock = new Mock<IGameManager>();
-            gameManagerCoreMock.Setup(x => x.SoundManager).Returns(soundManagerMock.Object);
+            //gameManagerCoreMock.Setup(x => x.StaticObjects.SoundManager).Returns(soundManagerMock.Object);
 
             var gameManagerCore = gameManagerCoreMock.Object;
 
@@ -112,7 +113,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new PauseMock(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
+            //state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.ResumeGameEventHandler_Caller();
@@ -135,7 +136,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new PauseMock(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.QuitCurrentGameEvent += (sender, args) => { eventCalled = true; };
+            //state.QuitCurrentGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.QuitCurrentGameEventHandler_Caller();
@@ -157,7 +158,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var state = new Pause(gameManagerCore, sceneManagerWrapper);
             var eventCalled = false;
 
-            state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
+            //state.ResumeGameEvent += (sender, args) => { eventCalled = true; };
 
             //act
             state.PauseResumeGame();
@@ -175,12 +176,12 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
 
             public void ResumeGameEventHandler_Caller()
             {
-                ResumeGameEventHandler(null, new EventArgs());
+                //ResumeGameEventHandler(null, new EventArgs());
             }
 
             public void QuitCurrentGameEventHandler_Caller()
             {
-                QuitCurrentGameEventHandler(null, new EventArgs());
+                //QuitCurrentGameEventHandler(null, new EventArgs());
             }
 
         }

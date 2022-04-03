@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using TMPro;
 using UnityEngine;
 
@@ -18,32 +14,38 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HudManagement
 
         [SerializeField] private Gradient HealthGradient;
 
-        /// <inheritdoc/>
+        [SerializeField] private StaticObjectsSO _staticObjects;
+
+        void Awake()
+        {
+            _staticObjects.Messenger.SetCentralMessage.AddListener(this.SetCentralText);
+            (_staticObjects.Messenger as IPlayerEventsMessenger).HealthLevelChanged.AddListener(this.SetHealth);
+            _staticObjects.Messenger.ScoreChanged.AddListener(this.SetScore);
+            _staticObjects.Messenger.MultiplierChanged.AddListener(this.SetMultiplier);
+            _staticObjects.Messenger.HiScoreChanged.AddListener(this.SetHiScore);
+        }
+
         public void SetHiScore(int value)
         {
             HiScore.text = value.ToString();
         }
 
-        /// <inheritdoc/>
         public void SetScore(int value)
         {
             Score.text = value.ToString();
         }
 
-        /// <inheritdoc/>
         public void SetMultiplier(int value)
         {
             Multiplier.text = value.ToString();
         }
 
-        /// <inheritdoc/>
         public void SetHealth(int value, int maxValue)
         {
             Health.text = value.ToString();
             Health.color = HealthGradient.Evaluate(value / (float)maxValue);
         }
 
-        /// <inheritdoc/>
         public void SetCentralText(string text)
         {
             Central.text = text;

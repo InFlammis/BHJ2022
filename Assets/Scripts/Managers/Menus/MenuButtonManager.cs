@@ -1,10 +1,5 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
@@ -37,7 +32,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
         /// </summary>
         public void PlayHoverSound()
         {
-            SceneManager.PlaySound(HoverSound);
+            SceneManager.StaticObjects.Messenger.PublishPlaySound(this, null, HoverSound);
         }
 
         /// <summary>
@@ -45,7 +40,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
         /// </summary>
         public void PlayClickSound()
         {
-            SceneManager.PlaySound(ClickSound);
+            SceneManager.StaticObjects.Messenger.PublishPlaySound(this, null, ClickSound);
         }
 
     }

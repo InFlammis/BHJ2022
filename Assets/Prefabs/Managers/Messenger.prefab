@@ -79,10 +79,13 @@ MonoBehaviour:
   _Player_HasDied:
     m_PersistentCalls:
       m_Calls: []
-  _Player_ScoreMultiplierCollected:
+  _Player_HealthLevelChanged:
     m_PersistentCalls:
       m_Calls: []
-  _Player_HealthLevelChanged:
+  _PowerUp_HealthCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  _PowerUp_MultiplierCollected:
     m_PersistentCalls:
       m_Calls: []
   _ScoreManager_ScoreChanged:

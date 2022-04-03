@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
+﻿namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
 {
     /// <summary>
     /// Factory that builds all possible states for an Infantry enemy type
@@ -41,7 +35,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
             AttackState = new AttackState(this.Parent, this);
             SeekState = new SeekState(this.Parent, this);
             IdleState = new IdleState(this.Parent, this);
-
         }
     }
 }

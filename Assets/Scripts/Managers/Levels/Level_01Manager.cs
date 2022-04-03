@@ -1,31 +1,32 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using UnityEngine.InputSystem;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 {
     public class Level_01Manager : LevelManager
     {
-        /// <inheritdoc/>
         public ILevelManagerCore Core { get; protected set; }
         private PlayerInput _playerInput;
-
-        /// <inheritdoc/>
-        public override event EventHandler<Sound> PlaySoundEvent;
-
-        /// <inheritdoc/>
-        public override event Action ReturnToMainEvent;
 
         void Awake()
         {
             Core = new Level_01ManagerCore(this);
 
             OnAwake();
+
+            (_staticObjects.Messenger as IPlayerEventsMessenger).HasDied.AddListener(this.PlayerHasDied);
+            _staticObjects.Messenger.OrchestrationComplete.AddListener(this.OrchestrationManagerOrchestrationComplete);
+            _staticObjects.Messenger.ResumeGame.AddListener(this.ResumeGameEventHandler);
         }
 
         void Start()
         {
             OnStart();
+        }
+
+        private void ResumeGameEventHandler(object arg0, string arg1)
+        {
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
         }
 
         /// <inheritdoc/>
@@ -59,17 +60,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             Core.EnablePlayerInput();
         }
 
-        /// <inheritdoc/>
-        public override void PlaySound(Sound sound)
-        {
-            PlaySoundEvent?.Invoke(this, sound);
-        }
-
-        /// <inheritdoc/>
-        public override void ReturnToMain()
-        {
-            ReturnToMainEvent?.Invoke();
-        }
+        ///// <inheritdoc/>
+        //public void ReturnToMain()
+        //{
+        //    StaticObjects.Messenger.PublishQuitCurrentGame(this, null);
+        //}
 
         public void PlayerHasDied(object publisher, string target)
         {

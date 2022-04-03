@@ -25,10 +25,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = monoBehaviourMock
-                .As<IGameManager>()
-                .Setup(x=>x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = monoBehaviourMock
+            //    .As<IGameManager>()
+            //    .Setup(x=>x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
 
             var monoBehaviour = monoBehaviourMock.Object;
 
@@ -52,10 +52,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
 
             var parent = parentMock.Object;
 
@@ -95,10 +95,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var parent = parentMock.Object;
 
             var coreMock = new Mock<GameManagerCoreMock>(parent);
@@ -137,10 +137,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var parent = parentMock.Object;
 
             var core = new GameManagerCoreMock(parent);
@@ -168,10 +168,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
             var core = new GameManagerCoreMock(gameManager);
@@ -180,11 +180,11 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
             var sceneManagerWrapper = sceneManagerWrapperMock.Object;
 
             var stateMock = new Mock<State>(core, sceneManagerWrapper);
-            stateMock.SetupAdd(m => m.PauseGameEvent += (sender, args) => { });
-            stateMock.SetupAdd(m => m.PlayGameEvent += (sender, args) => { });
-            stateMock.SetupAdd(m => m.ResumeGameEvent += (sender, args) => { });
-            stateMock.SetupAdd(m => m.QuitCurrentGameEvent += (sender, args) => { });
-            stateMock.SetupAdd(m => m.QuitGameEvent += (sender, args) => { });
+            //stateMock.SetupAdd(m => m.PauseGameEvent += (sender, args) => { });
+            //stateMock.SetupAdd(m => m.PlayGameEvent += (sender, args) => { });
+            //stateMock.SetupAdd(m => m.ResumeGameEvent += (sender, args) => { });
+            //stateMock.SetupAdd(m => m.QuitCurrentGameEvent += (sender, args) => { });
+            //stateMock.SetupAdd(m => m.QuitGameEvent += (sender, args) => { });
 
             var state = stateMock.Object;
 
@@ -192,11 +192,11 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
             core.StateStack_PushingStateEvent_Caller(null, state);
 
             //assert
-            stateMock.VerifyAdd(m => m.PauseGameEvent += It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyAdd(m => m.PlayGameEvent += It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyAdd(m => m.ResumeGameEvent += It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyAdd(m => m.QuitCurrentGameEvent += It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyAdd(m => m.QuitGameEvent += It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyAdd(m => m.PauseGameEvent += It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyAdd(m => m.PlayGameEvent += It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyAdd(m => m.ResumeGameEvent += It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyAdd(m => m.QuitCurrentGameEvent += It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyAdd(m => m.QuitGameEvent += It.IsAny<EventHandler>(), Times.Once);
         }
 
         [Test]
@@ -212,10 +212,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var core = new GameManagerCoreMock(gameManager);
 
@@ -223,11 +223,11 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
             var sceneManagerWrapper = sceneManagerWrapperMock.Object;
 
             var stateMock = new Mock<State>(core, sceneManagerWrapper);
-            stateMock.SetupRemove(m => m.PauseGameEvent -= It.IsAny<EventHandler>());
-            stateMock.SetupRemove(m => m.PlayGameEvent -= It.IsAny<EventHandler>());
-            stateMock.SetupRemove(m => m.ResumeGameEvent -= It.IsAny<EventHandler>());
-            stateMock.SetupRemove(m => m.QuitCurrentGameEvent -= It.IsAny<EventHandler>());
-            stateMock.SetupRemove(m => m.QuitGameEvent -= It.IsAny<EventHandler>());
+            //stateMock.SetupRemove(m => m.PauseGameEvent -= It.IsAny<EventHandler>());
+            //stateMock.SetupRemove(m => m.PlayGameEvent -= It.IsAny<EventHandler>());
+            //stateMock.SetupRemove(m => m.ResumeGameEvent -= It.IsAny<EventHandler>());
+            //stateMock.SetupRemove(m => m.QuitCurrentGameEvent -= It.IsAny<EventHandler>());
+            //stateMock.SetupRemove(m => m.QuitGameEvent -= It.IsAny<EventHandler>());
 
             var state = stateMock.Object;
 
@@ -235,11 +235,11 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
             core.StateStack_PoppingStateEvent_Caller(null, state);
 
             //assert
-            stateMock.VerifyRemove(m => m.PauseGameEvent -= It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyRemove(m => m.PlayGameEvent -= It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyRemove(m => m.ResumeGameEvent -= It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyRemove(m => m.QuitCurrentGameEvent -= It.IsAny<EventHandler>(), Times.Once);
-            stateMock.VerifyRemove(m => m.QuitGameEvent -= It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyRemove(m => m.PauseGameEvent -= It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyRemove(m => m.PlayGameEvent -= It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyRemove(m => m.ResumeGameEvent -= It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyRemove(m => m.QuitCurrentGameEvent -= It.IsAny<EventHandler>(), Times.Once);
+            //stateMock.VerifyRemove(m => m.QuitGameEvent -= It.IsAny<EventHandler>(), Times.Once);
         }
 
         [Test]
@@ -254,10 +254,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
             coreMock
@@ -298,10 +298,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var stateStackMock = new Mock<StateStack>();
 
@@ -335,10 +335,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
             var stateStackMock = new Mock<StateStack>();
@@ -373,10 +373,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
             coreMock
@@ -408,10 +408,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
@@ -444,10 +444,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
             coreMock
@@ -479,10 +479,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
             var stateStackMock = new Mock<StateStack>();
@@ -520,10 +520,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
                 .SetupGet(x => x.GameObject)
                 .Returns(gameObject);
 
-            var mbAsGameManager = parentMock
-                .As<IGameManager>()
-                .Setup(x => x.SoundManager)
-                .Returns(soundManagerMock.Object);
+            //var mbAsGameManager = parentMock
+            //    .As<IGameManager>()
+            //    .Setup(x => x.StaticObjects.SoundManager)
+            //    .Returns(soundManagerMock.Object);
             var gameManager = parentMock.Object;
 
             var coreMock = new Mock<GameManagerCoreMock>(gameManager);
@@ -581,23 +581,23 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             public virtual void State_PauseGameEvent_Caller(object sender, EventArgs e)
             {
-                State_PauseGameEvent(sender, e);
+                //State_PauseGameEvent(sender, e);
             }
             public virtual void State_ResumeGameEvent_Caller(object sender, EventArgs e)
             {
-                State_ResumeGameEvent(sender, e);
+                //State_ResumeGameEvent(sender, e);
             }
             public virtual void State_PlayGameEvent_Caller(object sender, EventArgs e)
             {
-                State_PlayGameEvent(sender, e);
+                //State_PlayGameEvent(sender, e);
             }
             public virtual void State_QuitCurrentGameEvent_Caller(object sender, EventArgs e)
             {
-                State_QuitCurrentGameEvent(sender, e);
+                //State_QuitCurrentGameEvent(sender, e);
             }
             public virtual void State_QuitGameEvent_Caller(object sender, EventArgs e)
             {
-                State_QuitGameEvent(sender, e);
+                //State_QuitGameEvent(sender, e);
             }
         }
 

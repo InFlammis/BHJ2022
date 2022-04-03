@@ -1,10 +1,9 @@
-﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
@@ -15,36 +14,31 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
     public class InfantryController : 
         EnemyController
     {
-        public Messenger Messenger { get; set; }
-
-        private string _Target;
-
         #region Unity methods
 
         void Awake()
         {
-            Messenger = GameObject.FindObjectOfType<Messenger>();
-            _Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
+            Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
 
-            HealthManager = new HealthManager(this.GetInstanceID().ToString(), InitSettings.InitHealth, InitSettings.InitHealth, false);
+            HealthManager = GameObject.GetComponentInChildren<HealthManager>();
+            HealthManager.Target = Target;
 
             SubscribeToHealthManagerEvents();
 
             CheckWeaponsConfiguration();
 
             Core = new InfantryControllerCore(this, HealthManager, InitSettings);
-
         }
 
         public virtual void SubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.AddListener(HealthManagerHasDied);
         }
 
         public virtual void UnsubscribeToHealthManagerEvents()
         {
-            var messenger = (Messenger as IHealthManagerEventsMessenger);
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.RemoveListener(HealthManagerHasDied);
         }
 
@@ -58,16 +52,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
             {
                 Debug.LogError("SceneManager not found");
             }
-
-            _SoundManager = gameObject.GetComponent<EnemySoundManager>();
-
-            if(_SoundManager == null)
-            {
-                Debug.LogError("SoundManager not found");
-            }
-
-            _SoundManager.SceneManager = sceneManager;
-
 
             if (InitSettings == null)
             {
@@ -90,8 +74,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         void OnCollisionEnter2D(Collision2D col)
         {
-            //Debug.Log($"Collision detected with {col.gameObject.name}");
-
             switch (col.gameObject.tag)
             {
                 case "Player":
@@ -102,7 +84,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
                 case "Bullet":
                 {
                     //The collision is managed by the bullet
-                    _SoundManager.PlayHitSound();
+                    StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.HitSound);
 
                     break;
                 }
@@ -135,14 +117,14 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
 
         void HealthManagerHasDied(object publisher, string target)
         {
-            if (target != _Target)
+            if (target != Target)
             {
                 return;
             }
 
             Debug.Log($"Destroying object {this.gameObject.name}");
 
-            _SoundManager.PlayExplodeSound();
+            StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.ExplodeSound);
 
             UnsubscribeToHealthManagerEvents();
 

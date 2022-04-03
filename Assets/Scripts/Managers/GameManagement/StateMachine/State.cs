@@ -30,133 +30,54 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
     /// </summary>
     public abstract class State
     {
-        /// <summary>
-        /// Raise a PauseGameEvent, for when a Pause menu is requested to open
-        /// </summary>
-        public abstract event EventHandler PauseGameEvent;
-        /// <summary>
-        /// Raise a ResumeGameEvent, for when to Resume from a Pause menu 
-        /// </summary>
-        public abstract event EventHandler ResumeGameEvent;
-        /// <summary>
-        /// Raise a PlayGameEvent, to start Playing a new game
-        /// </summary>
-        public abstract event EventHandler PlayGameEvent;
-        /// <summary>
-        /// Raise a QuitCurrentGameEvent, for quitting for the current game
-        /// </summary>
-        public abstract event EventHandler QuitCurrentGameEvent;
-        /// <summary>
-        /// Raise a QuitGameEvent, for closing up the game and return to the OS
-        /// </summary>
-        public abstract event EventHandler QuitGameEvent;
-        /// <summary>
-        /// Raise a CreditsEvent, for when a Credit menu is requested to open
-        /// </summary>
-        public abstract event EventHandler CreditsEvent;
-        /// <summary>
-        /// Raise a HelpEvent, for when a Help menu is requested to open
-        /// </summary>
-        public abstract event EventHandler HelpEvent;
-        /// <summary>
-        /// Raise a BackToMainMenuEvent, for when to return to the Main Menu
-        /// </summary>
-        public abstract event EventHandler BackToMainMenuEvent;
-
-        /// <summary>
-        /// Reference to the GameManager instance
-        /// </summary>
         public IGameManager GameManager { get; private set; }
 
-        /// <summary>
-        /// Reference to the IUnitySceneManagerWrapper instance
-        /// </summary>
         public IUnitySceneManagerWrapper SceneManagerWrapper { get; private set; }
 
-        /// <summary>
-        /// State of the state
-        /// </summary>
         public StateStateEnum StateState { get; protected set; } = StateStateEnum.NotInStack;
 
-        /// <summary>
-        /// Create an instance of the State class
-        /// </summary>
-        /// <param name="gameManager">Reference to the <see cref="IGameManager"/></param>
-        /// <param name="sceneManagerWrapper">Reference to the <see cref="IUnitySceneManagerWrapper"/></param>
         public State(IGameManager gameManager, IUnitySceneManagerWrapper sceneManagerWrapper)
         {
             GameManager = gameManager;
             SceneManagerWrapper = sceneManagerWrapper;
         }
         
-        /// <summary>
-        /// Fires when the State is added to the State Stack
-        /// </summary>
         public virtual void OnEnter()
         {
-            //Debug.Log($"State {this.GetType().Name}: OnEnter");
             StateState = StateStateEnum.InStack;
 
             SceneManagerWrapper.SceneLoaded += SceneLoaded;
             SceneManagerWrapper.SceneUnloaded += SceneUnloaded;
         }
 
-        /// <summary>
-        /// Fires when the State is removed from the State Stack
-        /// </summary>
         public virtual void OnExit()
         {
-            //Debug.Log($"State {this.GetType().Name}: OnExit");
             StateState = StateStateEnum.NotInStack;
 
             SceneManagerWrapper.SceneLoaded -= SceneLoaded;
             SceneManagerWrapper.SceneUnloaded -= SceneUnloaded;
         }
 
-        /// <summary>
-        /// Fires when the State is Activated
-        /// </summary>
         public virtual void OnActivate()
         {
-            //Debug.Log($"State {this.GetType().Name}: OnActivate");
             StateState = StateStateEnum.Activated;
         }
 
-        /// <summary>
-        /// Fires when the State is deactivated 
-        /// </summary>
         public virtual void OnDeactivate()
         {
-            //Debug.Log($"State {this.GetType().Name}: OnDeactivate");
             StateState = StateStateEnum.InStack;
         }
 
-        /// <summary>
-        /// Called when a scene is loaded
-        /// </summary>
-        /// <param name="scene">the new scene loaded</param>
-        /// <param name="loadSceneMode">The load mode</param>
         public virtual void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
-            //Debug.Log($"State {this.GetType().Name}: SceneLoaded: {scene.name}");
-
         }
 
-        /// <summary>
-        /// Called when a scene is unloaded
-        /// </summary>
-        /// <param name="scene"></param>
         public virtual void SceneUnloaded(Scene scene)
         {
-            //Debug.Log($"State {this.GetType().Name}: SceneUnloaded: {scene.name}");
         }
 
-        /// <summary>
-        /// Manage Pause/Resume state
-        /// </summary>
         public virtual void PauseResumeGame()
         {
-            //Debug.Log($"State {this.GetType().Name}: Pause/Resume game");
         }
     }
 

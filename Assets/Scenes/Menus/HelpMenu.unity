@@ -404,6 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -486,9 +487,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222860805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0df1c28f2256804f9ffb7a196a72d8c, type: 3}
+  m_Script: {fileID: 11500000, guid: d2e0ee54dbe051a47900857642421589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: 22eb069374a1f7d4fb18417574a61c38, type: 2}
 --- !u!1001 &1540576136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,7 +577,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495652133462302128, guid: ac8c44d832c2a954a86f7f8779b62ffb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FightShipArena.Assets.Scripts.Managers.Menus.HelpMenuManager, FightShipArena
+      value: BulletHellJam2022.Assets.Scripts.Managers.Menus.Help.HelpMenuManager,
+        BulletHellJam2022
       objectReference: {fileID: 0}
     - target: {fileID: 1495652133462302128, guid: ac8c44d832c2a954a86f7f8779b62ffb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

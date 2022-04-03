@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 420153996349222509}
   - component: {fileID: 8591124882686681057}
   - component: {fileID: 1321455278}
-  - component: {fileID: 164226963545443079}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -34,6 +33,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4331961328325153081}
+  - {fileID: 7307483294363221733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e146e4676a8ab49b463115838f9464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messenger: {fileID: 0}
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: 5a1f163eec2ff0f4faa4f1ead1487818, type: 2}
   ExplosionEffect: {fileID: 5544043527086907277, guid: 123dcdb519cae984fb5b5dffd5fc356f, type: 3}
   initSettings: {fileID: 11400000, guid: 7d3c1c0a8739f7d4c8daf78ae1105488, type: 2}
 --- !u!114 &420153996349222509
@@ -204,35 +205,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &164226963545443079
+--- !u!1 &8784862383117451816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7307483294363221733}
+  - component: {fileID: 4833354417677464948}
+  m_Layer: 0
+  m_Name: HealthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7307483294363221733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8784862383117451816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420153996349222507}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4833354417677464948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420153996349222505}
+  m_GameObject: {fileID: 8784862383117451816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d88bf6b3e24924e8584bd0eed61703, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fbb4957db10e95458ce149a56a9cabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSound:
-    Name: 
-    Clip: {fileID: 0}
-    Volume: 0
-  ExplodeSound:
-    Name: Explode
-    Clip: {fileID: 0}
-    Volume: 1
-  HitSound:
-    Name: Hit
-    Clip: {fileID: 0}
-    Volume: 0.5
-  PowerUpSound:
-    Name: PowerUp
-    Clip: {fileID: 0}
-    Volume: 0.7
-  SceneManager: {fileID: 0}
+  _settings: {fileID: 11400000, guid: da69c31b46eda4049a784cdd4da073a2, type: 2}
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
 --- !u!1001 &1679821991
 PrefabInstance:
   m_ObjectHideFlags: 0

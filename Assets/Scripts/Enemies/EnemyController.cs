@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using BulletHellJam2022.Assets.Scripts.Managers;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.Weapons;
+using System.Linq;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies
@@ -10,11 +11,10 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
     /// </summary>
     public abstract class EnemyController : MyMonoBehaviour, IEnemyController
     {
-        /// <summary>
-        /// Instance of EnemySoundManager
-        /// </summary>
-        protected EnemySoundManager _SoundManager;
+        [SerializeField] protected StaticObjectsSO _staticObjects;
+        public StaticObjectsSO StaticObjects => _staticObjects;
 
+        [SerializeField] protected EnemySoundSettingsSO _soundSettings;
         /// <summary>
         /// Instance of EnemySettings
         /// </summary>
@@ -39,6 +39,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
         /// Instance of EnemySettings
         /// </summary>
         public EnemySettings InitSettings { get => _initSettings; }
+
+        public string Target { get; protected set; }
 
         /// <summary>
         /// Instance of the explosion effect - This animation is activated when the enemy is destroyed.

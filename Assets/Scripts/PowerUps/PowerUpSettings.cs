@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.PowerUps
 {
     /// <summary>
     /// Settings for a power-up
     /// </summary>
-    [CreateAssetMenu(fileName = "New Power-Up InitSettings", menuName = "Power-Ups/Power-Up InitSettings")]
+    [CreateAssetMenu(fileName = "New Power-Up InitSettings", menuName = "Game/Init Settings/Power-Up InitSettings")]
     public class PowerUpSettings : ScriptableObject
     {
         /// <summary>

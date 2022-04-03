@@ -1,10 +1,6 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
 {
@@ -13,8 +9,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
     /// </summary>
     public class ScoreManager : MyMonoBehaviour, IScoreManager
     {
-        [SerializeField] private Messenger _messenger;
-        public IMessenger Messenger => _messenger;
+        [SerializeField] private StaticObjectsSO _staticObjects;
 
         /// <summary>
         /// The current score
@@ -46,9 +41,20 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
             }
         }
 
+        void Awake()
+        {
+            _staticObjects.Messenger.PlayerScored.AddListener(this.EnemyPlayerScored);
+            _staticObjects.Messenger.GameOver.AddListener(this.LevelGameOver);
+            _staticObjects.Messenger.GameStarted.AddListener(this.LevelGameStarted);
+            _staticObjects.Messenger.PlayerWins.AddListener(this.LevelPlayerWins);
+            _staticObjects.Messenger.MultiplierCollected.AddListener(this.PowerUpScoreMultiplierCollected);
+        }
+
         void Start()
         {
             NotifyHighScoreValue();
+            ResetCurrentScore();
+            ResetMultiplier();
         }
 
         #region UnityEvent Handlers
@@ -91,17 +97,17 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
             {
                 highScoreValue = highScore.Value;
             }
-            Messenger.PublishHiScoreChanged(this, null, highScoreValue);
+            _staticObjects.Messenger.PublishHiScoreChanged(this, null, highScoreValue);
         }
 
         private void NotifyScoreValue()
         {
-            Messenger.PublishScoreChanged(this, null, CurrentScore.Value);
+            _staticObjects.Messenger.PublishScoreChanged(this, null, CurrentScore.Value);
         }
 
         private void NotifyMultiplierValue()
         {
-            Messenger.PublishMultiplierChanged(this, null, _multiplier);
+            _staticObjects.Messenger.PublishMultiplierChanged(this, null, _multiplier);
         }
 
         #endregion
@@ -145,7 +151,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
         {
             HighScores.HighScores.Clear();
             var hiScoreValue = HighScores.HighScores.OrderByDescending(x => x.Value).Select(x => x.Value).FirstOrDefault();
-            (Messenger as IScoreManagerEventsMessenger).HiScoreChanged.Invoke(this, null, hiScoreValue);
+            _staticObjects.Messenger.HiScoreChanged.Invoke(this, null, hiScoreValue);
         }
     }
 }

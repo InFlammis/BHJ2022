@@ -9,10 +9,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
     /// </summary>
     public class SeekState : InfantryState
     {
-        /// <inheritdoc/>
         public override event Action<IInfantryState> ChangeState;
 
-        /// <inheritdoc/>
         public override void Move()
         {
             var mag = UnityEngine.Random.value * Parent.InitSettings.MaxMovementMagnitude;
@@ -21,14 +19,12 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
             Parent.Rigidbody.AddForce(impulse);
         }
 
-        /// <inheritdoc/>
         public override void OnEnter()
         {
             base.OnEnter();
             Parent.Parent.StartCoroutine(SeekPlayer());
         }
 
-        /// <inheritdoc/>
         public override void OnExit()
         {
             base.OnExit();

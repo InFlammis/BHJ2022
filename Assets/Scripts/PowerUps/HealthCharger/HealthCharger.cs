@@ -14,12 +14,7 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps.HealthCharger
         /// <param name="collision"></param>
         void OnTriggerEnter2D(UnityEngine.Collider2D collision)
         {
-            //if (collision.gameObject != null && collision.gameObject.tag != "Player")
-            //{
-            //    return;
-            //}
-
-            Messenger.PublishHealthCollected(this, "Player", (int)InitSettings.Value);
+            _staticObjects.Messenger.PublishHealthCollected(this, "Player", (int)InitSettings.Value);
             GameObject.Destroy(this.GameObject);
         }
     }

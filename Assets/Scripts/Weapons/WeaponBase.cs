@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Weapons
@@ -106,7 +105,6 @@ namespace BulletHellJam2022.Assets.Scripts.Weapons
             {
                 var bulletGo = GameObject.Instantiate(this.Bullet, this.transform);
                 _soundManager.PlayFireSound();
-                //UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(bulletGo, UnityEngine.SceneManagement.SceneManager.GetSceneAt(1));
 
                 bulletGo.transform.parent = null;
                 Ammo--;

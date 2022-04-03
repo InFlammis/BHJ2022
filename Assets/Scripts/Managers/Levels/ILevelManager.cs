@@ -1,9 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.Player;
-using System;
-using System.Collections;
-using UnityEngine;
+﻿using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine.InputSystem;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
@@ -13,18 +8,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     /// </summary>
     public interface ILevelManager : IMyMonoBehaviour
     {
-
-        /// <summary>
-        /// Event raised to play a sound
-        /// </summary>
-        event EventHandler<Sound> PlaySoundEvent;
-
-        /// <summary>
-        /// Event raised to ask for a return to the main menu
-        /// </summary>
-        event Action ReturnToMainEvent;
-
-        IMessenger Messenger { get; }
+        public StaticObjectsSO StaticObjects { get; }
 
         /// <summary>
         /// Reference to the PlayerControllerCore instance
@@ -56,11 +40,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// Enable the responsiveness to the Player input
         /// </summary>
         void EnablePlayerInput();
-
-        /// <summary>
-        /// Return to main menu
-        /// </summary>
-        void ReturnToMain();
-
     }
 }

@@ -1,6 +1,4 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
-
-namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
+﻿namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
 {
     /// <summary>
     /// Interface for a score manager.
@@ -9,8 +7,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
     /// </summary>
     public interface IScoreManager : IMyMonoBehaviour
     {
-        IMessenger Messenger { get; }
-
         void LevelPlayerWins(object publisher, string target);
 
         void LevelGameStarted(object publisher, string target);

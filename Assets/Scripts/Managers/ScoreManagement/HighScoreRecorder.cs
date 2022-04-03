@@ -12,6 +12,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
     public class HighScoreRecorder : ScriptableObject
     {
         public List<Score> HighScores;
-
     }
 }

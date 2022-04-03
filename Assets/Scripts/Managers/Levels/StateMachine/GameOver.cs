@@ -43,7 +43,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         public IEnumerator CoReturnToMain()
         {
             yield return new WaitForSeconds(_returnToMainDelay);
-            Configuration.LevelManagerCore.LevelManager.ReturnToMain();
+            Configuration.Messenger.PublishQuitCurrentGame(this, null);
         }
 
 

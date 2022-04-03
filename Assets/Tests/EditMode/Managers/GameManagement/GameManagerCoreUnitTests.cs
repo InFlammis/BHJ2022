@@ -581,23 +581,23 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
 
             public virtual void State_PauseGameEvent_Caller(object sender, EventArgs e)
             {
-                State_PauseGameEvent(sender, e);
+                //State_PauseGameEvent(sender, e);
             }
             public virtual void State_ResumeGameEvent_Caller(object sender, EventArgs e)
             {
-                State_ResumeGameEvent(sender, e);
+                //State_ResumeGameEvent(sender, e);
             }
             public virtual void State_PlayGameEvent_Caller(object sender, EventArgs e)
             {
-                State_PlayGameEvent(sender, e);
+                //State_PlayGameEvent(sender, e);
             }
             public virtual void State_QuitCurrentGameEvent_Caller(object sender, EventArgs e)
             {
-                State_QuitCurrentGameEvent(sender, e);
+                //State_QuitCurrentGameEvent(sender, e);
             }
             public virtual void State_QuitGameEvent_Caller(object sender, EventArgs e)
             {
-                State_QuitGameEvent(sender, e);
+                //State_QuitGameEvent(sender, e);
             }
         }
 

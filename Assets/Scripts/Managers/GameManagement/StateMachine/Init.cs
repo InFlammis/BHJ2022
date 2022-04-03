@@ -41,10 +41,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// </summary>
         public readonly string _sceneName = "MainMenu";
 
-        /// <summary>
-        /// Reference to the IMainMenuManager instance
-        /// </summary>
-        protected IMainMenuManager _menuManager;
+        ///// <summary>
+        ///// Reference to the IMainMenuManager instance
+        ///// </summary>
+        //protected IMainMenuManager _menuManager;
 
         /// <summary>
         /// Create a new instance of the class
@@ -79,26 +79,18 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// <param name="loadSceneMode"></param>
         public override void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
-            _menuManager = GetMenuManagerFromScene(scene);
-            if (_menuManager == null)
-                return;
+            //_menuManager = GetMenuManagerFromScene(scene);
+            //if (_menuManager == null)
+            //    return;
 
             base.SceneLoaded(scene, loadSceneMode);
 
-            _menuManager.StartGameEvent += StartGameEventHandler;
-            _menuManager.QuitGameEvent += QuitGameEventHandler;
-            _menuManager.CreditsEvent += CreditsEventHandler;
-            _menuManager.HelpEvent += HelpEventHandler;
-        }
+            //_menuManager.StartGameEvent += StartGameEventHandler;
+            //_menuManager.QuitGameEvent += QuitGameEventHandler;
+            //_menuManager.CreditsEvent += CreditsEventHandler;
+            //_menuManager.HelpEvent += HelpEventHandler;
 
-        /// <summary>
-        /// EventHandler that manages a request to Play a sound
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Sound to play</param>
-        private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
-        {
-            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
+            
         }
 
         //This method is non-testable because it accesses Scene's methods and GameObject's methods, which are not mockable.
@@ -113,28 +105,28 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             return menuManager;
         }
 
-        /// <inheritdoc/>
-        protected virtual void StartGameEventHandler(object sender, EventArgs state)
-        {
-            PlayGameEvent?.Invoke(this, state);
-        }
+        ///// <inheritdoc/>
+        //protected virtual void StartGameEventHandler(object sender, EventArgs state)
+        //{
+        //    PlayGameEvent?.Invoke(this, state);
+        //}
 
-        /// <inheritdoc/>
-        protected virtual void QuitGameEventHandler(object sender, EventArgs state)
-        {
-            QuitGameEvent?.Invoke(this, state);
-        }
+        ///// <inheritdoc/>
+        //protected virtual void QuitGameEventHandler(object sender, EventArgs state)
+        //{
+        //    QuitGameEvent?.Invoke(this, state);
+        //}
 
-        /// <inheritdoc/>
-        protected virtual void CreditsEventHandler(object sender, EventArgs state)
-        {
-            CreditsEvent?.Invoke(this, state);
-        }
+        ///// <inheritdoc/>
+        //protected virtual void CreditsEventHandler(object sender, EventArgs state)
+        //{
+        //    CreditsEvent?.Invoke(this, state);
+        //}
 
-        /// <inheritdoc/>
-        protected virtual void HelpEventHandler(object sender, EventArgs state)
-        {
-            HelpEvent?.Invoke(this, state);
-        }
+        ///// <inheritdoc/>
+        //protected virtual void HelpEventHandler(object sender, EventArgs state)
+        //{
+        //    HelpEvent?.Invoke(this, state);
+        //}
     }
 }

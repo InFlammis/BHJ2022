@@ -15,12 +15,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         /// </summary>
         public IGameManager Core { get; protected set; }
 
-        //[SerializeField]
-        //private SoundManager _SoundManager;
-
-        ///// <inheritdoc/>
-        //public ISoundManager SoundManager => StaticObjects.SoundManager;
-
         #region MonoBehaviour methods
 
         void Awake()

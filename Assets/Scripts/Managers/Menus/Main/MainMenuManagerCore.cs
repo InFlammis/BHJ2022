@@ -12,9 +12,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// <inheritdoc/>
         public event EventHandler QuitGameEvent;
 
-        ///// <inheritdoc/>
-        //public event EventHandler<Sound> PlaySoundEvent;
-
         /// <inheritdoc/>
         public event EventHandler CreditsEvent;
 
@@ -22,9 +19,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public event EventHandler HelpEvent;
 
         /// <inheritdoc/>
-        public readonly IMyMonoBehaviour Parent;
+        public readonly IMainMenuManager Parent;
 
-        public MainMenuManagerCore(IMyMonoBehaviour parent)
+        public StaticObjectsSO StaticObjects => Parent.StaticObjects;
+
+        public MainMenuManagerCore(IMainMenuManager parent)
         {
             Parent = parent;
         }
@@ -41,25 +40,25 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// <inheritdoc/>
         public void StartGame()
         {
-            StartGameEvent?.Invoke(this, new EventArgs());
+            //StaticObjects.Messenger.PublishStartGame(this, null);
         }
 
         /// <inheritdoc/>
         public void QuitGame()
         {
-            QuitGameEvent?.Invoke(this, new EventArgs());
+            //StaticObjects.Messenger.PublishQuitGame(this, null);
         }
 
         /// <inheritdoc/>
         public void ShowCredits()
         {
-            CreditsEvent?.Invoke(this, new EventArgs());
+            //StaticObjects.Messenger.PublishOpenCreditsMenu(this, null);
         }
 
         /// <inheritdoc/>
         public void ShowHelp()
         {
-            HelpEvent?.Invoke(this, new EventArgs());
+            //StaticObjects.Messenger.PublishOpenHelpMenu(this, null);
         }
     }
 }

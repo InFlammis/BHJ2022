@@ -5,6 +5,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
 {
     public interface IMainMenuManager
     {
+        public StaticObjectsSO StaticObjects { get; }
+
         /// <summary>
         /// Event raised on Start Game button click
         /// </summary>

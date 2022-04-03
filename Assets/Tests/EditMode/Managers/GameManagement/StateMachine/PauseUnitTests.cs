@@ -176,12 +176,12 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
 
             public void ResumeGameEventHandler_Caller()
             {
-                ResumeGameEventHandler(null, new EventArgs());
+                //ResumeGameEventHandler(null, new EventArgs());
             }
 
             public void QuitCurrentGameEventHandler_Caller()
             {
-                QuitCurrentGameEventHandler(null, new EventArgs());
+                //QuitCurrentGameEventHandler(null, new EventArgs());
             }
 
         }

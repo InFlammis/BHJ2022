@@ -13,17 +13,15 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         SceneManager, 
         ILevelManager
     {
-        //[SerializeField] private Messenger _messenger;
-        //public IMessenger Messenger => _messenger;
 
         [SerializeField] protected LevelSceneSoundSettingsSO _soundSettings;
 
 
-        /// <inheritdoc/>
-        public abstract event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public abstract event EventHandler<Sound> PlaySoundEvent;
 
-        /// <inheritdoc/>
-        public abstract event Action ReturnToMainEvent;
+        ///// <inheritdoc/>
+        //public abstract event Action ReturnToMainEvent;
 
         /// <inheritdoc/>
         public IPlayerControllerCore PlayerControllerCore { get; set; }
@@ -55,7 +53,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// <inheritdoc/>
         public virtual void OnAwake() { }
 
-        /// <inheritdoc/>
-        public virtual void ReturnToMain() { }
+        ///// <inheritdoc/>
+        //public virtual void ReturnToMain() { }
     }
 }

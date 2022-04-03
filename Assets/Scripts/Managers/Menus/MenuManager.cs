@@ -14,6 +14,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
     public class MenuManager : SceneManager
     {
         [SerializeField] protected MenuSceneSoundSettingsSO _soundSettings;
-
     }
 }

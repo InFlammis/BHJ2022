@@ -64,7 +64,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnEnter();
 
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
-            //GameManager.StaticObjects.Messenger.PublishPlayMusic(this, null, GameManager.StaticObjects.SoundManager.GameMusic);
         }
 
         /// <inheritdoc/>
@@ -80,9 +79,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         {
             base.OnActivate();
 
-            //GameManager.StaticObjects.Messenger.PublishPlayMusic(this, null, GameManager.StaticObjects.SoundManager.GameMusic);
-
             _levelManager?.EnablePlayerInput();
+
         }
 
         /// <inheritdoc/>
@@ -102,28 +100,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
                 return;
 
             base.SceneLoaded(scene, loadSceneMode);
-
-            //Bind event handlers here
-            //_levelManager.PlaySoundEvent += LevelManager_PlaySoundEvent;
-            _levelManager.ReturnToMainEvent += LevelManager_ReturnToMain;
-        }
-
-        /// <summary>
-        /// EventHandler that manages a request to Return to the main menu, quitting the current game
-        /// </summary>
-        private void LevelManager_ReturnToMain()
-        {
-            QuitCurrentGameEvent?.Invoke(this, null);
-        }
-
-        /// <summary>
-        /// EventHandler that manages a request to Play a sound
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Sound to play</param>
-        private void LevelManager_PlaySoundEvent(object sender, Sound e)
-        {
-            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
         }
 
         //This method is non-testable because it accesses Scene's methods and GameObject's methods, which are not mockable.
@@ -145,7 +121,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         {
             base.PauseResumeGame();
 
-            PauseGameEvent?.Invoke(this, new EventArgs());
+            GameManager.StaticObjects.Messenger.PublishPauseGame(this, null);
         }
     }
 }

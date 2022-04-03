@@ -8,6 +8,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
     /// </summary>
     public interface ICreditsMenuManager
     {
+        public StaticObjectsSO StaticObjects { get; }
+
         /// <summary>
         /// Event raised by the Back button
         /// </summary>

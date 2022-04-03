@@ -15,15 +15,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
     {
         public StaticObjectsSO StaticObjects { get; }
 
-        /// <summary>
-        /// Event raised to play a sound
-        /// </summary>
-        event EventHandler<Sound> PlaySoundEvent;
-
-        /// <summary>
-        /// Event raised to ask for a return to the main menu
-        /// </summary>
-        event Action ReturnToMainEvent;
+        ///// <summary>
+        ///// Event raised to ask for a return to the main menu
+        ///// </summary>
+        //event Action ReturnToMainEvent;
 
         //IMessenger Messenger { get; }
 
@@ -58,10 +53,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// </summary>
         void EnablePlayerInput();
 
-        /// <summary>
-        /// Return to main menu
-        /// </summary>
-        void ReturnToMain();
+        ///// <summary>
+        ///// Return to main menu
+        ///// </summary>
+        //void ReturnToMain();
 
     }
 }

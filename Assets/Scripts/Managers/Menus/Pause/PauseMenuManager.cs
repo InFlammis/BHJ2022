@@ -16,9 +16,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public event EventHandler QuitCurrentGameEvent;
 
-        ///// <inheritdoc/>
-        //public event EventHandler<Sound> PlaySoundEvent;
-
         public IPauseMenuManager Core { get; protected set; }
 
         void Awake()
@@ -52,13 +49,17 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public void ResumeGame()
         {
-            Core.ResumeGame();
+            //Core.ResumeGame();
+            StaticObjects.Messenger.PublishResumeGame(this, null);
+
         }
 
         /// <inheritdoc/>
         public void QuitCurrentGame()
         {
-            Core.QuitCurrentGame();
+            //Core.QuitCurrentGame();
+            StaticObjects.Messenger.PublishQuitCurrentGame(this, null);
+
         }
 
         /// <inheritdoc/>

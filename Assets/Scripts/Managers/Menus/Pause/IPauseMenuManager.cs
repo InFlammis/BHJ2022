@@ -8,6 +8,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
     /// </summary>
     public interface IPauseMenuManager
     {
+        public StaticObjectsSO StaticObjects { get; }
+
         /// <summary>
         /// Event raised by the Resume button
         /// </summary>

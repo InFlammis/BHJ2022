@@ -62,12 +62,16 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public void StartGame()
         {
             Core.StartGame();
+            StaticObjects.Messenger.PublishStartGame(this, null);
+
         }
 
         /// <inheritdoc/>
         public void QuitGame()
         { 
             Core.QuitGame();
+            StaticObjects.Messenger.PublishQuitGame(this, null);
+
         }
 
         /// <inheritdoc/>
@@ -80,12 +84,15 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public void ShowCredits()
         {
             Core.ShowCredits();
+            StaticObjects.Messenger.PublishOpenCreditsMenu(this, null);
+
         }
 
         /// <inheritdoc/>
         public void ShowHelp()
         {
             Core.ShowHelp();
+            StaticObjects.Messenger.PublishOpenHelpMenu(this, null);
         }
     }
 }

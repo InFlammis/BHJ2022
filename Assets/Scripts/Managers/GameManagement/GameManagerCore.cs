@@ -46,6 +46,16 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         {
             _stateStack.PoppingStateEvent += StateStack_PoppingStateEvent;
             _stateStack.PushingStateEvent += StateStack_PushingStateEvent;
+
+            StaticObjects.Messenger.PauseGame.AddListener(PauseGameEventHandler);
+            StaticObjects.Messenger.StartGame.AddListener(StartGameEventHandler);
+            StaticObjects.Messenger.ResumeGame.AddListener(ResumeGameEventHandler);
+            StaticObjects.Messenger.QuitCurrentGame.AddListener(QuitCurrentGameEventHandler);
+            StaticObjects.Messenger.QuitGame.AddListener(QuitGameEventHandler);
+            StaticObjects.Messenger.OpenCredits.AddListener(OpenCreditsEventHandler);
+            StaticObjects.Messenger.OpenHelp.AddListener(OpenHelpEventHandler);
+            StaticObjects.Messenger.BackToMain.AddListener(BackToMainEventHandler);
+
         }
 
         public void OnStart()
@@ -64,14 +74,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         /// <param name="state">New state being pushed into the stack</param>
         protected virtual void StateStack_PushingStateEvent(object sender, State state)
         {
-            state.PauseGameEvent += State_PauseGameEvent;
-            state.PlayGameEvent += State_PlayGameEvent;
-            state.ResumeGameEvent += State_ResumeGameEvent;
-            state.QuitCurrentGameEvent += State_QuitCurrentGameEvent;
-            state.QuitGameEvent += State_QuitGameEvent;
-            state.CreditsEvent += State_CreditsEvent;
-            state.HelpEvent += State_HelpEvent;
-            state.BackToMainMenuEvent += State_BackToMainMenuEvent;
         }
 
         /// <summary>
@@ -81,14 +83,49 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         /// <param name="state">The state being popped out of the stack</param>
         protected virtual void StateStack_PoppingStateEvent(object sender, State state)
         {
-            state.PauseGameEvent -= State_PauseGameEvent;
-            state.PlayGameEvent -= State_PlayGameEvent;
-            state.ResumeGameEvent -= State_ResumeGameEvent;
-            state.QuitCurrentGameEvent -= State_QuitCurrentGameEvent;
-            state.QuitGameEvent -= State_QuitGameEvent;
-            state.CreditsEvent -= State_CreditsEvent;
-            state.HelpEvent -= State_HelpEvent;
-            state.BackToMainMenuEvent -= State_BackToMainMenuEvent;
+        }
+
+        private void BackToMainEventHandler(object arg0, string arg1)
+        {
+            ReplaceState(new Init(this, _sceneManagerWrapper));
+        }
+
+        private void OpenHelpEventHandler(object arg0, string arg1)
+        {
+            ReplaceState(new Help(this, _sceneManagerWrapper));
+        }
+
+        private void OpenCreditsEventHandler(object arg0, string arg1)
+        {
+            ReplaceState(new Credits(this, _sceneManagerWrapper));
+        }
+
+        private void QuitGameEventHandler(object arg0, string arg1)
+        {
+            PushState(new Quit(this, _sceneManagerWrapper));
+
+            Application.Quit();
+        }
+
+        private void QuitCurrentGameEventHandler(object arg0, string arg1)
+        {
+            _stateStack.Clear();
+            PushState(new Init(this, _sceneManagerWrapper));
+        }
+
+        private void ResumeGameEventHandler(object arg0, string arg1)
+        {
+            PopState();
+        }
+
+        private void StartGameEventHandler(object arg0, string arg1)
+        {
+            ReplaceState(new Play(this, _sceneManagerWrapper));
+        }
+
+        private void PauseGameEventHandler(object arg0, string arg1)
+        {
+            PushState(new Pause(this, _sceneManagerWrapper));
         }
 
         #endregion
@@ -114,92 +151,92 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
 
         #endregion
 
-        #region Event Handlers for State events
+        //#region Event Handlers for State events
 
-        /// <summary>
-        /// Handle a request to pause the game
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_PauseGameEvent(object sender, EventArgs e)
-        {
-            PushState(new Pause(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to pause the game
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_PauseGameEvent(object sender, EventArgs e)
+        //{
+        //    PushState(new Pause(this, _sceneManagerWrapper));
+        //}
 
-        /// <summary>
-        /// Handle a request to resume a previously paused game
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_ResumeGameEvent(object sender, EventArgs e)
-        {
-            PopState();
-        }
+        ///// <summary>
+        ///// Handle a request to resume a previously paused game
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_ResumeGameEvent(object sender, EventArgs e)
+        //{
+        //    PopState();
+        //}
 
-        /// <summary>
-        /// Handle a request to open the Credits menu
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        private void State_CreditsEvent(object sender, EventArgs e)
-        {
-            ReplaceState(new Credits(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to open the Credits menu
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //private void State_CreditsEvent(object sender, EventArgs e)
+        //{
+        //    ReplaceState(new Credits(this, _sceneManagerWrapper));
+        //}
 
-        /// <summary>
-        /// Handle a request to open the Help menu
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        private void State_HelpEvent(object sender, EventArgs e)
-        {
-            ReplaceState(new Help(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to open the Help menu
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //private void State_HelpEvent(object sender, EventArgs e)
+        //{
+        //    ReplaceState(new Help(this, _sceneManagerWrapper));
+        //}
 
-        /// <summary>
-        /// Handle a request to start a new game
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_PlayGameEvent(object sender, EventArgs e)
-        {
-            ReplaceState(new Play(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to start a new game
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_PlayGameEvent(object sender, EventArgs e)
+        //{
+        //    ReplaceState(new Play(this, _sceneManagerWrapper));
+        //}
 
-        /// <summary>
-        /// Handle a request to quit the current game
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_QuitCurrentGameEvent(object sender, EventArgs e)
-        {
-            _stateStack.Clear();
-            PushState(new Init(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to quit the current game
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_QuitCurrentGameEvent(object sender, EventArgs e)
+        //{
+        //    _stateStack.Clear();
+        //    PushState(new Init(this, _sceneManagerWrapper));
+        //}
 
-        /// <summary>
-        /// Handle a request to close the game and return to the OS
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_QuitGameEvent(object sender, EventArgs e)
-        {
-            PushState(new Quit(this, _sceneManagerWrapper));
+        ///// <summary>
+        ///// Handle a request to close the game and return to the OS
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_QuitGameEvent(object sender, EventArgs e)
+        //{
+        //    PushState(new Quit(this, _sceneManagerWrapper));
 
-            Application.Quit();
-        }
+        //    Application.Quit();
+        //}
 
-        /// <summary>
-        /// Handle a request to return to the Main menu
-        /// </summary>
-        /// <param name="sender">Event source</param>
-        /// <param name="e"></param>
-        protected virtual void State_BackToMainMenuEvent(object sender, EventArgs e)
-        {
-            ReplaceState(new Init(this, _sceneManagerWrapper));
-        }
+        ///// <summary>
+        ///// Handle a request to return to the Main menu
+        ///// </summary>
+        ///// <param name="sender">Event source</param>
+        ///// <param name="e"></param>
+        //protected virtual void State_BackToMainMenuEvent(object sender, EventArgs e)
+        //{
+        //    ReplaceState(new Init(this, _sceneManagerWrapper));
+        //}
 
-        #endregion
+        //#endregion
 
         #region Input Event Handlers
 

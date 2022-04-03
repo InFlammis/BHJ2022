@@ -8,6 +8,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
     /// </summary>
     public interface IHelpMenuManager
     {
+        public StaticObjectsSO StaticObjects { get; }
+
         /// <summary>
         /// Event raised by the Back button
         /// </summary>

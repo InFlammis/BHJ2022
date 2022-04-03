@@ -19,9 +19,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         ///// <inheritdoc/>
         //public event EventHandler<Sound> PlaySoundEvent;
 
-        public readonly IMyMonoBehaviour Parent;
+        public readonly IPauseMenuManager Parent;
 
-        public PauseMenuManagerCore(IMyMonoBehaviour parent)
+        public StaticObjectsSO StaticObjects => Parent.StaticObjects;
+
+        public PauseMenuManagerCore(IPauseMenuManager parent)
         {
             Parent = parent;
         }
@@ -38,13 +40,13 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public void ResumeGame()
         {
-            ResumeGameEvent?.Invoke(this, new EventArgs());
+            //ResumeGameEvent?.Invoke(this, new EventArgs());
         }
 
         /// <inheritdoc/>
         public void QuitCurrentGame()
         {
-            QuitCurrentGameEvent?.Invoke(this, new EventArgs());
+            //QuitCurrentGameEvent?.Invoke(this, new EventArgs());
         }
     }
 }

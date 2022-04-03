@@ -97,19 +97,19 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.SceneLoaded(scene, loadSceneMode);
 
             //_menuManager.PlaySoundEvent += MenuManager_PlaySoundEvent;
-            _menuManager.ResumeGameEvent += ResumeGameEventHandler;
-            _menuManager.QuitCurrentGameEvent += QuitCurrentGameEventHandler;
+            //_menuManager.ResumeGameEvent += ResumeGameEventHandler;
+            //_menuManager.QuitCurrentGameEvent += QuitCurrentGameEventHandler;
         }
 
-        /// <summary>
-        /// EventHandler that manages a request to Play a sound
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Sound to play</param>
-        private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
-        {
-            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
-        }
+        ///// <summary>
+        ///// EventHandler that manages a request to Play a sound
+        ///// </summary>
+        ///// <param name="sender">Event sender</param>
+        ///// <param name="e">Sound to play</param>
+        //private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
+        //{
+        //    GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
+        //}
 
         //This method is non-testable because it accesses Scene's methods and GameObject's methods, which are not mockable.
         protected virtual IPauseMenuManager GetMenuManagerFromScene(Scene scene)
@@ -123,34 +123,35 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             return menuManager;
         }
 
-        /// <summary>
-        /// Manages a request to resume the game after the pause
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="state"></param>
-        protected void ResumeGameEventHandler(object sender, EventArgs state)
-        {
-            ResumeGameEvent?.Invoke(this, new EventArgs());
-        }
+        ///// <summary>
+        ///// Manages a request to resume the game after the pause
+        ///// </summary>
+        ///// <param name="sender">Event sender</param>
+        ///// <param name="state"></param>
+        //protected void ResumeGameEventHandler(object sender, EventArgs state)
+        //{
+        //    ResumeGameEvent?.Invoke(this, new EventArgs());
+        //}
 
-        /// <summary>
-        /// Manages a request to quit the current game after the pause
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="state"></param>
-        protected void QuitCurrentGameEventHandler(object sender, EventArgs state)
-        {
-            QuitCurrentGameEvent?.Invoke(this, new EventArgs());
-        }
+        ///// <summary>
+        ///// Manages a request to quit the current game after the pause
+        ///// </summary>
+        ///// <param name="sender">Event sender</param>
+        ///// <param name="state"></param>
+        //protected void QuitCurrentGameEventHandler(object sender, EventArgs state)
+        //{
+        //    QuitCurrentGameEvent?.Invoke(this, new EventArgs());
+        //}
 
         /// <inheritdoc/>
         public override void PauseResumeGame()
         {
             base.PauseResumeGame();
 
-            ResumeGameEvent?.Invoke(this, new EventArgs());
+            //ResumeGameEvent?.Invoke(this, new EventArgs());
+            GameManager.StaticObjects.Messenger.PublishResumeGame(this, null);
         }
-        
+
         /// <summary>
         /// Slows down the time speed to zero, to freeze the game
         /// </summary>

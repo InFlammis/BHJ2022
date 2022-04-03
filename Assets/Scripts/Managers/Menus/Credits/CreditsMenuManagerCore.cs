@@ -9,12 +9,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public event EventHandler BackEvent;
 
-        ///// <inheritdoc/>
-        //public event EventHandler<Sound> PlaySoundEvent;
+        public readonly ICreditsMenuManager Parent;
 
-        public readonly IMyMonoBehaviour Parent;
+        public StaticObjectsSO StaticObjects => Parent.StaticObjects;
 
-        public CreditsMenuManagerCore(IMyMonoBehaviour parent)
+        public CreditsMenuManagerCore(ICreditsMenuManager parent)
         {
             Parent = parent;
         }
@@ -31,7 +30,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public void BackToMainMenu()
         {
-            BackEvent?.Invoke(this, new EventArgs());
         }
     }
 }

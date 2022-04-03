@@ -42,7 +42,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public void BackToMainMenu()
         {
-            BackEvent?.Invoke(this, new EventArgs());
+            StaticObjects.Messenger.PublishBackToMain(this, null);
         }
 
         /// <inheritdoc/>

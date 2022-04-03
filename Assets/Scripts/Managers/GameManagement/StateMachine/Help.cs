@@ -90,18 +90,18 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.SceneLoaded(scene, loadSceneMode);
 
             //_menuManager.PlaySoundEvent += MenuManager_PlaySoundEvent;
-            _menuManager.BackEvent += BackEventHandler;
+            //_menuManager.BackEvent += BackEventHandler;
         }
 
-        /// <summary>
-        /// EventHandler that manages a request to Play a sound
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Sound to play</param>
-        private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
-        {
-            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
-        }
+        ///// <summary>
+        ///// EventHandler that manages a request to Play a sound
+        ///// </summary>
+        ///// <param name="sender">Event sender</param>
+        ///// <param name="e">Sound to play</param>
+        //private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
+        //{
+        //    GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
+        //}
 
         /// <inheritdoc/>
         protected virtual IHelpMenuManager GetMenuManagerFromScene(Scene scene)
@@ -116,10 +116,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         }
 
         /// <inheritdoc/>
-        protected virtual void BackEventHandler(object sender, EventArgs state)
-        {
-            BackToMainMenuEvent?.Invoke(this, state);
-        }
+        //protected virtual void BackEventHandler(object sender, EventArgs state)
+        //{
+        //    BackToMainMenuEvent?.Invoke(this, state);
+        //}
 
     }
 }

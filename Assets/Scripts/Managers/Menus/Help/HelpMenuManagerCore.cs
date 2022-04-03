@@ -11,9 +11,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         ///// <inheritdoc/>
         //public event EventHandler<Sound> PlaySoundEvent;
 
-        public readonly IMyMonoBehaviour Parent;
+        public readonly IHelpMenuManager Parent;
+        public StaticObjectsSO StaticObjects => Parent.StaticObjects;
 
-        public HelpMenuManagerCore(IMyMonoBehaviour parent)
+
+        public HelpMenuManagerCore(IHelpMenuManager parent)
         {
             Parent = parent;
         }
@@ -21,7 +23,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         /// <inheritdoc/>
         public void BackToMainMenu()
         {
-            BackEvent?.Invoke(this, new EventArgs());
+
         }
 
         /// <inheritdoc/>

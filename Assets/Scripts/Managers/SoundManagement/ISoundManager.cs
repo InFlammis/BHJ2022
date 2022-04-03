@@ -12,26 +12,28 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
     /// </summary>
     public interface ISoundManager : IMyMonoBehaviour
     {
-        /// <summary>
-        /// Sound clip of the menu music to play
-        /// </summary>
-        AudioClip MenuMusic { get; }
+        public StaticObjectsSO StaticObjects { get; }
 
-        /// <summary>
-        /// Sound clip of the game music to play
-        /// </summary>
-        AudioClip GameMusic { get; }
+        ///// <summary>
+        ///// Sound clip of the menu music to play
+        ///// </summary>
+        //AudioClip MenuMusic { get; }
 
-        /// <summary>
-        /// Play an audioclip for music
-        /// </summary>
-        /// <param name="audioClip">Audio clip to play</param>
-        void PlayMusic(AudioClip audioClip);
+        ///// <summary>
+        ///// Sound clip of the game music to play
+        ///// </summary>
+        //AudioClip GameMusic { get; }
 
-        /// <summary>
-        /// Play a sound
-        /// </summary>
-        /// <param name="sound">Sound to play</param>
-        void PlaySound(Sound sound);
+        ///// <summary>
+        ///// Play an audioclip for music
+        ///// </summary>
+        ///// <param name="audioClip">Audio clip to play</param>
+        //void PlayMusic(AudioClip audioClip);
+
+        ///// <summary>
+        ///// Play a sound
+        ///// </summary>
+        ///// <param name="sound">Sound to play</param>
+        //void PlaySound(Sound sound);
     }
 }

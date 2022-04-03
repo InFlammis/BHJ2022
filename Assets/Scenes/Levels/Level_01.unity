@@ -1538,6 +1538,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: _soundSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f658dbad899cff45b7e633826143c85, type: 2}
+    - target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
       propertyPath: _staticObjects
       value: 
       objectReference: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}

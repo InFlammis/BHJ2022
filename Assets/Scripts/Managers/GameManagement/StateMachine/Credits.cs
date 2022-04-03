@@ -65,7 +65,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnEnter();
 
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
-            GameManager.StaticObjects.SoundManager.PlayMusic(GameManager.StaticObjects.SoundManager.MenuMusic);
         }
 
         /// <inheritdoc/>
@@ -89,7 +88,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
 
             base.SceneLoaded(scene, loadSceneMode);
 
-            _menuManager.PlaySoundEvent += MenuManager_PlaySoundEvent;
+            //_menuManager.PlaySoundEvent += MenuManager_PlaySoundEvent;
             _menuManager.BackEvent += BackEventHandler;
         }
 
@@ -100,7 +99,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// <param name="e">Sound to play</param>
         private void MenuManager_PlaySoundEvent(object sender, SoundManagement.Sound e)
         {
-            GameManager.StaticObjects.SoundManager.PlaySound(e);
+            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
         }
 
         /// <inheritdoc/>

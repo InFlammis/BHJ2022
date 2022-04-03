@@ -8,8 +8,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public event EventHandler BackEvent;
 
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         public ICreditsMenuManager Core { get; protected set; }
 
@@ -23,6 +23,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         void Start()
         {
             OnStart();
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
         }
 
         /// <inheritdoc/>
@@ -47,7 +48,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
-            PlaySoundEvent?.Invoke(this, sound);
+            StaticObjects.Messenger.PublishPlaySound(this, null, sound);
         }
     }
 }

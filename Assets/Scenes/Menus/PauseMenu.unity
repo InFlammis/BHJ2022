@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: 22eb069374a1f7d4fb18417574a61c38, type: 2}
 --- !u!1001 &1540576136
 PrefabInstance:
   m_ObjectHideFlags: 0

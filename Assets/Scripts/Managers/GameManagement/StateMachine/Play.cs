@@ -64,7 +64,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnEnter();
 
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
-            GameManager.StaticObjects.SoundManager.PlayMusic(GameManager.StaticObjects.SoundManager.GameMusic);
+            //GameManager.StaticObjects.Messenger.PublishPlayMusic(this, null, GameManager.StaticObjects.SoundManager.GameMusic);
         }
 
         /// <inheritdoc/>
@@ -80,7 +80,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         {
             base.OnActivate();
 
-            GameManager.StaticObjects.SoundManager.PlayMusic(GameManager.StaticObjects.SoundManager.GameMusic);
+            //GameManager.StaticObjects.Messenger.PublishPlayMusic(this, null, GameManager.StaticObjects.SoundManager.GameMusic);
 
             _levelManager?.EnablePlayerInput();
         }
@@ -104,7 +104,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.SceneLoaded(scene, loadSceneMode);
 
             //Bind event handlers here
-            _levelManager.PlaySoundEvent += LevelManager_PlaySoundEvent;
+            //_levelManager.PlaySoundEvent += LevelManager_PlaySoundEvent;
             _levelManager.ReturnToMainEvent += LevelManager_ReturnToMain;
         }
 
@@ -123,7 +123,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
         /// <param name="e">Sound to play</param>
         private void LevelManager_PlaySoundEvent(object sender, Sound e)
         {
-            GameManager.StaticObjects.SoundManager.PlaySound(e);
+            GameManager.StaticObjects.Messenger.PublishPlaySound(this, null, e);
         }
 
         //This method is non-testable because it accesses Scene's methods and GameObject's methods, which are not mockable.

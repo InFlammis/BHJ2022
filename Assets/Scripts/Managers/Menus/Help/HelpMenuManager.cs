@@ -7,8 +7,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
     {
         /// <inheritdoc/>
         public event EventHandler BackEvent;
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         public IHelpMenuManager Core { get; protected set; }
 
@@ -41,12 +41,14 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         public void OnStart()
         {
             Core.OnStart();
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
+
         }
 
         /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
-            PlaySoundEvent?.Invoke(this, sound);
+            StaticObjects.Messenger.PublishPlaySound(this, null, sound);
         }
     }
 }

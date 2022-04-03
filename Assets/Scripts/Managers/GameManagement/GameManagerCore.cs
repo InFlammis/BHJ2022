@@ -36,7 +36,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         public GameManagerCore(IMyMonoBehaviour parent)
         {
             Parent = parent;
-            SoundManager = StaticObjects.SoundManager;
+            //SoundManager = StaticObjects.SoundManager;
             _sceneManagerWrapper = UnitySceneManagerWrapper.Instance;
         }
 

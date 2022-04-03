@@ -21,7 +21,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement.StateMach
             var soundManagerMock = new Mock<ISoundManager>();
 
             var gameManagerCoreMock = new Mock<IGameManager>();
-            gameManagerCoreMock.Setup(x => x.StaticObjects.SoundManager).Returns(soundManagerMock.Object);
+            //gameManagerCoreMock.Setup(x => x.StaticObjects.SoundManager).Returns(soundManagerMock.Object);
 
             var gameManagerCore = gameManagerCoreMock.Object;
 

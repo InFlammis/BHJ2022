@@ -38,14 +38,14 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
                 Debug.LogError("SceneManager not found");
             }
 
-            _SoundManager = gameObject.GetComponent<EnemySoundManager>();
+            //_SoundManager = gameObject.GetComponent<EnemySoundManager>();
 
-            if (_SoundManager == null)
-            {
-                Debug.LogError("SoundManager not found");
-            }
+            //if (_SoundManager == null)
+            //{
+            //    Debug.LogError("SoundManager not found");
+            //}
 
-            _SoundManager.SceneManager = sceneManager;
+            //_SoundManager.SceneManager = sceneManager;
 
             if (InitSettings == null)
             {
@@ -97,7 +97,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
                 case "Bullet":
                 {
                     //The collision is managed by the bullet
-                    _SoundManager.PlayHitSound();
+                    StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.HitSound);
                     break;
                 }
             }
@@ -115,9 +115,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
                 return;
             }
 
-            //Debug.Log($"Destroying object {this.gameObject.name}");
-
-            _SoundManager.PlayExplodeSound();
+            StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.ExplodeSound);
 
             UnsubscribeToHealthManagerEvents();
 

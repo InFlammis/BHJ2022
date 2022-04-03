@@ -12,8 +12,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// <inheritdoc/>
         public event EventHandler QuitGameEvent;
 
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         /// <inheritdoc/>
         public event EventHandler CreditsEvent;

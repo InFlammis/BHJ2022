@@ -13,10 +13,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// </summary>
         event EventHandler BackEvent;
 
-        /// <summary>
-        /// Event raised to play a sound
-        /// </summary>
-        event EventHandler<Sound> PlaySoundEvent;
+        ///// <summary>
+        ///// Event raised to play a sound
+        ///// </summary>
+        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Invoked on Start

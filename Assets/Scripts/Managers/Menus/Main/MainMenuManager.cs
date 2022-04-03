@@ -18,7 +18,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public event EventHandler QuitGameEvent;
 
         /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         /// <inheritdoc/>
         public event EventHandler CreditsEvent;
@@ -44,6 +44,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public void OnStart()
         {
             Core.OnStart();
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
         }
 
         /// <inheritdoc/>
@@ -72,7 +73,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
-            PlaySoundEvent?.Invoke(this, sound);
+            StaticObjects.Messenger.PublishPlaySound(this, null, sound);
         }
 
         /// <inheritdoc/>

@@ -16,8 +16,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public event EventHandler QuitCurrentGameEvent;
 
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         public readonly IMyMonoBehaviour Parent;
 

@@ -16,8 +16,9 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies
         /// <summary>
         /// Instance of EnemySoundManager
         /// </summary>
-        protected EnemySoundManager _SoundManager;
+        //protected EnemySoundManager _SoundManager;
 
+        [SerializeField] protected EnemySoundSettingsSO _soundSettings;
         /// <summary>
         /// Instance of EnemySettings
         /// </summary>

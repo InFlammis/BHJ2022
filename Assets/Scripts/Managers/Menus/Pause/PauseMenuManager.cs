@@ -16,8 +16,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public event EventHandler QuitCurrentGameEvent;
 
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         public IPauseMenuManager Core { get; protected set; }
 
@@ -37,6 +37,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         public void OnStart()
         {
             Core.OnStart();
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
         }
 
         /// <inheritdoc/>
@@ -63,7 +64,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// <inheritdoc/>
         public override void PlaySound(Sound sound)
         {
-            PlaySoundEvent?.Invoke(this, sound);
+            StaticObjects.Messenger.PublishPlaySound(this, null, sound);
         }
 
     }

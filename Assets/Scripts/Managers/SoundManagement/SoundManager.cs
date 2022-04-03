@@ -13,21 +13,20 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
     /// </summary>
     public class SoundManager : MyMonoBehaviour, ISoundManager
     {
-        [SerializeField] SoundManagerInitSettingsSO settings;
-        //[SerializeField]
-        //private AudioClip _MenuMusic;
-        //[SerializeField]
-        //private AudioClip _GameMusic;
+        [SerializeField] private StaticObjectsSO _staticObjects;
+        public StaticObjectsSO StaticObjects => _staticObjects;
 
-        /// <summary>
-        /// Audio clip for the menu music
-        /// </summary>
-        public AudioClip MenuMusic => settings.MenuMusic;
+        [SerializeField] private SoundManagerInitSettingsSO settings;
 
-        /// <summary>
-        /// Audio clip for the game music
-        /// </summary>
-        public AudioClip GameMusic => settings.GameMusic;
+        ///// <summary>
+        ///// Audio clip for the menu music
+        ///// </summary>
+        //public AudioClip MenuMusic => settings.MenuMusic;
+
+        ///// <summary>
+        ///// Audio clip for the game music
+        ///// </summary>
+        //public AudioClip GameMusic => settings.GameMusic;
 
         private AudioSource _MusicSource;
 
@@ -42,50 +41,78 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
         //[SerializeField]
         //private int _AudioSourcePoolSize = 10;
 
-        public void OnAwake()
+        void Awake()
         {
-        }
+            _staticObjects.Messenger.PlayMusic.AddListener(PlayMusic);
+            _staticObjects.Messenger.PlaySound.AddListener(PlaySound);
 
-        public void OnEnable2()
-        {
             _AudioSourcePool = new AudioSourcePool(this, settings.AudioSourcePoolSize);
 
             _MusicSource = gameObject.AddComponent<AudioSource>();
             _MusicSource.loop = true;
+
         }
 
-        /// <summary>
-        /// Play an audioclip for music
-        /// </summary>
-        /// <param name="audioClip"></param>
-        public void PlayMusic(AudioClip audioClip)
-        {
-            _MusicSource.clip = audioClip;
-            _MusicSource.volume = 0.1f;
-            _MusicSource.Play();
-        }
-
-        /// <summary>
-        /// Play a sound
-        /// </summary>
-        /// <param name="audioClip">Audio clip to play</param>
-        public void PlaySound(AudioClip audioClip)
-        {
-            var audioSource = _AudioSourcePool.GetAudioSource();
-            audioSource.clip = audioClip;
-            audioSource.Play();
-        }
-
-        /// <summary>
-        /// play a sound
-        /// </summary>
-        /// <param name="sound">Sound to play</param>
-        public void PlaySound(Sound sound)
+        private void PlaySound(object publisher, string target, Sound sound)
         {
             var audioSource = _AudioSourcePool.GetAudioSource();
             audioSource.clip = sound.Clip;
             audioSource.volume = sound.Volume;
             audioSource.Play();
         }
+
+        private void PlayMusic(object publisher, string target, Sound music)
+        {
+            if(_MusicSource.clip != null && music.Clip.name == _MusicSource.clip.name)
+            {
+                return;
+            }
+
+            _MusicSource.clip = music.Clip;
+            _MusicSource.volume = music.Volume;
+            _MusicSource.Play();
+        }
+
+        //public void OnEnable2()
+        //{
+        //    _AudioSourcePool = new AudioSourcePool(this, settings.AudioSourcePoolSize);
+
+        //    _MusicSource = gameObject.AddComponent<AudioSource>();
+        //    _MusicSource.loop = true;
+        //}
+
+        ///// <summary>
+        ///// Play an audioclip for music
+        ///// </summary>
+        ///// <param name="audioClip"></param>
+        //public void PlayMusic(AudioClip audioClip)
+        //{
+        //    _MusicSource.clip = audioClip;
+        //    _MusicSource.volume = 0.1f;
+        //    _MusicSource.Play();
+        //}
+
+        ///// <summary>
+        ///// Play a sound
+        ///// </summary>
+        ///// <param name="audioClip">Audio clip to play</param>
+        //public void PlaySound(AudioClip audioClip)
+        //{
+        //    var audioSource = _AudioSourcePool.GetAudioSource();
+        //    audioSource.clip = audioClip;
+        //    audioSource.Play();
+        //}
+
+        ///// <summary>
+        ///// play a sound
+        ///// </summary>
+        ///// <param name="sound">Sound to play</param>
+        //public void PlaySound(Sound sound)
+        //{
+        //    var audioSource = _AudioSourcePool.GetAudioSource();
+        //    audioSource.clip = sound.Clip;
+        //    audioSource.volume = sound.Volume;
+        //    audioSource.Play();
+        //}
     }
 }

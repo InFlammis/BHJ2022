@@ -18,10 +18,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         /// </summary>
         event EventHandler QuitCurrentGameEvent;
 
-        /// <summary>
-        /// Event raised to play a sound
-        /// </summary>
-        event EventHandler<Sound> PlaySoundEvent;
+        ///// <summary>
+        ///// Event raised to play a sound
+        ///// </summary>
+        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Invoked on Start

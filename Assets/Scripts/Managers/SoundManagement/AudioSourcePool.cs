@@ -47,7 +47,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
 
             _SoundManager = soundManager ;
 
-            if(MaxPoolSize <= 0)
+            if(maxPoolSize <= 0)
             {
                 Debug.LogWarning($"maxPoolSize must be greater than 0. Setting it to {_DefaultPoolSize}.");
                 MaxPoolSize = _DefaultPoolSize;

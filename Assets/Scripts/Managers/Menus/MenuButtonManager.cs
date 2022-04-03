@@ -37,8 +37,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
         /// </summary>
         public void PlayHoverSound()
         {
-            SceneManager.StaticObjects.SoundManager.PlaySound(HoverSound);
-            
+            SceneManager.StaticObjects.Messenger.PublishPlaySound(this, null, HoverSound);
         }
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
         /// </summary>
         public void PlayClickSound()
         {
-            SceneManager.StaticObjects.SoundManager.PlaySound(ClickSound);
+            SceneManager.StaticObjects.Messenger.PublishPlaySound(this, null, ClickSound);
         }
 
     }

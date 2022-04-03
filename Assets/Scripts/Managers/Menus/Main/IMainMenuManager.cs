@@ -20,10 +20,10 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         /// </summary>
         event EventHandler QuitGameEvent;
 
-        /// <summary>
-        /// Event raised to play a sound
-        /// </summary>
-        event EventHandler<Sound> PlaySoundEvent;
+        ///// <summary>
+        ///// Event raised to play a sound
+        ///// </summary>
+        //event EventHandler<Sound> PlaySoundEvent;
 
         /// <summary>
         /// Event raised on Help button click

@@ -9,8 +9,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         /// <inheritdoc/>
         public event EventHandler BackEvent;
 
-        /// <inheritdoc/>
-        public event EventHandler<Sound> PlaySoundEvent;
+        ///// <inheritdoc/>
+        //public event EventHandler<Sound> PlaySoundEvent;
 
         public readonly IMyMonoBehaviour Parent;
 

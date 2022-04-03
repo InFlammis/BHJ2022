@@ -16,6 +16,9 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         //[SerializeField] private Messenger _messenger;
         //public IMessenger Messenger => _messenger;
 
+        [SerializeField] protected LevelSceneSoundSettingsSO _soundSettings;
+
+
         /// <inheritdoc/>
         public abstract event EventHandler<Sound> PlaySoundEvent;
 
@@ -44,6 +47,9 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
             }
 
             this.PlayerControllerCore = player.GetComponent<IPlayerController>().Core;
+
+            StaticObjects.Messenger.PublishPlayMusic(this, null, _soundSettings.BackgroundMusic);
+
         }
 
         /// <inheritdoc/>

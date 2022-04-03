@@ -28,10 +28,12 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         //public IMessenger Messenger => _messenger;
         [SerializeField] private StaticObjectsSO _staticObjects;
 
-        /// <summary>
-        /// Reference to the SoundManager instance
-        /// </summary>
-        protected PlayerSoundManager _SoundManager;
+        ///// <summary>
+        ///// Reference to the SoundManager instance
+        ///// </summary>
+        //protected PlayerSoundManager _SoundManager;
+
+        [SerializeField] private PlayerSoundSettingsSO _soundSettings;
 
         /// <inheritdoc/>
         public IPlayerControllerCore Core { get; set; }
@@ -248,14 +250,14 @@ namespace BulletHellJam2022.Assets.Scripts.Player
                 Debug.LogError("SceneManager not found");
             }
 
-            _SoundManager = gameObject.GetComponent<PlayerSoundManager>();
+            //_SoundManager = gameObject.GetComponent<PlayerSoundManager>();
 
-            if (_SoundManager == null)
-            {
-                Debug.LogError("SoundManager not found");
-            }
+            //if (_SoundManager == null)
+            //{
+            //    Debug.LogError("SoundManager not found");
+            //}
 
-            _SoundManager.SceneManager = sceneManager;
+            //_SoundManager.SceneManager = sceneManager;
 
 
         }
@@ -269,7 +271,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             }
             else if(col.gameObject.tag == "EnemyBullet")
             {
-                _SoundManager.PlayHitSound();
+                _staticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.HitSound);
             }
         }
 
@@ -277,7 +279,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         {
             if(col.tag == "PowerUp")
             {
-                _SoundManager.PlayPowerUpSound();
+                _staticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.PowerUpSound);
             }
         }
 
@@ -328,7 +330,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
             (_staticObjects.Messenger as IPlayerEventsPublisher).PublishHasDied(this, null);
 
-            _SoundManager.PlayExplodeSound();
+            _staticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.ExplodeSound);
 
             UnsubscribeToHealthManagerEvents();
 

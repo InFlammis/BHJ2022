@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 906532886355453268}
   - component: {fileID: 6532978547091058569}
   - component: {fileID: 3573588985749251292}
-  - component: {fileID: 2469787240384117860}
   m_Layer: 6
   m_Name: Infantry
   m_TagString: Enemy
@@ -50,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: b4c7a7f39fd03f24ebf1a45a1e8566d2, type: 2}
   _initSettings: {fileID: 11400000, guid: 8d29cf3f4f618c241b8aedbb9e426917, type: 2}
   ExplosionEffect: {fileID: 1549030810961380960, guid: 9d80051ae31abe64490f974ebd5fb795, type: 3}
   SpawnActivationEffect: {fileID: 5077295181543304785, guid: 3060c21e16eca314f955f8bbf5ba3203, type: 3}
@@ -151,31 +151,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &2469787240384117860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2347523137725475495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86b1deb35dc04ff49a62b05fb7da82bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSound:
-    Name: 
-    Clip: {fileID: 0}
-    Volume: 0
-  ExplodeSound:
-    Name: Explode
-    Clip: {fileID: 0}
-    Volume: 1
-  HitSound:
-    Name: Hit
-    Clip: {fileID: 0}
-    Volume: 1
-  SceneManager: {fileID: 0}
 --- !u!1 &8652959067557833683
 GameObject:
   m_ObjectHideFlags: 0

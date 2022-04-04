@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f014317ae3fe9c46b11a35ad2102a04, type: 3}
-  m_Name: PawnSoundSettings
+  m_Name: Scribble Sound Settings
   m_EditorClassIdentifier: 
   _moveSound:
     Name: 

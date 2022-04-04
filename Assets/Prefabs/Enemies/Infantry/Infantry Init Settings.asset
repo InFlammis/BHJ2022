@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
-  m_Name: Pawn
+  m_Name: Infantry Init Settings
   m_EditorClassIdentifier: 
-  EnemyType: 0
-  MaxSpeed: 3
-  MinAttractiveForceMagnitude: 0.5
-  MaxAttractiveForceMagnitude: 10
-  MinMovementMagnitude: 0.01
-  MaxMovementMagnitude: 0.05
+  EnemyType: 1
+  MaxSpeed: 0.5
+  MinAttractiveForceMagnitude: 0
+  MaxAttractiveForceMagnitude: 0
+  MinMovementMagnitude: 0
+  MaxMovementMagnitude: 10
   InitHealth: 20
   DamageAppliedOnCollision: 50
   InvulnerableAtStart: 0
   InvulnerableAtStartForSeconds: 0
   Powerups:
-  - PowerUp: {fileID: 3398998649458850787, guid: e3c46782a8c097b49a35444d8e70259b, type: 3}
-    ReleaseRate: 0.5
   - PowerUp: {fileID: 3398998649458850787, guid: 831b2524e78eb8e40863b9dceee85bc0, type: 3}
     ReleaseRate: 0.5
+  - PowerUp: {fileID: 3398998649458850787, guid: e3c46782a8c097b49a35444d8e70259b, type: 3}
+    ReleaseRate: 0.5
   PlayerScoreWhenKilled: 10
+  StopFiringIntervalLength: 0.75
+  FiringIntervalLength: 0.5

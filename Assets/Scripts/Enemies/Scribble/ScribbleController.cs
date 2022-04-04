@@ -5,12 +5,10 @@ using BulletHellJam2022.Assets.Scripts.Player;
 using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
+namespace BulletHellJam2022.Assets.Scripts.Enemies.Scribble
 {
-    public class PawnController : EnemyController
+    public class ScribbleController : EnemyController
     {
-        #region Unity methods
-
         void Awake()
         {
             Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
@@ -20,7 +18,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
 
             SubscribeToHealthManagerEvents();
 
-            Core = new PawnControllerCore(this, HealthManager, InitSettings);
+            Core = new ScribbleControllerCore(this, HealthManager, InitSettings);
         }
 
         void Start()
@@ -52,6 +50,29 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
             Core.OnStart();
         }
 
+        void OnCollisionEnter2D(Collision2D col)
+        {
+
+            switch (col.gameObject.tag)
+            {
+                case "Player":
+                    {
+                        Core.HandleCollisionWithPlayer();
+                        break;
+                    }
+                case "Bullet":
+                    {
+                        //The collision is managed by the bullet
+                        StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.HitSound);
+                        break;
+                    }
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            Core.Move();
+        }
 
         public virtual void SubscribeToHealthManagerEvents()
         {
@@ -65,30 +86,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
             var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.RemoveListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
-        }
-
-        void OnCollisionEnter2D(Collision2D col)
-        {
-
-            switch (col.gameObject.tag)
-            {
-                case "Player":
-                {
-                    Core.HandleCollisionWithPlayer();
-                    break;
-                }
-                case "Bullet":
-                {
-                    //The collision is managed by the bullet
-                    StaticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.HitSound);
-                    break;
-                }
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            Core.Move();
         }
 
         void HealthManagerHasDied(object publisher, string target)
@@ -112,7 +109,5 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
         {
         }
-
-        #endregion
     }
 }

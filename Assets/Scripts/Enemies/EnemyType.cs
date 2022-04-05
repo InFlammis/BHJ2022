@@ -5,6 +5,8 @@
         Pawn,
         Infantry,
         Scribble,
-        Squiggle
+        Squiggle,
+        Eye,
+        Triangle
     }
 }

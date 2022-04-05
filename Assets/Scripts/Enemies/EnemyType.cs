@@ -4,6 +4,7 @@
     {
         Pawn,
         Infantry,
-        Scribble
+        Scribble,
+        Squiggle
     }
 }

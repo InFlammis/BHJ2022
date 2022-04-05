@@ -2,13 +2,13 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Scribble.StateMachine
+namespace BulletHellJam2022.Assets.Scripts.Enemies.Squiggle.StateMachine
 {
-    public class SeekState : ScribbleState
+    public class SeekState : SquiggleState
     {
-        public override event Action<IScribbleState> ChangeState;
+        public override event Action<ISquiggleState> ChangeState;
 
-        public SeekState(ScribbleControllerCore parent, StateFactory factory)
+        public SeekState(SquiggleControllerCore parent, StateFactory factory)
         {
             Parent = parent;
             Factory = factory;

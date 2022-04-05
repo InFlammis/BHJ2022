@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Enemies
 {
-    [CreateAssetMenu(menuName = "Game/Init Settings/Enemy Sound Settings", fileName = "EnemySoundSettings")]
+    [CreateAssetMenu(menuName = "Game/Init Settings/Sound Settings", fileName = "Sound Settings")]
     public class EnemySoundSettingsSO : ScriptableObject
     {
         [SerializeField]

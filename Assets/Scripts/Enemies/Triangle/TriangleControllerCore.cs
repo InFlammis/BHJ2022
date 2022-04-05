@@ -1,16 +1,13 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine;
+﻿using BulletHellJam2022.Assets.Scripts.Enemies.Triangle.StateMachine;
 using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
 using BulletHellJam2022.Assets.Scripts.MessageBroker;
 using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
+namespace BulletHellJam2022.Assets.Scripts.Enemies.Triangle
 {
-    /// <summary>
-    /// Specialization of a IEnemyControllerCore for a Pawn enemy type
-    /// </summary>
-    public class PawnControllerCore : IEnemyControllerCore
+    public class TriangleControllerCore : IEnemyControllerCore
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
 
@@ -29,7 +26,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         /// <summary>
         /// Current state the enemy is in
         /// </summary>
-        public IPawnState CurrentState { get; protected set; }
+        public ITriangleState CurrentState { get; protected set; }
 
         /// <summary>
         /// Instance of the state factory
@@ -42,7 +39,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         /// <param name="parent">The IEnemyController parent</param>
         /// <param name="healthManager">The healthManager instance</param>
         /// <param name="settings">The initial settings</param>
-        public PawnControllerCore(IEnemyController parent, IHealthManager healthManager, EnemySettings settings)
+        public TriangleControllerCore(IEnemyController parent, IHealthManager healthManager, EnemySettings settings)
         {
             Parent = parent;
             Transform = parent.GameObject.transform;
@@ -93,7 +90,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         /// </summary>
         public void OnStart()
         {
-            if(PlayerControllerCore != null)
+            if (PlayerControllerCore != null)
             {
                 ChangeState(_stateFactory.SeekState);
             }
@@ -108,7 +105,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         /// EventHandler for the Change state invokation from the current state
         /// </summary>
         /// <param name="newState">The new state to enable</param>
-        protected void ChangeState(IPawnState newState)
+        protected void ChangeState(ITriangleState newState)
         {
             if (CurrentState != null)
             {
@@ -130,7 +127,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         /// EventHandler for the Change state invokation from the current state
         /// </summary>
         /// <param name="newState">The new state to enable</param>
-        private void CurrentStateOnChangeState(IPawnState state)
+        private void CurrentStateOnChangeState(ITriangleState state)
         {
             ChangeState(state);
         }
@@ -154,7 +151,7 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
 
         void HealthManagerHasDied(object publisher, string target)
         {
-            if(target != Parent.Target)
+            if (target != Parent.Target)
             {
                 return;
             }
@@ -163,8 +160,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
             UnsubscribeToPlayerEvents();
             UnsubscribeToHealthManagerEvents();
 
-            (_messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"Pawn,{this.Parent.GameObject.GetInstanceID()}");
-            (_messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"Pawn,{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
+            (_messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"Triangle,{this.Parent.GameObject.GetInstanceID()}");
+            (_messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"Triangle,{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
         }
 
         void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
@@ -175,5 +172,6 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn
         {
             ChangeState(_stateFactory.IdleState);
         }
+
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
+  m_Name: Eye Init Settings
+  m_EditorClassIdentifier: 
+  EnemyType: 0
+  MaxSpeed: 0.5
+  MinAttractiveForceMagnitude: 0
+  MaxAttractiveForceMagnitude: 0
+  MinMovementMagnitude: 0
+  MaxMovementMagnitude: 10
+  DamageAppliedOnCollision: 50
+  Powerups: []
+  PlayerScoreWhenKilled: 10
+  StopFiringIntervalLength: 0.75
+  FiringIntervalLength: 0.5

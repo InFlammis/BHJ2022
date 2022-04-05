@@ -1656,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 2029613971}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].DelayAfterEnd
@@ -1732,7 +1732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[1].EnemyTypes.Array.size
@@ -1756,7 +1756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].SpawnPoints.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[1].SpawnPoints.Array.size
@@ -1790,6 +1790,26 @@ PrefabInstance:
       propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 4575956578680084698, guid: e6703cbc85820414286d7a6225cee37c, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1593073689535937988, guid: 8d5707f5378ffde4d9e5182b3eb73b99, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 4575956578680084698, guid: 95f4150bcc0f1284d85ea63e64dbfc67, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 1593073689535937988, guid: b0fd19ec92caa0a4db340040960b5844, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 1593073689535937988, guid: 5f434c896f243154fb686cd82010cda6, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].SpawnPoints.Array.data[7]
+      value: 
+      objectReference: {fileID: 7643936114121142821, guid: 8a767bdee5417b942bdbd32fcd298f28, type: 3}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[1].SpawnPoints.Array.data[0]
       value: 
@@ -1931,6 +1951,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3157716284787289793, guid: c04d7eb3075caa148b19c970b070ff88, type: 3}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[2].Settings.EnemyType
+      value: 
+      objectReference: {fileID: 3042232029829836965, guid: 9bc990885a8ba544b92fc9ad0b97e3d0, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[3].Settings.EnemyType
+      value: 
+      objectReference: {fileID: 5055911843835885548, guid: 079147aa82daacf4a996cc53666ae715, type: 3}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[1].EnemyTypes.Array.data[0].Settings.EnemyType
       value: 
       objectReference: {fileID: 2771088272159019403, guid: b7db7948c325d1848a540e1186b8a87c, type: 3}
@@ -1976,6 +2004,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[1].Settings.NumToSpawn
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[2].Settings.NumToSpawn
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[3].Settings.NumToSpawn
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
@@ -2027,6 +2063,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[2].Settings.EnemyTypeEnum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[3].Settings.EnemyTypeEnum
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[1].EnemyTypes.Array.data[1].Settings.EnemyTypeEnum
       value: 1
       objectReference: {fileID: 0}
@@ -2052,6 +2096,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[1].Settings.MaxNumOfSimultaneousSpawns
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[2].Settings.MaxNumOfSimultaneousSpawns
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
+      propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[3].Settings.MaxNumOfSimultaneousSpawns
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}

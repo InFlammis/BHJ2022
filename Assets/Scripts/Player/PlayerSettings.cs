@@ -10,11 +10,13 @@ namespace BulletHellJam2022.Assets.Scripts.Player
     [CreateAssetMenu(fileName = "New Player settings", menuName = "Game/Init Settings/Player InitSettings")]
     public class PlayerSettings : ScriptableObject
     {
+        [Header("Interactions")]
         /// <summary>
         /// Damage applied to enemies on collision
         /// </summary>
         public int DamageAppliedOnCollision;
 
+        [Header("Movement")]
         /// <summary>
         /// Max speed on movements
         /// </summary>
@@ -32,6 +34,14 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         /// </summary>
         public float ForceMultiplier;
 
+        [Header("Rotation")]
+        [Range(0, 1)]
+        public float RotationTolerance;
+
+        [Range(0, 0.2f)]
+        public float RotationSpeed;
+
+        [Space()]
         /// <summary>
         /// Settings for weapons
         /// </summary>

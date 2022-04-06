@@ -24,7 +24,8 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
         public WeaponBase[] Weapons { get; }
 
-        public Vector2 PlayerInput { get; set; }
+        public Vector2 PlayerMovement { get; set; }
+        public Vector2 PlayerRotation { get; set; }
 
         public WeaponBase CurrentWeapon { get; set; }
 
@@ -41,14 +42,19 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             CurrentWeapon = Weapons[0];
         }
 
-        public void SetPlayerInput(Vector2 playerInput)
+        public void SetPlayerMovement(Vector2 playerMovement)
         {
-            PlayerInput = playerInput;
+            PlayerMovement = playerMovement;
+        }
+
+        public void SetPlayerRotation(Vector2 playerRotation)
+        {
+            PlayerRotation = playerRotation;
         }
 
         public void Move()
         {
-            RigidBody.AddForce(PlayerInput * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
+            RigidBody.AddForce(PlayerMovement * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
             var speed = RigidBody.velocity.magnitude;
 
             //Limit speed
@@ -58,18 +64,29 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             }
 
             //Stop fightship when input is zero
-            if (PlayerInput == Vector2.zero && speed != 0)
+            if (PlayerMovement == Vector2.zero && speed != 0)
             {
                 RigidBody.velocity *= InitSettings.Deceleration;
             }
         }
 
-        public void Rotate(Vector2 inputVector)
+        public void Rotate()
         {
-            float angle = Mathf.Atan2(inputVector.y, inputVector.x) - Mathf.PI / 2;
+            float angle = Mathf.Atan2(PlayerRotation.y, PlayerRotation.x) - Mathf.PI / 2;
             
-            var rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
-            ((MonoBehaviour)Parent).StartCoroutine(DoRotatePlayer(rotation));
+            var rotationQuat = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+
+            var rotationMagnitude = PlayerRotation.magnitude;
+
+            //Debug.Log($"Rotation magnitude: {rotationMagnitude}");
+
+            if (rotationMagnitude < InitSettings.RotationTolerance)
+            {
+                return;
+            }
+
+            var rotation = Quaternion.Slerp(Transform.rotation, rotationQuat, rotationMagnitude * InitSettings.RotationSpeed);
+            RigidBody.SetRotation(rotation);
         }
 
         public void StartFiring()
@@ -98,26 +115,22 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
         public void TurnLeft()
         {
-            var rotation = Quaternion.Euler(0, 0, 90);
-            ((MonoBehaviour)Parent).StartCoroutine(DoRotatePlayer(rotation));
+            PlayerRotation = new Vector2(-1, 0);
         }
 
         public void TurnRight()
         {
-            var rotation = Quaternion.Euler(0, 0, -90);
-            ((MonoBehaviour)Parent).StartCoroutine(DoRotatePlayer(rotation));
+            PlayerRotation = new Vector2(1, 0);
         }
 
         public void TurnUp()
         {
-            var rotation = Quaternion.Euler(0, 0, 0);
-            ((MonoBehaviour)Parent).StartCoroutine(DoRotatePlayer(rotation));
+            PlayerRotation = new Vector2(0, 1);
         }
 
         public void TurnDown()
         {
-            var rotation = Quaternion.Euler(0, 0, 180);
-            ((MonoBehaviour)Parent).StartCoroutine(DoRotatePlayer(rotation));
+            PlayerRotation = new Vector2(0, 1);
         }
 
         /// <summary>
@@ -125,18 +138,5 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         /// </summary>
         /// <param name="quaternion">Rotation</param>
         /// <returns></returns>
-        private IEnumerator DoRotatePlayer(Quaternion quaternion)
-        {
-            float tolerance = 0.95f;
-            float rotationSpeed = 0.01f;
-
-            while ( Mathf.Abs(Quaternion.Dot(Transform.rotation, quaternion) ) < tolerance)
-            {
-                Transform.rotation = Quaternion.Slerp(Transform.rotation, quaternion, rotationSpeed);
-                yield return  null;
-            }
-
-            Transform.rotation = quaternion;
-        }
     }
 }

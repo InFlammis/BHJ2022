@@ -13,6 +13,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         IOrchestrationManager
     {
         [SerializeField] private StaticObjectsSO _staticObjects;
+        [SerializeField] private bool IsIdle;
 
         public StaticObjectsSO StaticObjects => _staticObjects;
         
@@ -86,6 +87,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
         public void LevelGameStarted(object publisher, string target)
         {
+            if (IsIdle)
+                return;
             RunCancellationToken = new CancellationToken();
             StartCoroutine(CoRun(RunCancellationToken));
         }

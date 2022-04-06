@@ -6,6 +6,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 
     public class HealthManagerSettingsSO : ScriptableObject
     {
+        [Header("Health")]
         /// <summary>
         /// Initial health
         /// </summary>
@@ -16,11 +17,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         /// </summary>
         public int MaxHealth;
 
-        /// <summary>
-        /// Target to whom send events
-        /// </summary>
-        public string Target;
-
+        [Header("Invulnerability")]
         public bool IsInvulnerable;
 
         /// <summary>
@@ -32,6 +29,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
         /// How many seconds the enemy is invulnerable at start
         /// </summary>
         public float InvulnerableAtStartForSeconds;
+
+        [Header("Messenger settings")]
+        /// <summary>
+        /// Target to whom send events
+        /// </summary>
+        public string Target;
 
     }
 }

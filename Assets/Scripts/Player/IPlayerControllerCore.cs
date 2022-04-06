@@ -37,18 +37,21 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         /// <summary>
         /// private instance that stores the last player input
         /// </summary>
-        Vector2 PlayerInput { get; set; }
+        Vector2 PlayerMovement { get; set; }
 
         /// <summary>
         /// Set the Player Input variable
         /// </summary>
         /// <param name="playerInput"></param>
-        void SetPlayerInput(Vector2 playerInput);
+        void SetPlayerMovement(Vector2 playerInput);
 
         /// <summary>
         /// Move the player
         /// </summary>
         void Move();
+
+        void Rotate();
+
 
         /// <summary>
         /// Start a firing action lasting across multiple frames
@@ -75,7 +78,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         /// </summary>
         /// <param name="enemyController">Enemy which the player is colliding with</param>
         void HandleCollisionWithEnemy(IEnemyControllerCore enemyController);
-        void Rotate(Vector2 inputVector);
+        void SetPlayerRotation(Vector2 inputVector);
 
         /// <summary>
         /// Turn left

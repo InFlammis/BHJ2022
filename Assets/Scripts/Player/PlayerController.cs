@@ -42,13 +42,13 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
             if (context.performed)
             {
-                Core.SetPlayerInput(inputVector);
+                Core.SetPlayerMovement(inputVector);
                 Debug.Log($"Moving {inputVector}");
             }
             else if (context.canceled)
             {
                 Debug.Log("Not moving");
-                Core.SetPlayerInput(inputVector);
+                Core.SetPlayerMovement(inputVector);
             }
         }
 
@@ -58,14 +58,14 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
             if (context.performed)
             {
-                Core.Rotate(inputVector);
+                Core.SetPlayerRotation(inputVector);
                 Debug.Log($"Rotating {inputVector}");
 
             }
             else if (context.canceled)
             {
                 Debug.Log("Not rotating");
-                Core.Rotate(inputVector);
+                Core.SetPlayerRotation(inputVector);
             }
         }
 
@@ -225,6 +225,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         void FixedUpdate()
         {
             Core.Move();
+            Core.Rotate();
         }
 
         #endregion

@@ -23,6 +23,5 @@ namespace BulletHellJam2022.Assets.Scripts.Player
         public Sound ExplodeSound => _explodeSound;
         public Sound HitSound => _hitSound;
         public Sound PowerUpSound => _powerUpSound;
-
     }
 }

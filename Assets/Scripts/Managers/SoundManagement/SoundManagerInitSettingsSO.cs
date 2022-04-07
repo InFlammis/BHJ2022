@@ -2,7 +2,7 @@
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
 {
-    [CreateAssetMenu(menuName = "Game/Init Settings/SoundManager Init Settings", fileName = "SoundManagerInitSettings")]
+    [CreateAssetMenu(menuName = "Game/Settings/SoundManager Settings", fileName = "SoundManager Settings")]
     public class SoundManagerInitSettingsSO : ScriptableObject
     {
         public int AudioSourcePoolSize = 10;

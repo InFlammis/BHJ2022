@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
 {
-    [CreateAssetMenu(menuName = "Game/Init Settings/Menu Sound Settings", fileName = "MenuSoundSettings")]
+    [CreateAssetMenu(menuName = "Game/Settings/Menu Sound Settings", fileName = "Menu Sound Settings")]
 
     public class MenuSceneSoundSettingsSO : ScriptableObject
     {

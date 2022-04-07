@@ -21,19 +21,19 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
         Panic
     }
 
-    public class Logger :
+    public class LogManager :
         MonoBehaviour,
         ILogManager
     {
-        [SerializeField] private bool _logEnabled;
-        [SerializeField] private Level _filterLevel;
-
+        //[SerializeField] private bool _logEnabled;
+        //[SerializeField] private Level _filterLevel;
+        [SerializeField] private LogManagerSettingsSO _settings;
         [SerializeField] private StaticObjectsSO _staticObjects;
 
         private IMessenger _messenger => _staticObjects.Messenger;
 
-        public bool logEnabled => _logEnabled;
-        public Level filterLevel => _filterLevel;
+        public bool logEnabled => _settings._logEnabled;
+        public Level filterLevel => _settings._filterLevel;
 
         void Awake()
         {

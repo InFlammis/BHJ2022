@@ -4,8 +4,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManagerCore : ICreditsMenuManager
     {
-        public event EventHandler BackEvent;
-
         public readonly ICreditsMenuManager Parent;
 
         public StaticObjectsSO StaticObjects => Parent.StaticObjects;

@@ -5,8 +5,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManager : MenuManager, ICreditsMenuManager
     {
-        public event EventHandler BackEvent;
-
         public ICreditsMenuManager Core { get; protected set; }
 
         void Awake()
@@ -25,7 +23,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
         public void OnAwake()
         {
             Core.OnAwake();
-            Core.BackEvent += (sender, args) => BackEvent?.Invoke(sender, args);
         }
 
         public void OnStart()

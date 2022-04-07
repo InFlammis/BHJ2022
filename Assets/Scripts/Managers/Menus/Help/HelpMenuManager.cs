@@ -5,8 +5,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
 {
     public class HelpMenuManager : MenuManager, IHelpMenuManager
     {
-        public event EventHandler BackEvent;
-
         public IHelpMenuManager Core { get; protected set; }
 
         void Awake()
@@ -29,7 +27,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         public void OnAwake()
         {
             Core.OnAwake();
-            Core.BackEvent += (sender, args) => BackEvent?.Invoke(sender, args);
         }
 
         public void OnStart()

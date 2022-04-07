@@ -7,26 +7,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
         public StaticObjectsSO StaticObjects { get; }
 
         /// <summary>
-        /// Event raised on Start Game button click
-        /// </summary>
-        event EventHandler StartGameEvent;
-
-        /// <summary>
-        /// Event raised on Credits button click
-        /// </summary>
-        event EventHandler CreditsEvent;
-        
-        /// <summary>
-        /// Event raised on Quit Game button click
-        /// </summary>
-        event EventHandler QuitGameEvent;
-
-        /// <summary>
-        /// Event raised on Help button click
-        /// </summary>
-        event EventHandler HelpEvent;
-
-        /// <summary>
         /// Invoked on Start
         /// </summary>
         void OnStart();

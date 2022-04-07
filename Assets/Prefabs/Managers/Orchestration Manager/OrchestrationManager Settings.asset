@@ -16,4 +16,20 @@ MonoBehaviour:
   DelayBetweenWaves: 1
   DelayBeforeStart: 1
   DelayAfterEnd: 1
-  Waves: []
+  Waves:
+  - EnemyTypes:
+    - Settings:
+        EnemyTypeEnum: 2
+        EnemyType: {fileID: 6365512084176966079, guid: bee9e882ce282b04b9dd73bc05f246c8, type: 3}
+        NumToSpawn: 10
+        MaxNumOfSimultaneousSpawns: 1
+    SpawnPoints:
+    - {fileID: 4575956578680084698, guid: 32f648dfe1fc026458d521499b8694bb, type: 3}
+    MaxSimultaneousEnemiesSpawned: 2
+    DelayBetweenSpawns: 1
+    DelayBeforeStart: 1
+    DelayAfterEnd: 1
+    CurrentSimultaneousEnemiesSpawned: 0
+    TotEnemiesSpawned: 8
+    TotEnemiesToSpawn: 10
+    TotEnemiesKilled: 8

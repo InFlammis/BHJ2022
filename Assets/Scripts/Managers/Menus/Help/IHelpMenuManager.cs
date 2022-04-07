@@ -10,11 +10,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
         public StaticObjectsSO StaticObjects { get; }
 
         /// <summary>
-        /// Event raised by the Back button
-        /// </summary>
-        event EventHandler BackEvent;
-
-        /// <summary>
         /// Invoked on Start
         /// </summary>
         void OnStart();

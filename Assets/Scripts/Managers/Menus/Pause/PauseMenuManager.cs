@@ -5,10 +5,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
 {
     public class PauseMenuManager : MenuManager, IPauseMenuManager
     {
-        public event EventHandler ResumeGameEvent;
-
-        public event EventHandler QuitCurrentGameEvent;
-
         public IPauseMenuManager Core { get; protected set; }
 
         void Awake()
@@ -32,9 +28,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         public void OnAwake()
         {
             Core.OnAwake();
-
-            Core.ResumeGameEvent += (sender, args) => ResumeGameEvent?.Invoke(sender, args);
-            Core.QuitCurrentGameEvent += (sender, args) => QuitCurrentGameEvent?.Invoke(sender, args);
         }
 
         public void ResumeGame()

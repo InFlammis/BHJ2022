@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3042232029254236717}
   - component: {fileID: 3042232029254236716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,9 +59,9 @@ GameObject:
   - component: {fileID: 3042232029829836962}
   - component: {fileID: 3042232029829836963}
   - component: {fileID: 3042232029829836964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

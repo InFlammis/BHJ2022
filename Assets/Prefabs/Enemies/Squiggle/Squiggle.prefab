@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3157716284787289788}
   - component: {fileID: 3157716284787289795}
   - component: {fileID: 3157716284787289794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Squiggle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3157716286428247406}
   - component: {fileID: 3157716286428247407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -160,8 +160,8 @@ namespace BulletHellJam2022.Assets.Scripts.Enemies.Eye
             UnsubscribeToPlayerEvents();
             UnsubscribeToHealthManagerEvents();
 
-            (_messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"Eye,{this.Parent.GameObject.GetInstanceID()}");
-            (_messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"Eye,{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
+            (_messenger as IEnemyEventsPublisher).PublishHasDied(this.Parent, $"{target},{this.Parent.GameObject.GetInstanceID()}");
+            (_messenger as IEnemyEventsPublisher).PublishPlayerScored(this.Parent, $"{target},{this.Parent.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
         }
 
         void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)

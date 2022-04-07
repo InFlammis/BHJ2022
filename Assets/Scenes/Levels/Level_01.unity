@@ -1656,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: IsIdle
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: _messenger
@@ -2100,15 +2100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[0].Settings.MaxNumOfSimultaneousSpawns
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[1].Settings.MaxNumOfSimultaneousSpawns
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[2].Settings.MaxNumOfSimultaneousSpawns
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791939352518991900, guid: 220013cb6cee9e24a825d1e0440be608, type: 3}
       propertyPath: Waves.Array.data[0].EnemyTypes.Array.data[3].Settings.MaxNumOfSimultaneousSpawns

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5055911843835885554}
   - component: {fileID: 5055911843835885555}
   - component: {fileID: 1345902100740366028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5055911844185639858}
   - component: {fileID: 5055911844185639857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

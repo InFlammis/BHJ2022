@@ -26,7 +26,5 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 
             Configuration.Messenger.PublishGameOver(this, null);
         }
-
-        public override event EventHandler<State> ChangeStateRequestEvent;
     }
 }

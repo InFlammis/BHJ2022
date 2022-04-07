@@ -1,4 +1,5 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine;
+using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
 using BulletHellJam2022.Assets.Scripts.Player;
 using UnityEngine.InputSystem;
 
@@ -45,7 +46,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
                 spawnEnemiesEnabled: true
             );
 
-            ChangeStateRequestEventHandler(this, new WaitForStart(_stateConfiguration));
+            ChangeStateRequestEventHandler(this, null, new WaitForStart(_stateConfiguration));
         }
 
         /// <summary>
@@ -53,21 +54,21 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         /// </summary>
         /// <param name="sender">The sender of the request.</param>
         /// <param name="e">The new state.</param>
-        protected void ChangeStateRequestEventHandler(object sender, State e)
+        protected void ChangeStateRequestEventHandler(object publisher, string target, State e)
         {
             if (CurrentState != null)
             {
-                CurrentState.ChangeStateRequestEvent -= ChangeStateRequestEventHandler;
                 CurrentState.OnExit();
             }
             CurrentState = e;
-            CurrentState.ChangeStateRequestEvent += ChangeStateRequestEventHandler;
             CurrentState.OnEnter();
         }
 
         public void OnAwake() 
         {
             _playerInput = LevelManager.GameObject.GetComponent<PlayerInput>();
+            LevelManager.StaticObjects.Messenger.ChangeStateRequest.AddListener(ChangeStateRequestEventHandler);
+
         }
 
 
@@ -101,7 +102,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
         private void GameOver()
         {
             LevelManager.StaticObjects.Messenger.PublishGameOver(this, null);
-            ChangeStateRequestEventHandler(this, new StateMachine.GameOver(_stateConfiguration));
+            ChangeStateRequestEventHandler(this, null, new StateMachine.GameOver(_stateConfiguration));
 
         }
         public void PlayerHasDied(object publisher, string target)
@@ -111,7 +112,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 
         public void OrchestrationManagerOrchestrationComplete(object publisher, string target)
         {
-            ChangeStateRequestEventHandler(this, new Win(_stateConfiguration));
+            ChangeStateRequestEventHandler(this, null, new Win(_stateConfiguration));
         }
     }
 }

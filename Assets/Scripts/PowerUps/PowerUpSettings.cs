@@ -5,7 +5,7 @@ namespace BulletHellJam2022.Assets.Scripts.PowerUps
     /// <summary>
     /// Settings for a power-up
     /// </summary>
-    [CreateAssetMenu(fileName = "New Power-Up InitSettings", menuName = "Game/Init Settings/Power-Up InitSettings")]
+    [CreateAssetMenu(fileName = "New Power-Up Settings", menuName = "Game/Settings/Power-Up Settings")]
     public class PowerUpSettings : ScriptableObject
     {
         /// <summary>

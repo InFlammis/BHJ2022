@@ -7,7 +7,7 @@ namespace BulletHellJam2022.Assets.Scripts.Player
     /// <summary>
     /// Configuration for the Player
     /// </summary>
-    [CreateAssetMenu(fileName = "New Player settings", menuName = "Game/Init Settings/Player InitSettings")]
+    [CreateAssetMenu(fileName = "New Player settings", menuName = "Game/Settings/Player Settings")]
     public class PlayerSettings : ScriptableObject
     {
         [Header("Interactions")]

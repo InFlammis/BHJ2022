@@ -13,34 +13,19 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         IOrchestrationManager
     {
         [SerializeField] private StaticObjectsSO _staticObjects;
-        [SerializeField] private bool IsIdle;
+        [SerializeField] private OrchestrationManagerSettingsSO _settings;
 
         public StaticObjectsSO StaticObjects => _staticObjects;
         
-        /// <summary>
-        /// Collection of waves of enemies to spawn
-        /// </summary>
-        public Wave[] Waves;
+        ///// <summary>
+        ///// Collection of waves of enemies to spawn
+        ///// </summary>
+        //public Wave[] Waves;
 
         /// <summary>
         /// The cancellation token
         /// </summary>
         private CancellationToken RunCancellationToken;
-
-        /// <summary>
-        /// Delay between two consecutive waves
-        /// </summary>
-        public float DelayBetweenWaves = 1.0f;
-
-        /// <summary>
-        /// Delay before starting the next wave
-        /// </summary>
-        public float DelayBeforeStart = 1.0f;
-
-        /// <summary>
-        /// Delay after the previous wave is done
-        /// </summary>
-        public float DelayAfterEnd = 1.0f;
 
         /// <summary>
         /// CoRoutine that manages the execution
@@ -51,8 +36,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         {
             _staticObjects.Messenger.PublishOrchestrationStarted(this, null);
 
-            yield return new WaitForSeconds(DelayBeforeStart);
-            foreach(var wave in Waves)
+            yield return new WaitForSeconds(_settings.DelayBeforeStart);
+            foreach(var wave in _settings.Waves)
             {
                 if(cancellationToken.Cancel == true)
                 {
@@ -63,12 +48,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
                 yield return new WaitUntil(() => wave.Status == StatusEnum.Done);
 
-                yield return new WaitForSeconds(DelayBetweenWaves);
+                yield return new WaitForSeconds(_settings.DelayBetweenWaves);
             }
 
             if(cancellationToken.Cancel == false)
             {
-                yield return new WaitForSeconds(DelayAfterEnd);
+                yield return new WaitForSeconds(_settings.DelayAfterEnd);
 
                 _staticObjects.Messenger.PublishOrchestrationComplete(this, null);
             }
@@ -81,7 +66,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 
         public void LevelGameStarted(object publisher, string target)
         {
-            if (IsIdle)
+            if (_settings.IsIdle)
                 return;
             RunCancellationToken = new CancellationToken();
             StartCoroutine(CoRun(RunCancellationToken));

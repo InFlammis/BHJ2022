@@ -2,7 +2,7 @@
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
 {
-    [CreateAssetMenu(fileName = "New Health settings", menuName = "Game/Init Settings/Health Settings")]
+    [CreateAssetMenu(fileName = "New Health settings", menuName = "Game/Settings/Health Settings")]
 
     public class HealthManagerSettingsSO : ScriptableObject
     {

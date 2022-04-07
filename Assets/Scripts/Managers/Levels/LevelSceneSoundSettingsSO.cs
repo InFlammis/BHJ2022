@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
 {
-    [CreateAssetMenu(menuName = "Game/Init Settings/Level Sound Settings", fileName = "LevelSoundSettings")]
+    [CreateAssetMenu(menuName = "Game/Settings/Level Sound Settings", fileName = "Level Sound Settings")]
     public class LevelSceneSoundSettingsSO : ScriptableObject
     {
         [SerializeField]

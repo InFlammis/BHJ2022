@@ -4,10 +4,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
 {
     public class PauseMenuManagerCore : IPauseMenuManager
     {
-        public event EventHandler ResumeGameEvent;
-
-        public event EventHandler QuitCurrentGameEvent;
-
         public readonly IPauseMenuManager Parent;
 
         public StaticObjectsSO StaticObjects => Parent.StaticObjects;

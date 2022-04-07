@@ -7,7 +7,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
 {
     public class Win : State
     {
-        public override event EventHandler<State> ChangeStateRequestEvent;
         private float _returnToMainDelay = 8;
 
         /// <summary>

@@ -25,8 +25,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
         MonoBehaviour,
         ILogManager
     {
-        //[SerializeField] private bool _logEnabled;
-        //[SerializeField] private Level _filterLevel;
         [SerializeField] private LogManagerSettingsSO _settings;
         [SerializeField] private StaticObjectsSO _staticObjects;
 

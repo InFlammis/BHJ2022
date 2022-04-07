@@ -14,8 +14,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
             ChangeStateDelay = 2;
         }
 
-        public override event EventHandler<State> ChangeStateRequestEvent;
-
         public override void OnEnter()
         {
             base.OnEnter();
@@ -31,7 +29,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
         protected IEnumerator CoChangeState(State state)
         {
             yield return new WaitForSeconds(ChangeStateDelay);
-            ChangeStateRequestEvent?.Invoke(this, state);
+            Configuration.Messenger.PublishLevelChangeStateRequest(this, null, state);
         }
     }
 }

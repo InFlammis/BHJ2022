@@ -8,10 +8,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
     public abstract class State
     {
         public readonly StateConfiguration Configuration;
-        /// <summary>
-        /// Event raised to invoke a change of state.
-        /// </summary>
-        public abstract event EventHandler<State> ChangeStateRequestEvent;
 
         /// <summary>
         /// Gets or sets the delay in seconds during a change of state.

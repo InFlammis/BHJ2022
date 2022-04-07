@@ -10,16 +10,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
         public StaticObjectsSO StaticObjects { get; }
 
         /// <summary>
-        /// Event raised by the Resume button
-        /// </summary>
-        event EventHandler ResumeGameEvent;
-
-        /// <summary>
-        /// Event raised by the Quit Current Game button
-        /// </summary>
-        event EventHandler QuitCurrentGameEvent;
-
-        /// <summary>
         /// Invoked on Start
         /// </summary>
         void OnStart();

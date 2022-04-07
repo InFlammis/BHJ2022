@@ -4,8 +4,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
 {
     public class HelpMenuManagerCore : IHelpMenuManager
     {
-        public event EventHandler BackEvent;
-
         public readonly IHelpMenuManager Parent;
         public StaticObjectsSO StaticObjects => Parent.StaticObjects;
 

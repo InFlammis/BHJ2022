@@ -43,11 +43,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         public float DelayAfterEnd = 1.0f;
 
         /// <summary>
-        /// Status of the Orchestration
-        /// </summary>
-        public StatusEnum Status { get; private set; } = StatusEnum.NotStarted;
-
-        /// <summary>
         /// CoRoutine that manages the execution
         /// </summary>
         /// <param name="cancellationToken"></param>
@@ -55,8 +50,6 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         public IEnumerator CoRun(CancellationToken cancellationToken)
         {
             _staticObjects.Messenger.PublishOrchestrationStarted(this, null);
-
-            Status = StatusEnum.Running;
 
             yield return new WaitForSeconds(DelayBeforeStart);
             foreach(var wave in Waves)
@@ -73,11 +66,12 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
                 yield return new WaitForSeconds(DelayBetweenWaves);
             }
 
-            yield return new WaitForSeconds(DelayAfterEnd);
+            if(cancellationToken.Cancel == false)
+            {
+                yield return new WaitForSeconds(DelayAfterEnd);
 
-            Status = StatusEnum.Done;
-
-            _staticObjects.Messenger.PublishOrchestrationComplete(this, null);
+                _staticObjects.Messenger.PublishOrchestrationComplete(this, null);
+            }
         }
 
         public void LevelGameOver(object publisher, string target)

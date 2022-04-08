@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebb216f5434e23409674deebce2c130, type: 3}
   m_Name: LogManager Settings
   m_EditorClassIdentifier: 
-  _logEnabled: 0
+  _logEnabled: 1
   _filterLevel: 0

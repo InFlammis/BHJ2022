@@ -336,6 +336,17 @@ public partial class @PlayerActionAsset : IInputActionCollection2, IDisposable
                     ""action"": ""PauseResume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cae04c74-e73b-42b5-b517-adcc42436e2c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseResume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },

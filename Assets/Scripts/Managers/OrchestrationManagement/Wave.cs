@@ -104,6 +104,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
         public IEnumerator CoRun(OrchestrationManager manager, OrchestrationManager.CancellationToken cancellationToken)
         {
             Status = OrchestrationManager.StatusEnum.Running;
+            TotEnemiesSpawned = 0;
+            TotEnemiesKilled = 0;
             TotEnemiesToSpawn = EnemyTypes.Sum(x => x.Settings.NumToSpawn);
 
             yield return new WaitForSeconds(DelayBeforeStart);

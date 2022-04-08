@@ -1,6 +1,7 @@
 ﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
@@ -18,6 +19,8 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
 
         private float _timeScale;
 
+        private EventSystem _eventSystem;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -25,6 +28,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             _timeScale = Time.timeScale;
             SetTimeScale();
 
+            _eventSystem = GameObject.FindObjectOfType<EventSystem>();
+            if(_eventSystem != null)
+            {
+                _eventSystem.enabled = false;
+            }
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
         }
 
@@ -33,6 +41,11 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnExit();
 
             SceneManagerWrapper.UnloadSceneAsync(_sceneName);
+
+            if (_eventSystem != null)
+            {
+                _eventSystem.enabled = true;
+            }
 
             ResetTimeScale();
         }

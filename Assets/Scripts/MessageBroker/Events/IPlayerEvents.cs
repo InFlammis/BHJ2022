@@ -1,5 +1,9 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
+﻿using System;
+using UnityEngine;
+
+namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
 {
+    //public delegate Func<Transform> RequestForPlayerTransform();
     /// <summary>
     /// Interface required for a Player Events Publisher.
     /// </summary>
@@ -21,6 +25,8 @@
         /// <param name="maxHealthLevel">Maximum health level.</param>
         void PublishHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel);
 
+        Transform RequestForPlayerTransform(object publisher, string target);
+
     }
 
     /// <summary>
@@ -37,5 +43,8 @@
         /// Returns a reference to a delegate of type <see cref="ReceivedDamage"/>, to subscribe to.
         /// </summary>
         HealthLevelChanged HealthLevelChanged { get; }
+
+        event Func<object, string, Transform> RequestForPlayerTransformEvent;
+
     }
 }

@@ -165,9 +165,20 @@ namespace BulletHellJam2022.Assets.Scripts.Player
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
 
             SubscribeToHealthManagerEvents();
+            SubscribeToRequestsForPlayer();
             CheckWeaponsConfiguration();
 
             Core = new PlayerControllerCore(this);
+        }
+
+        private void SubscribeToRequestsForPlayer()
+        {
+            _staticObjects.Messenger.RequestForPlayerTransformEvent += Messenger_RequestForPlayerTransformEvent;
+        }
+
+        private Transform Messenger_RequestForPlayerTransformEvent(object publisher, string target)
+        {
+            return this.gameObject.transform;
         }
 
         public virtual void SubscribeToHealthManagerEvents()

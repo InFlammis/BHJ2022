@@ -30,6 +30,6 @@ MonoBehaviour:
     DelayBeforeStart: 1
     DelayAfterEnd: 1
     CurrentSimultaneousEnemiesSpawned: 0
-    TotEnemiesSpawned: 8
+    TotEnemiesSpawned: 0
     TotEnemiesToSpawn: 10
-    TotEnemiesKilled: 8
+    TotEnemiesKilled: 1

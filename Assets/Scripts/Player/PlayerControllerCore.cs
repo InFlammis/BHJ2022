@@ -54,7 +54,11 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
         public void Move()
         {
-            RigidBody.AddForce(PlayerMovement * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
+            var newForward = this.Parent.GameObject.transform.rotation * (new Vector3(PlayerMovement.x, PlayerMovement.y, 0));
+
+            RigidBody.AddForce(newForward * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
+
+            //RigidBody.AddForce(PlayerMovement * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
             var speed = RigidBody.velocity.magnitude;
 
             //Limit speed

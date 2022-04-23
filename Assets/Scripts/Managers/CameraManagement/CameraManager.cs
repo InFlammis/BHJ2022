@@ -18,7 +18,7 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.CameraManagement
                 return;
             }
             this.transform.position = new Vector3((float)playerTransform.position.x, (float)playerTransform.position.y, this.transform.position.z);
-            this.transform.rotation = playerTransform.rotation;
+            //this.transform.rotation = playerTransform.rotation;
         }
     }
 }

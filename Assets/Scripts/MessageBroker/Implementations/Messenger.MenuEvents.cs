@@ -14,6 +14,7 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker
         [SerializeField] private ResumeGame _Menu_ResumeGame = new ResumeGame();
         [SerializeField] private PauseGame _Menu_PauseGame = new PauseGame();
         [SerializeField] private QuitCurrentGame _Menu_QuitCurrentGame = new QuitCurrentGame();
+        [SerializeField] private PreRollFinished _Menu_PreRollFinished = new PreRollFinished();
 
         StartGame IMenuEventsMessenger.StartGame => _Menu_StartGame;
         QuitGame IMenuEventsMessenger.QuitGame => _Menu_QuitGame;
@@ -23,6 +24,7 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker
         ResumeGame IMenuEventsMessenger.ResumeGame => _Menu_ResumeGame;
         PauseGame IMenuEventsMessenger.PauseGame => _Menu_PauseGame;
         QuitCurrentGame IMenuEventsMessenger.QuitCurrentGame => _Menu_QuitCurrentGame;
+        PreRollFinished IMenuEventsMessenger.PreRollFinished => _Menu_PreRollFinished;
 
         void IMenuEventsPublisher.PublishStartGame(object publisher, string target)
         {
@@ -55,6 +57,10 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker
         void IMenuEventsPublisher.PublishQuitCurrentGame(object publisher, string target)
         {
             _Menu_QuitCurrentGame.Invoke(publisher, target);
+        }
+        void IMenuEventsPublisher.PublishPreRollFinished(object publisher, string target)
+        {
+            _Menu_PreRollFinished.Invoke(publisher, target);
         }
     }
 }

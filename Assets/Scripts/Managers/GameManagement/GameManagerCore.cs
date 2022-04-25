@@ -40,12 +40,14 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
             StaticObjects.Messenger.OpenCredits.AddListener(OpenCreditsEventHandler);
             StaticObjects.Messenger.OpenHelp.AddListener(OpenHelpEventHandler);
             StaticObjects.Messenger.BackToMain.AddListener(BackToMainEventHandler);
+            StaticObjects.Messenger.PreRollFinished.AddListener(PreRollFinishedEventHandler);
 
         }
-
         public void OnStart()
         {
-            PushState(new Init(this, _sceneManagerWrapper));
+            //PushState(new Init(this, _sceneManagerWrapper));
+            PushState(new PreRoll(this, _sceneManagerWrapper));
+
         }
 
         #endregion
@@ -102,6 +104,13 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
         {
             PushState(new Pause(this, _sceneManagerWrapper));
         }
+
+        private void PreRollFinishedEventHandler(object arg0, string arg1)
+        {
+            ReplaceState(new Init(this, _sceneManagerWrapper));
+        }
+
+
 
         #endregion
 

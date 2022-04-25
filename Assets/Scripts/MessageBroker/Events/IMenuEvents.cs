@@ -11,6 +11,7 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
     [Serializable] public class PauseGame : UnityEvent<object, string> { }
     [Serializable] public class ResumeGame : UnityEvent<object, string> { }
     [Serializable] public class QuitCurrentGame : UnityEvent<object, string> { }
+    [Serializable] public class PreRollFinished : UnityEvent<object, string> { }
 
 
 
@@ -24,6 +25,7 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
         void PublishPauseGame(object publisher, string target);
         void PublishResumeGame(object publisher, string target);
         void PublishQuitCurrentGame(object publisher, string target);
+        void PublishPreRollFinished(object publisher, string target);
     }
 
     public interface IMenuEventsMessenger
@@ -36,5 +38,7 @@ namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
         PauseGame PauseGame { get; }
         ResumeGame ResumeGame { get; }
         QuitCurrentGame QuitCurrentGame { get; }
+
+        PreRollFinished PreRollFinished { get; }
     }
 }

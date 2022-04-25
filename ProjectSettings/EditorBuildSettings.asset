@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/Pause menu/PauseMenu.unity
     guid: 79aa8d97b0cccc14796fa4e3255ce9bf
+  - enabled: 1
+    path: Assets/Scenes/Menus/Pre-roll/PreRoll.unity
+    guid: 2a83a4ea3b431ea44a76223afac6041d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1eafc1f94e6e26a478e9133bb38a0987, type: 2}

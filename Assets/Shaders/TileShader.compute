@@ -1,0 +1,21 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float3> Result;
+Texture2D<float3> InputTxt;
+Texture2D<float4> SpotTxt;
+int2 offset;
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+    //var output = InputTxt[id.xy].rgb * (1 - SpotTxt[id.xy].a) + SpotTxt[id.xy].rgb;
+    Result[id.xy + offset] = Result[id.xy + offset].rgb * (1 - SpotTxt[id.xy].a) + SpotTxt[id.xy].rgb * SpotTxt[id.xy].a;
+    //Result[id.xy] = Result[id.xy].rgb * (1 - SpotTxt[id.xy].a) + SpotTxt[id.xy].rgb;
+
+    //Result = InputTxt.rgb * (1 - SpotTxt.a) + SpotTxt.rgb;
+    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+}

@@ -54,8 +54,8 @@ namespace BulletHellJam2022.Assets.Scripts.Player
 
         public void Move()
         {
-            var newForward = this.Parent.GameObject.transform.rotation * (new Vector3(PlayerMovement.x, PlayerMovement.y, 0));
-
+            //var newForward = this.Parent.GameObject.transform.rotation * (new Vector3(PlayerMovement.x, PlayerMovement.y, 0));
+            var newForward = new Vector3(PlayerMovement.x, PlayerMovement.y, 0);
             RigidBody.AddForce(newForward * InitSettings.ForceMultiplier, ForceMode2D.Impulse);
 
             //RigidBody.AddForce(PlayerMovement * InitSettings.ForceMultiplier, ForceMode2D.Impulse);

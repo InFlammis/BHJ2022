@@ -8,6 +8,8 @@ public class TileManager : MonoBehaviour
     [SerializeField] private Texture2D background;
     [SerializeField] private Texture2D foreground;
 
+    [SerializeField] private GameObject tile;
+
     private IDictionary<Vector2, TileWrap> tileWrapsDictionary;
 
     private readonly Vector2 leftShift = new Vector2(-1, 0);
@@ -19,16 +21,41 @@ public class TileManager : MonoBehaviour
     private readonly Vector2 topRightShift = new Vector2(1, 1);
     private readonly Vector2 bottomRightShift = new Vector2(1, -1);
 
+
+    void Awake()
+    {
+        var groundRectTransform = gameObject.transform as RectTransform;
+        var groundRect = groundRectTransform.rect;
+        var tileRectTransform = tile.transform as RectTransform;
+        var tileRect = tileRectTransform.rect;
+
+        var tileDictionary = new Dictionary<Vector2, GameObject>();
+
+        for(var x = groundRect.xMin; x < groundRect.xMax; x += tileRect.width)
+        {
+            for(var y = groundRect.yMin; y < groundRect.yMax; y += tileRect.height)
+            {
+                var newTile = GameObject.Instantiate(tile, new Vector3(x, y, 0), Quaternion.identity);
+                newTile.transform.parent = this.gameObject.transform;
+                var key = new Vector2(x, y);
+                if(tileDictionary.ContainsKey(key)){
+                    Debug.Log("key found");
+                }
+                tileDictionary.Add(new Vector2(x, y), newTile);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        tileWrapsDictionary = FindObjectsOfType<Tile>().Select(
-            x =>
-            {
-                var tileWrap = new TileWrap(x);
-                x.CollisionDetectedEvent += X_CollisionDetectedEvent;
-                return new KeyValuePair<Vector2, TileWrap>(tileWrap.offsetMin, tileWrap);
-            }).ToDictionary(x => x.Key, x => x.Value);
+        // tileWrapsDictionary = FindObjectsOfType<Tile>().Select(
+        //     x =>
+        //     {
+        //         var tileWrap = new TileWrap(x);
+        //         x.CollisionDetectedEvent += X_CollisionDetectedEvent;
+        //         return new KeyValuePair<Vector2, TileWrap>(tileWrap.offsetMin, tileWrap);
+        //     }).ToDictionary(x => x.Key, x => x.Value);
     }
 
     private void X_CollisionDetectedEvent(Vector2 mouseRel, RectTransform rectTransform)

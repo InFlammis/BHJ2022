@@ -63,5 +63,4 @@ public class Tile : MonoBehaviour
     {
         Graphics.CopyTexture(bgTexture, background);
     }
-
 }

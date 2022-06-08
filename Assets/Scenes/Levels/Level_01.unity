@@ -207,6 +207,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3123259691750877379, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
+      propertyPath: m_TagString
+      value: Layout
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123259691750877379, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -216,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123259691750877381, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
       propertyPath: m_BodyType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3123259691750877381, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
       propertyPath: m_Constraints
@@ -224,6 +228,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123259691750877381, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
       propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123259691750877381, guid: 7cce4c3a347aee44c8d55c5f23353934, type: 3}
+      propertyPath: m_UseFullKinematicContacts
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
 {
@@ -130,7 +131,18 @@ namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
                 var spawnPoint = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Length)];
 
                 var nextEnemySpawn = GameObject.Instantiate(nextEnemy.Settings.EnemyType, spawnPoint.transform.position, Quaternion.identity);
-                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(nextEnemySpawn, UnityEngine.SceneManagement.SceneManager.GetSceneAt(1));
+                
+                Scene currentScene;
+                if(SceneManager.sceneCount > 1)
+                {
+                    currentScene = UnityEngine.SceneManagement.SceneManager.GetSceneAt(1);
+                }
+                else
+                {
+                    currentScene = UnityEngine.SceneManagement.SceneManager.GetSceneAt(0);
+                }
+
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(nextEnemySpawn, currentScene);
 
                 nextEnemy.TotalSpawned++;
                 nextEnemy.CurrentlySpawned++;

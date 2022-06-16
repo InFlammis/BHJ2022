@@ -36,7 +36,7 @@ public class TileManager : MonoBehaviour
             for(var y = groundRect.yMin; y < groundRect.yMax; y += tileRect.height)
             {
                 var newTile = GameObject.Instantiate(tile, new Vector3(x, y, 0), Quaternion.identity);
-                newTile.transform.parent = this.gameObject.transform;
+                newTile.transform.SetParent(this.gameObject.transform);
                 var key = new Vector2(x, y);
                 if(tileDictionary.ContainsKey(key)){
                     Debug.Log("key found");

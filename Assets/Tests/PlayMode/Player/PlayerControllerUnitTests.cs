@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BulletHellJam2022.Assets.Scripts.Player;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using Moq;
 using NUnit.Framework;
 using UnityEngine;

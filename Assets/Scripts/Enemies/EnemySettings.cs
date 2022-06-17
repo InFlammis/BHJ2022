@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies
+namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     /// <summary>
     /// Configuration for the enemy type

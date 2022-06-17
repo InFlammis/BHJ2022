@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
+namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
 {
     //public delegate Func<Transform> RequestForPlayerTransform();
     /// <summary>

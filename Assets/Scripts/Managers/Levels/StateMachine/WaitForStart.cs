@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels.StateMachine
 {
     /// <summary>
     /// State that manages the phase before the games start

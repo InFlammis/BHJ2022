@@ -1,12 +1,12 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using BulletHellJam2022.Assets.Scripts.Player;
-using BulletHellJam2022.Assets.Scripts.Weapons;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.Levels;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+using InFlammis.Victoria.Assets.Scripts.Player;
+using InFlammis.Victoria.Assets.Scripts.Weapons;
 using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Infantry
 {
     /// <summary>
     /// Specialization of a EnemyController for an Infantry enemy type

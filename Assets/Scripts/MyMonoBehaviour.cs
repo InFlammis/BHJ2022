@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts
+namespace InFlammis.Victoria.Assets.Scripts
 {
     /// <summary>
     /// Implementation of a IMyMonoBehaviour. MonoBehaviour object implementing the IMyMonoBehaviour interface

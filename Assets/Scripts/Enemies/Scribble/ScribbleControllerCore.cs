@@ -1,11 +1,11 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies.Scribble.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Scribble
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 {
     public class ScribbleControllerCore : IEnemyControllerCore
     {

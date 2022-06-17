@@ -1,12 +1,12 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies;
-using BulletHellJam2022.Assets.Scripts.Managers;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.Weapons;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies;
+using InFlammis.Victoria.Assets.Scripts.Managers;
+using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.Weapons;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     public class PlayerControllerCore : IPlayerControllerCore
     {

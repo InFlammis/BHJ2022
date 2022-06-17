@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers
+namespace InFlammis.Victoria.Assets.Scripts.Managers
 {
     [CreateAssetMenu(menuName = "Game/Static Objects Container", fileName = "StaticObjects")]
     public class StaticObjectsSO : ScriptableObject

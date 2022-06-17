@@ -1,5 +1,5 @@
-﻿using BulletHellJam2022;
-using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using Moq;
 using NUnit.Framework;
 using System;

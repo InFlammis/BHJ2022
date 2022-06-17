@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
     public delegate void SceneLoadedEventArgs(Scene scene, LoadSceneMode loadSceneMode);
     public delegate void SceneUnloadedEventArgs(Scene scene);

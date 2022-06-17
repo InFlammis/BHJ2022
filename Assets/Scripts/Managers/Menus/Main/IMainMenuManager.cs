@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Main
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Main
 {
     public interface IMainMenuManager
     {

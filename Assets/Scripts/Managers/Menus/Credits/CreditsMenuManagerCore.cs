@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManagerCore : ICreditsMenuManager
     {

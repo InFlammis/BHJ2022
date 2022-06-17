@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
+﻿namespace InFlammis.Victoria.Assets.Scripts.Enemies.Pawn.StateMachine
 {
     /// <summary>
     /// Factory that builds all possible states for an Pawn enemy type

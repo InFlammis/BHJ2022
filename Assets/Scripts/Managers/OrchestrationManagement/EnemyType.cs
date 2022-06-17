@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.OrchestrationManagement
 {
     /// <summary>
     /// Wrapper containing a type of enemy and some settings for its spawing.

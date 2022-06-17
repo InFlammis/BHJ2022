@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.Levels.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 {
     /// <summary>
     /// Interface of a generic LevelManagerCore

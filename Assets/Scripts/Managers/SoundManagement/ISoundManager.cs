@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
+﻿namespace InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement
 {
     /// <summary>
     /// Class responsible of managing the sound and music execution

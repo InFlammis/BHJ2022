@@ -1,9 +1,9 @@
 ﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.Menus;
+using InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause;
+using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using Moq;
 using Moq.Protected;
 using NUnit.Framework;

@@ -1,15 +1,15 @@
-using BulletHellJam2022.Assets.Scripts.Enemies;
-using BulletHellJam2022.Assets.Scripts.Managers;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
-using BulletHellJam2022.Assets.Scripts.Weapons;
+using InFlammis.Victoria.Assets.Scripts.Enemies;
+using InFlammis.Victoria.Assets.Scripts.Managers;
+using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.Levels;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+using InFlammis.Victoria.Assets.Scripts.Weapons;
 using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     public class PlayerController : 
         MyMonoBehaviour, 

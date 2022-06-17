@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Pawn.StateMachine;
 using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Scribble.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
 {
     public abstract class ScribbleState : IScribbleState
     {

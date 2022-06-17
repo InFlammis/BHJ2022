@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.LogManagement
 {
     [CreateAssetMenu(menuName = "Game/Settings/LogManager Settings", fileName = "LogManager Settings")]
     public class LogManagerSettingsSO : ScriptableObject

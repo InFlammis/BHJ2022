@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Enemies
+﻿namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     public enum EnemyType
     {

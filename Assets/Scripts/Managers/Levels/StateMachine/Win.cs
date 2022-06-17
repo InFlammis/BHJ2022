@@ -1,9 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using System;
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels.StateMachine
 {
     public class Win : State
     {

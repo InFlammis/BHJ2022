@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies
+namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     /// <summary>
     /// Interface for a enemy state

@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.PreRoll
+﻿namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.PreRoll
 {
     public interface IPreRollManager
     {

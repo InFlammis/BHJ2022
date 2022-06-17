@@ -1,9 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Weapons
+namespace InFlammis.Victoria.Assets.Scripts.Weapons
 {
     /// <summary>
     /// Class that manages the sounds produced by a weapon

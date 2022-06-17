@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.CameraManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.CameraManagement
 {
     public class CameraManager : MyMonoBehaviour
     {

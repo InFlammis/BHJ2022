@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     [CreateAssetMenu(menuName = "Game/Settings/Player Sound Settings", fileName = "Player Sound Settings")]
 

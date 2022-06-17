@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement
 {
     /// <summary>
     /// Base class for a scene manager. A scene can be a level scene or a menu scene.

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts
+namespace InFlammis.Victoria.Assets.Scripts
 {
     public class Singleton<T> : MyMonoBehaviour
         where T : Component

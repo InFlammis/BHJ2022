@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Weapons
+namespace InFlammis.Victoria.Assets.Scripts.Weapons
 {
     /// <summary>
     /// Base class for a Bullet

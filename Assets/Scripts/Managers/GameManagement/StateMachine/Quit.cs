@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+﻿namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     public class Quit : State
     {

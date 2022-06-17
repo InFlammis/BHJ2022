@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Help
 {
     public class HelpMenuManagerCore : IHelpMenuManager
     {

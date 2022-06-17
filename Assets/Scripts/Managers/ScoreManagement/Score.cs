@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.ScoreManagement
 {
     /// <summary>
     /// Models a score

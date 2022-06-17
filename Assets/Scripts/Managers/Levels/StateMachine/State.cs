@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels.StateMachine
 {
     /// <summary>
     /// Generic abstract state for a Level

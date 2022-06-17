@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Credits
 {
     public class CreditsMenuManager : MenuManager, ICreditsMenuManager
     {

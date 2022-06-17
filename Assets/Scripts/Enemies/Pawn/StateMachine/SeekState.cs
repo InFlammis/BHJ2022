@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Pawn.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Pawn.StateMachine
 {
     /// <summary>
     /// Seek state for a Pawn enemy

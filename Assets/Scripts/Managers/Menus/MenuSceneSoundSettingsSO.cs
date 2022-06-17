@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus
 {
     [CreateAssetMenu(menuName = "Game/Settings/Menu Sound Settings", fileName = "Menu Sound Settings")]
 

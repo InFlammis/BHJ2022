@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement
 {
     public class HealthManager :
         MyMonoBehaviour,

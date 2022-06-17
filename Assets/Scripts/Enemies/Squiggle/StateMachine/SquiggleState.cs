@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Squiggle.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine
 {
     public abstract class SquiggleState : ISquiggleState
     {

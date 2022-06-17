@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 {
     [CreateAssetMenu(menuName = "Game/Settings/Level Sound Settings", fileName = "Level Sound Settings")]
     public class LevelSceneSoundSettingsSO : ScriptableObject

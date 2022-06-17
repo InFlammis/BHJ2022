@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.OrchestrationManagement
 {
     /// <summary>
     /// Implementation of an Orchestration manager.

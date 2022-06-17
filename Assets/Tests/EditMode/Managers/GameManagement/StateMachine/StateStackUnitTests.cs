@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
 using Moq;
 using NUnit.Framework;
 

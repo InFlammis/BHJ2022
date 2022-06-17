@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.OrchestrationManagement
 {
     [CreateAssetMenu(menuName = "Game/Settings/OrchestrationManager Settings", fileName = "OrchestrationManager Settings")]
     public class OrchestrationManagerSettingsSO : ScriptableObject

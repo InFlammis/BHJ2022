@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.Levels;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.Levels;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     public class Play : State
     {

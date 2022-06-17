@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus
 {
     /// <summary>
     /// Base class for a generic MenuManager class

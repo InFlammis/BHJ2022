@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.ScoreManagement
 {
     /// <summary>
     /// Persistently store the list of High Scores

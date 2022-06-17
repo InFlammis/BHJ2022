@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.MessageBroker
+namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
 {
     public partial interface IMessenger : IAudioEventsPublisher, IAudioEventsMessenger { }
     public partial class Messenger

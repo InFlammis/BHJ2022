@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Infantry.StateMachine
 {
     /// <summary>
     /// Abstract State for an Infantry enemy

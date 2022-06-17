@@ -1,9 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers;
 using System;
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.PowerUps
+namespace InFlammis.Victoria.Assets.Scripts.PowerUps
 {
     /// <summary>
     /// Abstract class for a generic power-up

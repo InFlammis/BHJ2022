@@ -1,5 +1,5 @@
 ﻿
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     /// <summary>
     /// Bridge pattern is applied here to decouple the code from the actual implementation of the Stack class.

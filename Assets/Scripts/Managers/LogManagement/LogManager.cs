@@ -1,9 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.LogManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.LogManagement
 {
     public interface ILogManager
     {

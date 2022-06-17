@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     /// <summary>
     /// This is a Stack for states.

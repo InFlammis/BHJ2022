@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Help
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Help
 {
     public class HelpMenuManager : MenuManager, IHelpMenuManager
     {

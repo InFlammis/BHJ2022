@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria.Assets.Scripts.Player;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.PowerUps.HealthCharger
+namespace InFlammis.Victoria.Assets.Scripts.PowerUps.HealthCharger
 {
     /// <summary>
     /// Power-up of type HealthCharger. When collected by the Player, increases its health level by the carried amount.

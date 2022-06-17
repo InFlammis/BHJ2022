@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause
 {
     /// <summary>
     /// Interface for the PauseMenuManager

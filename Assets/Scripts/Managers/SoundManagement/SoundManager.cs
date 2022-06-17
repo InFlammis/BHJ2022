@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement
 {
     /// <summary>
     /// Implementation of a sound manager.

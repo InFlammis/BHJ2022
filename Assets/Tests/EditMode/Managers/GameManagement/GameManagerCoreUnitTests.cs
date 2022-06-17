@@ -1,8 +1,8 @@
 ﻿using System;
-using BulletHellJam2022.Assets.Scripts;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+using InFlammis.Victoria.Assets.Scripts;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using Moq;
 using Moq.Protected;
 using NUnit.Framework;

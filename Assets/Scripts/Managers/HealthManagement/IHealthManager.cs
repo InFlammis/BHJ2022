@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.HealthManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement
 {
     public interface IHealthManager
     {

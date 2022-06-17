@@ -1,6 +1,6 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels.StateMachine
 {
     /// <summary>
     /// Initial state configuration. Contains all reference needed to the state.

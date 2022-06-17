@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.Events;
 
-namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
+namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
 {
     [Serializable] public class StartGame : UnityEvent<object, string> { }
     [Serializable] public class QuitGame : UnityEvent<object, string> { }

@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus.Credits;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.Menus.Credits;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     public class Credits : State
     {

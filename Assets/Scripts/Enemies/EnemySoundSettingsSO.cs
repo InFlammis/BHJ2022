@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies
+namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     [CreateAssetMenu(menuName = "Game/Settings/Sound Settings", fileName = "Sound Settings")]
     public class EnemySoundSettingsSO : ScriptableObject

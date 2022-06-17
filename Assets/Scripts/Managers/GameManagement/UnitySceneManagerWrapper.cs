@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
     public sealed class UnitySceneManagerWrapper : IUnitySceneManagerWrapper
     {

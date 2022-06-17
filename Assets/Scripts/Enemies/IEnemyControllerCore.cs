@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies
+namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     public interface IEnemyControllerCore
     {

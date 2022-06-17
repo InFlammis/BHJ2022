@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
+﻿namespace InFlammis.Victoria.Assets.Scripts.Enemies.Infantry.StateMachine
 {
     /// <summary>
     /// Factory that builds all possible states for an Infantry enemy type

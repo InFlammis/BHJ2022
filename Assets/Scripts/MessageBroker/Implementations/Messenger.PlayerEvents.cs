@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using System;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.MessageBroker
+namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
 {
     public partial interface IMessenger : IPlayerEventsPublisher, IPlayerEventsMessenger { }
 

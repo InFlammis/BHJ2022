@@ -6,7 +6,7 @@
         "UnityEditor.TestRunner",
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
-        "BulletHellJam2022"
+        "InFlammis.Victoria"
     ],
     "includePlatforms": [
         "Editor"

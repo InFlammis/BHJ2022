@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Scribble.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
 {
     public class SeekState : ScribbleState
     {

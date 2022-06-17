@@ -1,10 +1,10 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
-using BulletHellJam2022.Assets.Scripts.Player;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement;
+using InFlammis.Victoria.Assets.Scripts.Player;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.Levels
+namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 {
     public abstract class LevelManager : 
         SceneManager, 

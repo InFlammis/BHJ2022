@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.PowerUps
+﻿namespace InFlammis.Victoria.Assets.Scripts.PowerUps
 {
     public enum PowerUpType
     {

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Infantry.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Infantry.StateMachine
 {
     /// <summary>
     /// Seek state for an Infantry enemy

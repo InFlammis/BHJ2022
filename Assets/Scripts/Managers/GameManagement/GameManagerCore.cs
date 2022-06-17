@@ -1,11 +1,11 @@
 using System;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Managers.SceneManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
     public class GameManagerCore : IGameManager
     {

@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus.Main;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.Menus.Main;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     /// <summary>
     /// Manage the initial MainMenu

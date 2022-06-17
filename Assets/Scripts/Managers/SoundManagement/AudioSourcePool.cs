@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.SoundManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement
 {
     /// <summary>
     /// Implementation of a Pool pattern to manage audio sources efficiently.

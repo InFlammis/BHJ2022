@@ -1,13 +1,13 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies;
-using BulletHellJam2022.Assets.Scripts.MessageBroker;
-using BulletHellJam2022.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
 using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.OrchestrationManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.OrchestrationManagement
 {
     /// <summary>
     /// A sequence of enemy spawns.

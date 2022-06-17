@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
     public interface IGameManager
     {

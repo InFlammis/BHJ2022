@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.SceneManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement
 {
     /// <summary>
     /// Sets the size and position of the level layout's element.

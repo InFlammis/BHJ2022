@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies.Triangle.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
 {
     public class IdleState : TriangleState
     {

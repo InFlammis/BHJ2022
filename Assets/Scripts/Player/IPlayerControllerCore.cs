@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Enemies;
-using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies;
+using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     /// <summary>
     /// Exposes all the functionalities required by a PlayerControllerCore

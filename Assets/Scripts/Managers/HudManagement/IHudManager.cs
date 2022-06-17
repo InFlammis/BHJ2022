@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Managers.HudManagement
+﻿namespace InFlammis.Victoria.Assets.Scripts.Managers.HudManagement
 {
     /// <summary>
     /// Manager for the Head-up display. Manages the display of information on the screen.

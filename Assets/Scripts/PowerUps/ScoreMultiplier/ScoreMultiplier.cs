@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.PowerUps.ScoreMultiplier
+namespace InFlammis.Victoria.Assets.Scripts.PowerUps.ScoreMultiplier
 {
     /// <summary>
     /// Power-up of type ScoreMultiplier. When collected by the player, increases the Multiplier factor by the carried value.

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.Events;
 
-namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
+namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
 {
     [Serializable] public class ScoreChanged : UnityEvent<object, string, int> { }
     [Serializable] public class MultiplierChanged : UnityEvent<object, string, int> { }

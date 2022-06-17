@@ -1,6 +1,6 @@
 ﻿using System;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus;
-using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
+using InFlammis.Victoria.Assets.Scripts.Managers.Menus;
+using InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause;
 using Moq;
 using NUnit.Framework;
 using UnityEngine;

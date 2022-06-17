@@ -1,10 +1,10 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.Menus.Pause;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 {
     public class Pause : State
     {

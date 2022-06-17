@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Managers.ScoreManagement
+namespace InFlammis.Victoria.Assets.Scripts.Managers.ScoreManagement
 {
     /// <summary>
     /// Implementation of a ScoreManager

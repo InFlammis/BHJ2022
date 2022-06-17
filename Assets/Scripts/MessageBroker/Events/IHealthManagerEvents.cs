@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.MessageBroker.Events
+﻿namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
 {
     /// <summary>
     /// Interface required for a HealthManager Events Publisher.

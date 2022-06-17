@@ -1,7 +1,7 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
-using BulletHellJam2022.Assets.Scripts.Managers.Levels;
-using BulletHellJam2022.Assets.Scripts.Managers.SoundManagement;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.Managers.Levels;
+using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using Moq;
 using NUnit.Framework;
 using UnityEngine.SceneManagement;

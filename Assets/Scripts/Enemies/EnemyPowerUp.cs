@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Scripting;
 
-namespace BulletHellJam2022.Assets.Scripts.Enemies
+namespace InFlammis.Victoria.Assets.Scripts.Enemies
 {
     /// <summary>
     /// Base class modeling a power-up

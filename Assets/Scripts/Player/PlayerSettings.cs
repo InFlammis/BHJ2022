@@ -1,8 +1,8 @@
-﻿using BulletHellJam2022.Assets.Scripts.Weapons;
+﻿using InFlammis.Victoria.Assets.Scripts.Weapons;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     /// <summary>
     /// Configuration for the Player

@@ -1,4 +1,4 @@
-﻿namespace BulletHellJam2022.Assets.Scripts.Enemies.Eye.StateMachine
+﻿namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye.StateMachine
 {
     public interface IEyeState : IEnemyState<IEyeState>
     {

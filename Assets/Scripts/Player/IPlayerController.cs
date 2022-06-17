@@ -1,9 +1,9 @@
-﻿using BulletHellJam2022.Assets.Scripts.Managers.HealthManagement;
-using BulletHellJam2022.Assets.Scripts.Weapons;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
+using InFlammis.Victoria.Assets.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BulletHellJam2022.Assets.Scripts.Player
+namespace InFlammis.Victoria.Assets.Scripts.Player
 {
     /// <summary>
     /// Interface for a PlayerController class.

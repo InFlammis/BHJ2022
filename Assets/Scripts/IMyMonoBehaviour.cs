@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Internal;
 
-namespace BulletHellJam2022.Assets.Scripts
+namespace InFlammis.Victoria.Assets.Scripts
 {
     /// <summary>
     /// Interface introduce to improve testability of classes with references to MonoBehaviours.

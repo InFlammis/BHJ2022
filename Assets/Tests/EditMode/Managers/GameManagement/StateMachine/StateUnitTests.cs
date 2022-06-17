@@ -1,6 +1,6 @@
-﻿using BulletHellJam2022.Assets.Scripts;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement;
-using BulletHellJam2022.Assets.Scripts.Managers.GameManagement.StateMachine;
+﻿using InFlammis.Victoria.Assets.Scripts;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
 using Moq;
 using NUnit.Framework;
 

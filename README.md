@@ -4,7 +4,7 @@ Color up your dark thoughts.
 
 Victoria is a metaphor for all those thoughts that cage us.
 
-the player finds himself trapped in a highly geometric, almost impossible, structure from which he must escape.
+The player finds himself trapped in a highly geometric, almost impossible, structure from which he must escape.
 
 A series of mobs and bosses hinder him in his purpose, and try to overwhelm him darkening the world with black ink. 
 

@@ -2,6 +2,7 @@
 {
     public enum WeaponType
     {
-        MultiCannon
+        MultiCannon,
+        Volley
     }
 }

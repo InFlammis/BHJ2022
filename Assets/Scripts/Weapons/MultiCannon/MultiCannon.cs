@@ -2,8 +2,5 @@
 {
     public class MultiCannon : WeaponBase
     {
-        void Start()
-        {
-        }
     }
 }

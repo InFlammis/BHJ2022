@@ -31,9 +31,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         public IHealthManager HealthManager { get; set; }
 
         /// <summary>
-        /// Collection of available weapons
+        /// Collection of available Spitters
         /// </summary>
-        public WeaponBase[] Weapons { get; set; }
+        public Spitter[] Spitters { get; set; }
 
         /// <summary>
         /// Instance of EnemySettings

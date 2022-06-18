@@ -33,6 +33,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
         private SpitStrategy SpitStrategy;
 
+        private float lastSpitTime;
+
 
 
         void Awake()
@@ -55,15 +57,28 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
             CurrentSpitAmount = InitSettings.InitSpitAmount;
 
+            // So the spitter can shoot immediately at start.
+            lastSpitTime = -InitSettings.InterSpitInterval;
+
             SpitStrategy.SpitEvent += SpitEventHandler;
+            SpitStrategy.EndSpitEvent += SpitStrategy_EndSpitEvent;
         }
 
+        private void SpitStrategy_EndSpitEvent(float time)
+        {
+            lastSpitTime = time;
+        }
 
         /// <summary>
         /// Start a Firing action spanned across multiple frames
         /// </summary>
         public virtual void StartSpitting()
         {
+            if(Time.time - InitSettings.InterSpitInterval < lastSpitTime)
+            {
+                return;
+            }
+
             SpitStrategy.StartSpitting();
         }
 

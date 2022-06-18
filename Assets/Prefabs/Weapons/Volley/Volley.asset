@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpitterName: Volley
   InitSpitAmount: 100
+  InterSpitInterval: 0.7

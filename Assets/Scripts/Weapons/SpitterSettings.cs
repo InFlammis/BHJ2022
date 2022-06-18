@@ -11,5 +11,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// </summary>
         public int InitSpitAmount;
 
+        [Range(0f, 10f)]
+        public float InterSpitInterval;
+
     }
 }

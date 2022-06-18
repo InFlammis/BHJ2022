@@ -7,7 +7,6 @@ using InFlammis.Victoria.Assets.Scripts;
 using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
 using InFlammis.Victoria.Assets.Scripts.Player;
 using InFlammis.Victoria.Assets.Scripts.Weapons;
-using InFlammis.Victoria.Assets.Scripts.Weapons.MultiCannon;
 using Moq;
 using NUnit.Framework;
 using UnityEngine;

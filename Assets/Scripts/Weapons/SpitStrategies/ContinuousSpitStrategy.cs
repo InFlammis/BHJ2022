@@ -7,6 +7,18 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
     public class ContinuousSpitStrategy : SpitStrategy
     {
         public override event Action<Vector3, Quaternion> SpitEvent;
+        public override event Action<float> BeginSpitEvent;
+        public override event Action<float> EndSpitEvent;
+
+        protected override void RaiseBeginSpitEvent()
+        {
+            this.BeginSpitEvent?.Invoke(Time.time);
+        }
+
+        protected override void RaiseEndSpitEvent()
+        {
+            this.EndSpitEvent?.Invoke(Time.time);
+        }
 
         protected override IEnumerator Spit()
         {
@@ -14,8 +26,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
             while (true)
             {
-                //var q = Quaternion.AngleAxis(30, new Vector3(0, 0, 1));
-
                 this.SpitEvent?.Invoke(Vector2.zero, Quaternion.identity);
 
                 yield return new WaitForSeconds(delta);

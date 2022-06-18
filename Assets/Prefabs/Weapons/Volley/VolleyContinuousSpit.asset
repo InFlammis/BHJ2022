@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bfc81c9b33825488824f74eac06609, type: 3}
-  m_Name: VolleyBullet Settings
+  m_Script: {fileID: 11500000, guid: 3f3504abb95af4c4bada9f1c91d8bd9b, type: 3}
+  m_Name: VolleyContinuousSpit
   m_EditorClassIdentifier: 
-  WeaponType: 1
-  Speed: 0
-  Damage: 0
-  Scale: 0
+  SpitStrategyName: Volley Continuous
+  BurstWidth: 0
+  BurstSize: 0
+  RateOfSpit: 10

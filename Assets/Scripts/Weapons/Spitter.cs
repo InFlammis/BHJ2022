@@ -7,26 +7,33 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 {
     public class Spitter :  MyMonoBehaviour
     {
-        /// <summary>
-        /// Initial settings for the spitter
-        /// </summary>
-        public SpitterSettings InitSettings;
-
+        [Header("Dependencies", order = 1)]
+        [SerializeField]
+        private StaticObjectsSO _staticObjects;
         /// <summary>
         /// Reference to the GameObject used as a spit
         /// </summary>
         public GameObject Spit;
 
         /// <summary>
+        /// Initial settings for the spitter
+        /// </summary>
+        [Header("Settings", order = 2)]
+        public SpitterSettings InitSettings;
+
+        [Header("Sounds", order = 4)]
+        [SerializeField] 
+        private Sound SpitSound;
+
+        [Header("Runtime values", order = 4)]
+        /// <summary>
         /// Current amount of spits
         /// </summary>
         public int CurrentSpitAmount;
 
-        public SpitStrategy SpitStrategy;
+        private SpitStrategy SpitStrategy;
 
-        [SerializeField] private StaticObjectsSO _staticObjects;
 
-        [SerializeField] private Sound SpitSound;
 
         void Awake()
         {
@@ -80,7 +87,10 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
             spitGo.transform.parent = null;
             
             // Play sound
-            _staticObjects.Messenger.PublishPlaySound(this, null, SpitSound);
+            if(SpitSound != null)
+            {
+                _staticObjects.Messenger.PublishPlaySound(this, null, SpitSound);
+            }
 
             CurrentSpitAmount--;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Weapons
 {
-    public sealed class Continuous : SpitStrategy
+    public class ContinuousSpitStrategy : SpitStrategy
     {
         public override event Action<Vector3, Quaternion> SpitEvent;
 

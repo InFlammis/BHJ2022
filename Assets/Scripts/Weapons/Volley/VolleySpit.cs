@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Weapons.Volley
 {
-    public class VolleyBullet : BulletBase
+    public class VolleySpit : SpitBase
     {
         private Vector3 _velocity = Vector3.zero;
 

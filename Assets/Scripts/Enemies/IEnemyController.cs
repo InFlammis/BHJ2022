@@ -22,7 +22,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         /// <summary>
         /// Instance of the game object for the enemy
         /// </summary>
-        GameObject GameObject { get; }
+        //GameObject GameObject { get; }
 
         /// <summary>
         /// Core class for the EnemyController
@@ -35,8 +35,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         IHealthManager HealthManager { get; set; }
 
         /// <summary>
-        /// Collection of available weapons
+        /// Collection of available spitters
         /// </summary>
-        WeaponBase[] Weapons { get; set; }
+        Spitter[] Spitters { get; set; }
     }
 }

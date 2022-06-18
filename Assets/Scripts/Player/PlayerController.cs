@@ -25,7 +25,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public PlayerSettings InitSettings => initSettings;
 
-        public WeaponBase[] Weapons { get; protected set; }
+        public Spitter[] Weapons { get; protected set; }
 
 
         private readonly string _Target = "Player";
@@ -247,22 +247,22 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// <exception cref="Exception"></exception>
         private void CheckWeaponsConfiguration()
         {
-            Weapons = this.GameObject.GetComponentsInChildren<WeaponBase>();
+            Weapons = this.GameObject.GetComponentsInChildren<Spitter>();
             foreach (var weapon in Weapons)
             {
-                //Check if there is a new settings for the current weapon. If there is, assign.
-                var weaponSettings =
-                    initSettings.WeaponSettings.SingleOrDefault(x => x.WeaponType == weapon.WeaponType);
-                if (weaponSettings != null)
-                {
-                    weapon.InitSettings = weaponSettings;
-                }
+                ////Check if there is a new settings for the current weapon. If there is, assign.
+                //var weaponSettings =
+                //    initSettings.WeaponSettings.SingleOrDefault(x => x.WeaponType == weapon.WeaponType);
+                //if (weaponSettings != null)
+                //{
+                //    weapon.InitSettings = weaponSettings;
+                //}
 
-                //If the current weapon has no configuration, throw.
-                if (weapon.InitSettings == null)
-                {
-                    throw new Exception($"No settings for weapon {weapon.WeaponType}");
-                }
+                ////If the current weapon has no configuration, throw.
+                //if (weapon.InitSettings == null)
+                //{
+                //    throw new Exception($"No settings for weapon {weapon.WeaponType}");
+                //}
             }
         }
 

@@ -45,6 +45,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// <summary>
         /// Settings for weapons
         /// </summary>
-        public List<WeaponSettings> WeaponSettings;
+        public List<SpitterSettings> SpitterSettings;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using InFlammis.Victoria.Assets.Scripts;
 using InFlammis.Victoria.Assets.Scripts.Managers.HealthManagement;
 using InFlammis.Victoria.Assets.Scripts.Player;
-using InFlammis.Victoria.Assets.Scripts.Weapons.MultiCannon;
+using InFlammis.Victoria.Assets.Scripts.Weapons;
 using Moq;
 using NUnit.Framework;
 using UnityEngine;
@@ -24,7 +24,7 @@ namespace FightshipArena.Assets.Tests.EditMode.Player
             var healthManager = healthManagerMock.Object;
 
             var weaponGO = new GameObject();
-            var weapon = weaponGO.AddComponent<MultiCannon>();
+            var weapon = weaponGO.AddComponent<Spitter>();
 
             var monoBehaviourMock = new Mock<IPlayerController>();
             monoBehaviourMock

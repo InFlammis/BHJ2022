@@ -29,7 +29,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// <summary>
         /// Collection of weapons available for the player
         /// </summary>
-        WeaponBase[] Weapons { get; }
+        Spitter[] Weapons { get; }
 
         /// <summary>
         /// Initial settings

@@ -1,5 +1,4 @@
-﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Pawn.StateMachine;
-using System;
+﻿using System;
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
 {

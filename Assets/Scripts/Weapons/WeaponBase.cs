@@ -34,6 +34,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// Ammo in the magazine
         /// </summary>
         public int Ammo;
+        
         void Awake()
         {
             if (InitSettings == null)

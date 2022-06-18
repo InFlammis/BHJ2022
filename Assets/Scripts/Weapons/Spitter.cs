@@ -5,7 +5,7 @@ using System;
 
 namespace InFlammis.Victoria.Assets.Scripts.Weapons
 {
-    public class Spitter :  MyMonoBehaviour
+    public class Spitter :  MonoBehaviour
     {
         [Header("Dependencies", order = 1)]
         [SerializeField]
@@ -37,17 +37,18 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
         void Awake()
         {
-            if (InitSettings == null)
+            if (this.InitSettings == null)
             {
                 throw new NullReferenceException($"{nameof(InitSettings)} cannot be null for Spitter.");
             }
 
-            if (Spit == null)
+            if (this.Spit == null)
             {
                 throw new NullReferenceException($"{nameof(Spit)} cannot be null for Weapon {this.InitSettings.SpitterName}");
             }
 
-            if (SpitStrategy == null)
+            this.SpitStrategy = GetComponentInChildren<SpitStrategy>();
+            if (this.SpitStrategy == null)
             {
                 throw new NullReferenceException($"{nameof(SpitStrategy)} cannot be null for Weapon {this.InitSettings.SpitterName}");
             }
@@ -82,8 +83,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
                 // Emit sound?
                 return;
             }
-
-            var spitGo = GameObject.Instantiate(this.Spit, this.transform.position + relPosition, rotation);
+            var spitGo = GameObject.Instantiate(this.Spit, transform.position + relPosition, transform.rotation * rotation);
             spitGo.transform.parent = null;
             
             // Play sound

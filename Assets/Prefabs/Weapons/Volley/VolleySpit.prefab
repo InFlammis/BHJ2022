@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8518461502135228827}
   - component: {fileID: 1989016393930278930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 4730848629097193566}
   - component: {fileID: -5913923404065026237}
   - component: {fileID: 2379786588192151673}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VolleySpit
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

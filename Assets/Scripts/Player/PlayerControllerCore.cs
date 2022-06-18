@@ -22,12 +22,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public IHealthManager HealthManager { get; }
 
-        public WeaponBase[] Weapons { get; }
+        public Spitter[] Weapons { get; }
 
         public Vector2 PlayerMovement { get; set; }
         public Vector2 PlayerRotation { get; set; }
 
-        public WeaponBase CurrentWeapon { get; set; }
+        public Spitter CurrentWeapon { get; set; }
 
         public PlayerControllerCore(IPlayerController parent)
         {
@@ -38,7 +38,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             HealthManager = parent.HealthManager;
 
             InitSettings = parent.InitSettings;
-            Weapons = parent.Weapons.Select(x=>x.GetComponent<WeaponBase>()).ToArray();
+            Weapons = parent.Weapons.Select(x=>x.GetComponent<Spitter>()).ToArray();
             CurrentWeapon = Weapons[0];
         }
 
@@ -95,12 +95,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public void StartFiring()
         {
-            CurrentWeapon.StartFiring();
+            CurrentWeapon.StartSpitting();
         }
 
         public void StopFiring()
         {
-            CurrentWeapon.StopFiring();
+            CurrentWeapon.StopSpitting();
         }
 
         public void FireAlt()

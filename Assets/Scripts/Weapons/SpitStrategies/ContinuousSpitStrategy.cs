@@ -14,6 +14,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
             while (true)
             {
+                //var q = Quaternion.AngleAxis(30, new Vector3(0, 0, 1));
+
                 this.SpitEvent?.Invoke(Vector2.zero, Quaternion.identity);
 
                 yield return new WaitForSeconds(delta);

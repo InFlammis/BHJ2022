@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -232,6 +233,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet Victoria_3: 4336127362406652008
+      Spritesheet Victoria_0: 5814714346982551773
+      Spritesheet Victoria_2: 8074568445973091256
+      Spritesheet Victoria_4: -7716539399471553462
+      Spritesheet Victoria_1: -3647153388626178132
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -223,7 +223,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             if (col.gameObject.tag == "Enemy")
             {
                 var enemyController = col.gameObject.GetComponent<EnemyController>();
-                Core.HandleCollisionWithEnemy(enemyController.Core);
+                Core.HandleCollisionWithEnemy(enemyController);
             }
             else if(col.gameObject.tag == "EnemyBullet")
             {

@@ -8,6 +8,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
     public partial class ScribbleControllerCore
     {
 
+        [Obsolete]
         public class SeekState : ScribbleState
         {
             public override event Action<IScribbleState> ChangeState;

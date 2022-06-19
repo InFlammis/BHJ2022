@@ -1,5 +1,8 @@
-﻿namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
+﻿using System;
+
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
 {
+    [Obsolete]
     public class StateFactory
     {
         public ScribbleControllerCore Parent { get; set; }

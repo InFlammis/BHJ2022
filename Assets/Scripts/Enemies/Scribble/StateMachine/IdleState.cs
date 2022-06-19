@@ -9,6 +9,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 {
     public partial class ScribbleControllerCore
     {
+        [Obsolete]
         public class IdleState : ScribbleState
         {
             public override event Action<IScribbleState> ChangeState;

@@ -19,8 +19,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            this._parent = animator.gameObject.GetComponentInParent<EnemyController>().gameObject;
-            this._rigidbody = this._parent.GetComponent<Rigidbody2D>();
+            this._rigidbody = animator.gameObject.GetComponentInParent<Rigidbody2D>();
+            this._parent = _rigidbody.gameObject;
             this._animator = animator;
         }
 

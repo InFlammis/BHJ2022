@@ -12,6 +12,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 {
     public partial class ScribbleControllerCore
     {
+        [Obsolete]
         public class AttackState : ScribbleState
         {
             private Coroutine _seekPlayerCoroutine;

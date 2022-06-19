@@ -111,7 +111,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         {
         }
 
-        public void HandleCollisionWithEnemy(IEnemyControllerCore enemyController)
+        public void HandleCollisionWithEnemy(IEnemyController enemyController)
         {
             var damage = enemyController.InitSettings.DamageAppliedOnCollision;
             HealthManager.Damage(damage);

@@ -7,11 +7,9 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 {
-    public class ScribbleControllerCore : IEnemyControllerCore
+    public partial class ScribbleControllerCore : IEnemyControllerCore
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
-
-        public IPlayerControllerCore PlayerControllerCore { get; set; }
 
         public IEnemyController Parent { get; protected set; }
 
@@ -86,7 +84,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 
         public void OnStart()
         {
-            if (PlayerControllerCore != null)
+            if (_messenger.RequestForPlayerIsAlive(this, null))
             {
                 ChangeState(_stateFactory.SeekState);
             }

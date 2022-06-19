@@ -7,11 +7,9 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
 {
-    public class TriangleControllerCore : IEnemyControllerCore
+    public partial class TriangleControllerCore : IEnemyControllerCore
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
-
-        public IPlayerControllerCore PlayerControllerCore { get; set; }
 
         public IEnemyController Parent { get; protected set; }
 
@@ -90,7 +88,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
         /// </summary>
         public void OnStart()
         {
-            if (PlayerControllerCore != null)
+            if (_messenger.RequestForPlayerIsAlive(this, null))
             {
                 ChangeState(_stateFactory.SeekState);
             }

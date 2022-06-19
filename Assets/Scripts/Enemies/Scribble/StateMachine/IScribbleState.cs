@@ -4,6 +4,5 @@
     {
         ScribbleControllerCore Parent { get; set; }
         StateFactory Factory { get; set; }
-
     }
 }

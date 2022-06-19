@@ -29,9 +29,9 @@
         public StateFactory(EyeControllerCore parent)
         {
             this.Parent = parent;
-            AttackState = new AttackState(this.Parent, this);
-            SeekState = new SeekState(this.Parent, this);
-            IdleState = new IdleState(this.Parent, this);
+            AttackState = new EyeControllerCore.AttackState(this.Parent, this);
+            SeekState = new EyeControllerCore.SeekState(this.Parent, this);
+            IdleState = new EyeControllerCore.IdleState(this.Parent, this);
         }
 
     }

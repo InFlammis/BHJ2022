@@ -2,6 +2,7 @@
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
 {
+
     public abstract class ScribbleState : IScribbleState
     {
         public ScribbleControllerCore Parent { get; set; }

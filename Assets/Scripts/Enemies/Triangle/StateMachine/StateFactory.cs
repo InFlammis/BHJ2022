@@ -29,9 +29,9 @@
         public StateFactory(TriangleControllerCore parent)
         {
             this.Parent = parent;
-            AttackState = new AttackState(this.Parent, this);
-            SeekState = new SeekState(this.Parent, this);
-            IdleState = new IdleState(this.Parent, this);
+            AttackState = new TriangleControllerCore.AttackState(this.Parent, this);
+            SeekState = new TriangleControllerCore.SeekState(this.Parent, this);
+            IdleState = new TriangleControllerCore.IdleState(this.Parent, this);
         }
 
     }

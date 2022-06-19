@@ -7,11 +7,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
     public interface IEnemyControllerCore
     {
         /// <summary>
-        /// Reference to the Player controller core
-        /// </summary>
-        IPlayerControllerCore PlayerControllerCore { get; set; }
-
-        /// <summary>
         /// Reference to the IEnemyController parent
         /// </summary>
         IEnemyController Parent { get; }

@@ -36,17 +36,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
                 throw new NullReferenceException("InitSettings");
             }
 
-            var player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player == null)
-            {
-                Debug.Log("Player object not found");
-            }
-            else
-            {
-                Core.PlayerControllerCore = player.GetComponent<PlayerController>().Core;
-            }
-
             Core.OnStart();
         }
 

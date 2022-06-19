@@ -2,8 +2,6 @@
 {
     public enum EnemyType
     {
-        Pawn,
-        Infantry,
         Scribble,
         Squiggle,
         Eye,

@@ -7,11 +7,9 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
 {
-    public class SquiggleControllerCore : IEnemyControllerCore
+    public partial class SquiggleControllerCore : IEnemyControllerCore
     {
         private IMessenger _messenger => Parent.StaticObjects.Messenger;
-
-        public IPlayerControllerCore PlayerControllerCore { get; set; }
 
         public IEnemyController Parent { get; protected set; }
 
@@ -57,7 +55,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
 
         public void OnStart()
         {
-            if (PlayerControllerCore != null)
+            if (_messenger.RequestForPlayerIsAlive(this, null))
             {
                 ChangeState(_stateFactory.SeekState);
             }

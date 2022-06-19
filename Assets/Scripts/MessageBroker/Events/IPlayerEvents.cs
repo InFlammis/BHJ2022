@@ -27,6 +27,8 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
 
         Transform RequestForPlayerTransform(object publisher, string target);
 
+        bool RequestForPlayerIsAlive(object publisher, string target);
+
     }
 
     /// <summary>
@@ -45,6 +47,8 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
         HealthLevelChanged HealthLevelChanged { get; }
 
         event Func<object, string, Transform> RequestForPlayerTransformEvent;
+
+        event Func<object, string, bool> RequestForPlayerIsAliveEvent;
 
     }
 }

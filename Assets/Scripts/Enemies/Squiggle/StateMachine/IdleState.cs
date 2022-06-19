@@ -1,15 +1,20 @@
-﻿using System;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine;
+using System;
 
-namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
 {
-    public class IdleState : SquiggleState
+    public partial class SquiggleControllerCore : IEnemyControllerCore
     {
-        public override event Action<ISquiggleState> ChangeState;
 
-        public IdleState(SquiggleControllerCore parent, StateFactory factory)
+        public class IdleState : SquiggleState
         {
-            Parent = parent;
-            Factory = factory;
+            public override event Action<ISquiggleState> ChangeState;
+
+            public IdleState(SquiggleControllerCore parent, StateFactory factory)
+            {
+                Parent = parent;
+                Factory = factory;
+            }
         }
     }
 }

@@ -1,53 +1,57 @@
-﻿using System;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine;
+using System;
 using System.Collections;
 using UnityEngine;
 
-namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
 {
-    public class SeekState : SquiggleState
+    public partial class SquiggleControllerCore : IEnemyControllerCore
     {
-        public override event Action<ISquiggleState> ChangeState;
 
-        public SeekState(SquiggleControllerCore parent, StateFactory factory)
+        public class SeekState : SquiggleState
         {
-            Parent = parent;
-            Factory = factory;
-        }
+            public override event Action<ISquiggleState> ChangeState;
 
-        public override void Move()
-        {
-            var mag = UnityEngine.Random.value * Parent.InitSettings.MaxMovementMagnitude;
-            var impulse = UnityEngine.Random.insideUnitCircle * mag;
-
-            Parent.Rigidbody.AddForce(impulse);
-        }
-
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            Parent.Parent.StartCoroutine(SeekPlayer());
-        }
-
-        public override void OnExit()
-        {
-            base.OnExit();
-            Parent.Parent.StopCoroutine(SeekPlayer());
-        }
-
-        /// <summary>
-        /// Check that the player is alive or dead and if alive, invoke a state change
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator SeekPlayer()
-        {
-            while (true)
+            public SeekState(SquiggleControllerCore parent, StateFactory factory)
             {
-                yield return new WaitWhile(() => Parent.PlayerControllerCore.HealthManager.IsDead);
-                //Player found
-                ChangeState?.Invoke(Factory.AttackState);
-                yield return new WaitForFixedUpdate();
+                Parent = parent;
+                Factory = factory;
+            }
+
+            public override void Move()
+            {
+                var mag = UnityEngine.Random.value * Parent.InitSettings.MaxMovementMagnitude;
+                var impulse = UnityEngine.Random.insideUnitCircle * mag;
+
+                Parent.Rigidbody.AddForce(impulse);
+            }
+
+            public override void OnEnter()
+            {
+                base.OnEnter();
+                Parent.Parent.StartCoroutine(SeekPlayer());
+            }
+
+            public override void OnExit()
+            {
+                base.OnExit();
+                Parent.Parent.StopCoroutine(SeekPlayer());
+            }
+
+            /// <summary>
+            /// Check that the player is alive or dead and if alive, invoke a state change
+            /// </summary>
+            /// <returns></returns>
+            private IEnumerator SeekPlayer()
+            {
+                while (true)
+                {
+                    yield return new WaitUntil(() => Parent._messenger.RequestForPlayerIsAlive(this, null));
+                    //Player found
+                    ChangeState?.Invoke(Factory.AttackState);
+                    yield return new WaitForFixedUpdate();
+                }
             }
         }
-
     }
 }

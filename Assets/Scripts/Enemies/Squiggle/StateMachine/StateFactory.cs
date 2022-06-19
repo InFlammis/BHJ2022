@@ -13,9 +13,9 @@
         public StateFactory(SquiggleControllerCore parent)
         {
             this.Parent = parent;
-            AttackState = new AttackState(this.Parent, this);
-            SeekState = new SeekState(this.Parent, this);
-            IdleState = new IdleState(this.Parent, this);
+            AttackState = new SquiggleControllerCore.AttackState(this.Parent, this);
+            SeekState = new SquiggleControllerCore.SeekState(this.Parent, this);
+            IdleState = new SquiggleControllerCore.IdleState(this.Parent, this);
         }
 
     }

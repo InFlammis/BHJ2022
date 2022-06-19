@@ -13,9 +13,9 @@
         public StateFactory(ScribbleControllerCore parent)
         {
             this.Parent = parent;
-            AttackState = new AttackState(this.Parent, this);
-            SeekState = new SeekState(this.Parent, this);
-            IdleState = new IdleState(this.Parent, this);
+            AttackState = new ScribbleControllerCore.AttackState(this.Parent, this);
+            SeekState = new ScribbleControllerCore.SeekState(this.Parent, this);
+            IdleState = new ScribbleControllerCore.IdleState(this.Parent, this);
         }
     }
 }

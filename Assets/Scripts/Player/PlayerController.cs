@@ -59,12 +59,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             if (context.performed)
             {
                 Core.SetPlayerRotation(inputVector);
-                Debug.Log($"Rotating {inputVector}");
+                //Debug.Log($"Rotating {inputVector}");
 
             }
             else if (context.canceled)
             {
-                Debug.Log("Not rotating");
+                //Debug.Log("Not rotating");
                 Core.SetPlayerRotation(inputVector);
             }
         }
@@ -174,6 +174,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         private void SubscribeToRequestsForPlayer()
         {
             _staticObjects.Messenger.RequestForPlayerTransformEvent += Messenger_RequestForPlayerTransformEvent;
+            _staticObjects.Messenger.RequestForPlayerIsAliveEvent += Messenger_RequestForPlayerIsAliveEvent;
+        }
+
+        private bool Messenger_RequestForPlayerIsAliveEvent(object publisher, string target)
+        {
+            return true;
         }
 
         private Transform Messenger_RequestForPlayerTransformEvent(object publisher, string target)

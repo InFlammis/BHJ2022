@@ -23,6 +23,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 
         void Start()
         {
+            // TODO: REMOVE THIS DEPENDENCY
             var sceneManagerGO = GameObject.FindGameObjectWithTag("SceneManager");
             var sceneManager = sceneManagerGO?.GetComponent<LevelManager>();
 
@@ -34,17 +35,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
             if (InitSettings == null)
             {
                 throw new NullReferenceException("InitSettings");
-            }
-
-            var player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player == null)
-            {
-                Debug.Log("Player object not found");
-            }
-            else
-            {
-                Core.PlayerControllerCore = player.GetComponent<PlayerController>().Core;
             }
 
             Core.OnStart();

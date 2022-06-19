@@ -12,6 +12,7 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
         [SerializeField] private HealthLevelChanged _Player_HealthLevelChanged;
 
         public event Func<object, string, Transform> RequestForPlayerTransformEvent;
+        public event Func<object, string, bool> RequestForPlayerIsAliveEvent;
 
 
         HasDied IPlayerEventsMessenger.HasDied  => _Player_HasDied;
@@ -31,6 +32,11 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
         Transform IPlayerEventsPublisher.RequestForPlayerTransform(object publisher, string target)
         {
             return RequestForPlayerTransformEvent?.Invoke(publisher, target);
+        }
+
+        bool IPlayerEventsPublisher.RequestForPlayerIsAlive(object publisher, string target)
+        {
+            return RequestForPlayerIsAliveEvent?.Invoke(publisher, target) ?? false;
         }
     }
 }

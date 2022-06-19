@@ -1,65 +1,68 @@
-﻿using System;
+﻿using InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+using System;
 using System.Collections;
 using UnityEngine;
 
-namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle.StateMachine
+namespace InFlammis.Victoria.Assets.Scripts.Enemies.Squiggle
 {
-    public class AttackState : SquiggleState
+    public partial class SquiggleControllerCore : IEnemyControllerCore
     {
-        private Coroutine _seekPlayerCoroutine;
 
-        public override event Action<ISquiggleState> ChangeState;
-
-        public AttackState(SquiggleControllerCore parent, StateFactory factory)
+        public class AttackState : SquiggleState
         {
-            Parent = parent;
-            Factory = factory;
-        }
+            private Coroutine _seekPlayerCoroutine;
 
-        public override void Move()
-        {
-            if (Parent.PlayerControllerCore == null || Parent.PlayerControllerCore.Transform == null) return;
+            public override event Action<ISquiggleState> ChangeState;
 
-            var distance = Parent.PlayerControllerCore.Transform.position - Parent.Transform.position;
-
-            var direction = (distance).normalized;
-
-            //add impulse - Impulse increases (clamped) with the distance from the player
-            var forceMagnitude = UnityEngine.Mathf.Clamp(distance.magnitude, Parent.InitSettings.MinAttractiveForceMagnitude, Parent.InitSettings.MaxAttractiveForceMagnitude);
-            var force = direction * forceMagnitude;
-            Parent.Rigidbody.AddForce(force, ForceMode2D.Impulse);
-
-            //force movement - This effect increases when the distance lowers
-            var movementMagnitude = UnityEngine.Mathf.Clamp(0.1f / distance.magnitude, Parent.InitSettings.MinMovementMagnitude, Parent.InitSettings.MaxMovementMagnitude);
-            var movement = direction * movementMagnitude;
-            Parent.Rigidbody.position += new Vector2(movement.x, movement.y);
-
-            //Clamp maximum velocity
-            Parent.Rigidbody.velocity = Vector2.ClampMagnitude(Parent.Rigidbody.velocity, Parent.InitSettings.MaxSpeed);
-        }
-
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            _seekPlayerCoroutine = Parent.Parent.StartCoroutine(SeekPlayer());
-        }
-
-        private IEnumerator SeekPlayer()
-        {
-            while (true)
+            public AttackState(SquiggleControllerCore parent, StateFactory factory)
             {
-                yield return new WaitUntil(() => Parent.PlayerControllerCore.HealthManager.IsDead);
-                //Player found
-                ChangeState?.Invoke(Factory.AttackState);
-                yield return new WaitForFixedUpdate();
+                Parent = parent;
+                Factory = factory;
+            }
+
+            public override void Move()
+            {
+                var playerTransform = Parent._messenger.RequestForPlayerTransform(this, null);
+                if (playerTransform == null) return;
+
+                var distance = Parent.Transform.position - Parent.Transform.position;
+
+                var direction = (distance).normalized;
+
+                //add impulse - Impulse increases (clamped) with the distance from the player
+                var forceMagnitude = UnityEngine.Mathf.Clamp(distance.magnitude, Parent.InitSettings.MinAttractiveForceMagnitude, Parent.InitSettings.MaxAttractiveForceMagnitude);
+                var force = direction * forceMagnitude;
+                Parent.Rigidbody.AddForce(force, ForceMode2D.Impulse);
+
+                //force movement - This effect increases when the distance lowers
+                var movementMagnitude = UnityEngine.Mathf.Clamp(0.1f / distance.magnitude, Parent.InitSettings.MinMovementMagnitude, Parent.InitSettings.MaxMovementMagnitude);
+                var movement = direction * movementMagnitude;
+                Parent.Rigidbody.position += new Vector2(movement.x, movement.y);
+
+                //Clamp maximum velocity
+                Parent.Rigidbody.velocity = Vector2.ClampMagnitude(Parent.Rigidbody.velocity, Parent.InitSettings.MaxSpeed);
+            }
+
+            public override void OnEnter()
+            {
+                base.OnEnter();
+                var messenger = (Parent._messenger as IPlayerEventsMessenger);
+                messenger.HasDied.AddListener(Player_HasDied);
+            }
+
+            void Player_HasDied(object publisher, string target)
+            {
+                ChangeState?.Invoke(Factory.IdleState);
+            }
+
+
+            public override void OnExit()
+            {
+                base.OnExit();
+                var messenger = (Parent._messenger as IPlayerEventsMessenger);
+                messenger.HasDied.RemoveAllListeners();
             }
         }
-
-        public override void OnExit()
-        {
-            base.OnExit();
-            Parent.Parent.StopCoroutine(_seekPlayerCoroutine);
-        }
-
     }
 }

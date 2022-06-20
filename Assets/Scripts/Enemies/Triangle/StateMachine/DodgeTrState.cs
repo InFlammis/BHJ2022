@@ -31,6 +31,10 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
 
             isDodging = false;
 
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = 0;
+
+
             var playerTransform = StaticObjects.Messenger.RequestForPlayerTransform(this, null);
             if (playerTransform != null)
             {

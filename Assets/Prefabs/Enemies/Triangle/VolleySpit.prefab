@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8518461502135228827}
   - component: {fileID: 1989016393930278930}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4730848629097193566}
   - component: {fileID: -5913923404065026237}
   - component: {fileID: 2379786588192151673}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: VolleySpit
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a814b9ff2727fdd40a33f0e26125a0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitSettings: {fileID: 11400000, guid: d3768f2efd1062d48898c49bbfa65190, type: 2}
+  InitSettings: {fileID: 11400000, guid: bbd5280241a4da04a99260eabf6dfc19, type: 2}
   IsDestroyed: 0
 --- !u!58 &2379786588192151673
 CircleCollider2D:

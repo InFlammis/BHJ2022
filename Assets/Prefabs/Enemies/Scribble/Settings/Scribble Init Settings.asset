@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Scribble Init Settings
   m_EditorClassIdentifier: 
   EnemyType: 0
-  DamageAppliedOnCollision: 0
+  DamageAppliedOnCollision: 50
   Powerups: []
-  PlayerScoreWhenKilled: 0
-  MaxSpeed: 0
-  MinAttractiveForceMagnitude: 0
-  MaxAttractiveForceMagnitude: 0
-  MinMovementMagnitude: 0
-  MaxMovementMagnitude: 0
+  PlayerScoreWhenKilled: 10
+  MaxSpeed: 3
+  MinAttractiveForceMagnitude: 0.5
+  MaxAttractiveForceMagnitude: 10
+  MinMovementMagnitude: 0.01
+  MaxMovementMagnitude: 0.05
   StopFiringIntervalLength: 0
   FiringIntervalLength: 0

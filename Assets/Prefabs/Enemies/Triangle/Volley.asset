@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6782bb6758b14d54ca4f5cf96c61c085, type: 3}
-  m_Name: Eye Init Settings
+  m_Script: {fileID: 11500000, guid: dbefef8e53631364f9351084f6c91a6a, type: 3}
+  m_Name: Volley
   m_EditorClassIdentifier: 
-  EnemyType: 2
-  DamageAppliedOnCollision: 50
-  Powerups: []
-  PlayerScoreWhenKilled: 10
-  MaxMovementMagnitude: 1
+  SpitterName: Volley
+  InitSpitAmount: 1000
+  InterSpitInterval: 0.7

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Squiggle Init Settings
   m_EditorClassIdentifier: 
   EnemyType: 1
-  DamageAppliedOnCollision: 0
+  DamageAppliedOnCollision: 20
   Powerups: []
-  PlayerScoreWhenKilled: 0
+  PlayerScoreWhenKilled: 10
   MaxMovementMagnitude: 0

@@ -14,6 +14,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
         }
 
         [Range(0f, 100f)]
-        public float _dodgeForceMagnitude = 20f;
+        public float DodgeForceMagnitude = 20f;
+
+        [Range(0f, 10f)]
+        public float StandStateDuration = 1.5f;
+
+        [Range(0f, 10f)]
+        public float SpinStateDuration = 1.5f;
     }
 }

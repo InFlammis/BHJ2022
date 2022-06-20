@@ -9,17 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
+  m_Script: {fileID: 11500000, guid: ec7da57705927604493c86814c52e93e, type: 3}
   m_Name: Triangle Init Settings
   m_EditorClassIdentifier: 
-  EnemyType: 5
-  MaxSpeed: 3
-  MinAttractiveForceMagnitude: 0.5
-  MaxAttractiveForceMagnitude: 10
-  MinMovementMagnitude: 0.01
-  MaxMovementMagnitude: 0.05
+  EnemyType: 3
   DamageAppliedOnCollision: 50
   Powerups: []
   PlayerScoreWhenKilled: 10
-  StopFiringIntervalLength: 0
-  FiringIntervalLength: 0
+  DodgeForceMagnitude: 20
+  StandStateDuration: 1
+  SpinStateDuration: 4

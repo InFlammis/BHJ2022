@@ -43,11 +43,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             if (context.performed)
             {
                 Core.SetPlayerMovement(inputVector);
-                Debug.Log($"Moving {inputVector}");
+                //Debug.Log($"Moving {inputVector}");
             }
             else if (context.canceled)
             {
-                Debug.Log("Not moving");
+                //Debug.Log("Not moving");
                 Core.SetPlayerMovement(inputVector);
             }
         }

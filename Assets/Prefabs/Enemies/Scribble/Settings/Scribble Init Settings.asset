@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
+  m_Script: {fileID: 11500000, guid: 216e65bbfa2015043b565643b3ddaa7b, type: 3}
   m_Name: Scribble Init Settings
   m_EditorClassIdentifier: 
-  EnemyType: 2
+  EnemyType: 0
+  DamageAppliedOnCollision: 50
+  Powerups: []
+  PlayerScoreWhenKilled: 10
   MaxSpeed: 3
   MinAttractiveForceMagnitude: 0.5
   MaxAttractiveForceMagnitude: 10
   MinMovementMagnitude: 0.01
   MaxMovementMagnitude: 0.05
-  DamageAppliedOnCollision: 50
-  Powerups: []
-  PlayerScoreWhenKilled: 10
   StopFiringIntervalLength: 0
   FiringIntervalLength: 0

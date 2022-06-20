@@ -9,6 +9,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
 {
     public class TriangleController : EnemyController
     {
+        private Animator _animator;
+
         void Awake()
         {
             if (InitSettings == null)
@@ -22,6 +24,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
             HealthManager.Target = Target;
 
             SubscribeToHealthManagerEvents();
+
+            _animator = gameObject.GetComponentInChildren<Animator>();
+            _animator.SetInteger("Health", HealthManager.Health);
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -51,7 +56,19 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
         {
             var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
             messenger.HasDied.AddListener(HealthManager_HasDied);
+            messenger.HealthLevelChanged.AddListener(HealthManager_HealthLevelChanged);
         }
+
+        private void HealthManager_HealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
+        {
+            if (target != Target)
+            {
+                return;
+            }
+
+            _animator.SetInteger("Health", healthLevel);
+        }
+
 
         public virtual void UnsubscribeToHealthManagerEvents()
         {

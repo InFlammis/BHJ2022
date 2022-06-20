@@ -15,31 +15,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         public EnemyType EnemyType;
 
         /// <summary>
-        /// Max speed for the enemy
-        /// </summary>
-        public float MaxSpeed;
-
-        /// <summary>
-        /// Minimum magnitude of an attractive force towards the player
-        /// </summary>
-        public float MinAttractiveForceMagnitude;
-
-        /// <summary>
-        /// Maximum magnitude of an attractive force towards the player
-        /// </summary>
-        public float MaxAttractiveForceMagnitude;
-
-        /// <summary>
-        /// Minumum magnitude of a movement
-        /// </summary>
-        public float MinMovementMagnitude;
-
-        /// <summary>
-        /// Maximum magnitude of a movement
-        /// </summary>
-        public float MaxMovementMagnitude;
-
-        /// <summary>
         /// Damage applied to the player on direct collision
         /// </summary>
         public int DamageAppliedOnCollision;
@@ -53,15 +28,5 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         /// Score attributed to the player on enemy's destruction
         /// </summary>
         public int PlayerScoreWhenKilled;
-
-        /// <summary>
-        /// Interval between two shot sequences
-        /// </summary>
-        public float StopFiringIntervalLength;
-
-        /// <summary>
-        /// Length of a firing sequence
-        /// </summary>
-        public float FiringIntervalLength;
     }
 }

@@ -11,7 +11,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble.StateMachine
         private static readonly string TransitionToSeek = "TransitionToSeek";
 
         [SerializeField] protected StaticObjectsSO StaticObjects;
-        [SerializeField] protected EnemySettings InitSettings;
+        [SerializeField] protected ScribbleInitSettings InitSettings;
 
         private Animator _animator;
         private Rigidbody2D _rigidbody;

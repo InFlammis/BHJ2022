@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
-  InitSettings: {fileID: 11400000, guid: 0bd013223b2d00840b33d3f1bc886d3b, type: 2}
+  InitSettings: {fileID: 11400000, guid: 7985e462280c24e42a225e2d8c0d90b1, type: 2}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
-  InitSettings: {fileID: 11400000, guid: 0bd013223b2d00840b33d3f1bc886d3b, type: 2}
+  InitSettings: {fileID: 11400000, guid: 7985e462280c24e42a225e2d8c0d90b1, type: 2}
 --- !u!1102 &8637190746559769139
 AnimatorState:
   serializedVersion: 6

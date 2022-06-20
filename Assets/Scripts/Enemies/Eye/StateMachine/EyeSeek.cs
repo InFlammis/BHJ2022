@@ -10,7 +10,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye.StateMachine
         private static readonly string TransitionToAttack = "TransitionToAttack";
 
         [SerializeField] protected StaticObjectsSO StaticObjects;
-        [SerializeField] protected EnemySettings InitSettings;
+        [SerializeField] protected EyeInitSettings InitSettings;
 
         private Animator _animator;
         private Rigidbody2D _rigidbody;

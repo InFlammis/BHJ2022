@@ -9,6 +9,7 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
     public partial class Messenger
     {
         [SerializeField] private HasDied _Player_HasDied = new HasDied();
+        [SerializeField] private HasSpawned _Player_HasSpawned = new HasSpawned();
         [SerializeField] private HealthLevelChanged _Player_HealthLevelChanged;
 
         public event Func<object, string, Transform> RequestForPlayerTransformEvent;
@@ -16,6 +17,7 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
 
 
         HasDied IPlayerEventsMessenger.HasDied  => _Player_HasDied;
+        HasSpawned IPlayerEventsMessenger.HasSpawned => _Player_HasSpawned;
 
         HealthLevelChanged IPlayerEventsMessenger.HealthLevelChanged => _Player_HealthLevelChanged;
 
@@ -27,6 +29,11 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker
         void IPlayerEventsPublisher.PublishHasDied(object publisher, string target)
         {
             _Player_HasDied.Invoke(publisher, target);
+        }
+
+        void IPlayerEventsPublisher.PublishHasSpawned(object publisher, string target)
+        {
+            _Player_HasSpawned.Invoke(publisher, target);
         }
 
         Transform IPlayerEventsPublisher.RequestForPlayerTransform(object publisher, string target)

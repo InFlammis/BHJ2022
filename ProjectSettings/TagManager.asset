@@ -30,7 +30,7 @@ TagManager:
   - SpawnPoints
   - EnemyBullets
   - Background
-  - 
+  - PlayerInRangeDetector
   - 
   - 
   - 

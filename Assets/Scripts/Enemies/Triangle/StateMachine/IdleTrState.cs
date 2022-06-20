@@ -5,10 +5,8 @@ using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
 {
-    public class SpawnTrState : StateMachineBehaviour
+    public class IdleTrState : StateMachineBehaviour
     {
-        private static readonly string TransitionToStand = "TransitionToStand";
-
         [SerializeField] protected StaticObjectsSO StaticObjects;
         [SerializeField] protected EnemySettings InitSettings;
 
@@ -23,19 +21,19 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
             this._parent = _rigidbody.gameObject;
             this._animator = animator;
 
-            Debug.Log("Enter Spawn");
+            Debug.Log("Enter Idle");
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-
-        }
+        //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        //{
+        //    
+        //}
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Debug.Log("Exit Spawn");
+            Debug.Log("Exit Idle");
         }
 
         // OnStateMove is called right after Animator.OnAnimatorMove()

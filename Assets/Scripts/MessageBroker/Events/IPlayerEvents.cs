@@ -17,6 +17,13 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
         void PublishHasDied(object publisher, string target);
 
         /// <summary>
+        /// Publish an event of type <see cref="HasSpawned"/>
+        /// </summary>
+        /// <param name="publisher">Publisher of the message.</param>
+        /// <param name="target">Target of the message.</param>
+        void PublishHasSpawned(object publisher, string target);
+
+        /// <summary>
         /// Publish an event of type <see cref="HealthLevelChanged"/>
         /// </summary>
         /// <param name="publisher">Publisher of the message.</param>
@@ -40,6 +47,11 @@ namespace InFlammis.Victoria.Assets.Scripts.MessageBroker.Events
         /// Returns a reference to a delegate of type <see cref="HasDied"/>, to subscribe to.
         /// </summary>
         HasDied HasDied { get; }
+
+        /// <summary>
+        /// Returns a reference to a delegate of type <see cref="HasSpawned"/>, to subscribe to.
+        /// </summary>
+        HasSpawned HasSpawned { get; }
 
         /// <summary>
         /// Returns a reference to a delegate of type <see cref="ReceivedDamage"/>, to subscribe to.

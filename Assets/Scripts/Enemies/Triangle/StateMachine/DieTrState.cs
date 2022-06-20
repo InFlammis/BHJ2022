@@ -8,7 +8,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
     public class DieTrState : StateMachineBehaviour
     {
         [SerializeField] protected StaticObjectsSO StaticObjects;
-        [SerializeField] protected EnemySettings InitSettings;
+        [SerializeField] protected TriangleInitSettings InitSettings;
 
         private Animator _animator;
         private Rigidbody2D _rigidbody;

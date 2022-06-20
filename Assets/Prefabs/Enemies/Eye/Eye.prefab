@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
   _soundSettings: {fileID: 11400000, guid: 1ed5e88c578b5134d934b673268a383c, type: 2}
-  _initSettings: {fileID: 11400000, guid: 0bd013223b2d00840b33d3f1bc886d3b, type: 2}
+  _initSettings: {fileID: 11400000, guid: 7985e462280c24e42a225e2d8c0d90b1, type: 2}
 --- !u!50 &3042232029829836962
 Rigidbody2D:
   serializedVersion: 4

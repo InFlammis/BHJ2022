@@ -8,7 +8,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
     public class IdleTrState : StateMachineBehaviour
     {
         [SerializeField] protected StaticObjectsSO StaticObjects;
-        [SerializeField] protected EnemySettings InitSettings;
+        [SerializeField] protected TriangleInitSettings InitSettings;
 
         private Animator _animator;
         private Rigidbody2D _rigidbody;
@@ -22,6 +22,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
             this._animator = animator;
 
             Debug.Log("Enter Idle");
+
+            _rigidbody.velocity = Vector3.zero;
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

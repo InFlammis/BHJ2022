@@ -9,17 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
+  m_Script: {fileID: 11500000, guid: 77a5d101052825c4dbdcd47d22c80b68, type: 3}
   m_Name: Squiggle Init Settings
   m_EditorClassIdentifier: 
-  EnemyType: 3
-  MaxSpeed: 0.5
-  MinAttractiveForceMagnitude: 0
-  MaxAttractiveForceMagnitude: 0
-  MinMovementMagnitude: 0
-  MaxMovementMagnitude: 10
-  DamageAppliedOnCollision: 20
+  EnemyType: 1
+  DamageAppliedOnCollision: 0
   Powerups: []
-  PlayerScoreWhenKilled: 10
-  StopFiringIntervalLength: 0.75
-  FiringIntervalLength: 0.5
+  PlayerScoreWhenKilled: 0
+  MaxMovementMagnitude: 0

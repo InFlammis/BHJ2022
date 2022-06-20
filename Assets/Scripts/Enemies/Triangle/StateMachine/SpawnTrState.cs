@@ -10,7 +10,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle.StateMachine
         private static readonly string TransitionToStand = "TransitionToStand";
 
         [SerializeField] protected StaticObjectsSO StaticObjects;
-        [SerializeField] protected EnemySettings InitSettings;
+        [SerializeField] protected TriangleInitSettings InitSettings;
 
         private Animator _animator;
         private Rigidbody2D _rigidbody;

@@ -9,17 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875aba086b8a74f43af025656af2c84d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6782bb6758b14d54ca4f5cf96c61c085, type: 3}
   m_Name: Eye Init Settings
   m_EditorClassIdentifier: 
-  EnemyType: 4
-  MaxSpeed: 0.5
-  MinAttractiveForceMagnitude: 0
-  MaxAttractiveForceMagnitude: 0
-  MinMovementMagnitude: 0
-  MaxMovementMagnitude: 10
+  EnemyType: 2
   DamageAppliedOnCollision: 50
   Powerups: []
-  PlayerScoreWhenKilled: 10
-  StopFiringIntervalLength: 0.75
-  FiringIntervalLength: 0.5
+  PlayerScoreWhenKilled: 1
+  MaxMovementMagnitude: 1

@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8884596755996062698}
   m_RootOrder: 0
@@ -74,6 +75,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8884596755996062698}
   m_RootOrder: 1
@@ -96,7 +98,7 @@ CircleCollider2D:
   m_Radius: 0.5
 --- !u!95 &3876724729914684595
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,6 +111,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -124,6 +127,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -173,8 +177,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8884596755996062698}
-  - component: {fileID: 2575952409486900272}
   - component: {fileID: -418041986223028124}
+  - component: {fileID: 7592172700062130503}
   m_Layer: 6
   m_Name: Scribble
   m_TagString: Enemy
@@ -192,29 +196,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5931958939159109119}
   - {fileID: 9070007227316426969}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2575952409486900272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6365512084176966079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8158f98e1389a8c45b2262a419b4e285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
-  _soundSettings: {fileID: 11400000, guid: bc91c6097a2089a4787f32a6f7a485e4, type: 2}
-  _initSettings: {fileID: 11400000, guid: cc538e2e78f69c84dafc7c0f064e4ebf, type: 2}
-  ExplosionEffect: {fileID: 1549030810961380960, guid: 9d80051ae31abe64490f974ebd5fb795, type: 3}
-  SpawnActivationEffect: {fileID: 5077295181543304785, guid: 3060c21e16eca314f955f8bbf5ba3203, type: 3}
 --- !u!50 &-418041986223028124
 Rigidbody2D:
   serializedVersion: 4
@@ -236,3 +224,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7592172700062130503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365512084176966079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8158f98e1389a8c45b2262a419b4e285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: bc91c6097a2089a4787f32a6f7a485e4, type: 2}
+  _initSettings: {fileID: 11400000, guid: cc538e2e78f69c84dafc7c0f064e4ebf, type: 2}

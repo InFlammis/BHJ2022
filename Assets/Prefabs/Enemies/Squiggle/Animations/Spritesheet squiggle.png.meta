@@ -111,6 +111,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -808,6 +809,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet squiggle_19: -3671165225430757231
+      Spritesheet squiggle_22: 8442427853411232887
+      Spritesheet squiggle_7: -6401470944306096428
+      Spritesheet squiggle_5: -1089015133093272778
+      Spritesheet squiggle_26: -3520444345416458590
+      Spritesheet squiggle_28: 201697720182880333
+      Spritesheet squiggle_14: -787363344163075043
+      Spritesheet squiggle_0: -5435185951191767665
+      Spritesheet squiggle_10: 8999162127184213752
+      Spritesheet squiggle_13: 1829120373576320326
+      Spritesheet squiggle_6: 3970185997869431353
+      Spritesheet squiggle_21: 5513787663252577524
+      Spritesheet squiggle_11: -554334816061830457
+      Spritesheet squiggle_15: -4245254229382144648
+      Spritesheet squiggle_25: -8261284014764122047
+      Spritesheet squiggle_2: 4862606494580839945
+      Spritesheet squiggle_27: -754577180745396017
+      Spritesheet squiggle_1: -4358903710882429114
+      Spritesheet squiggle_16: 2876683846297689043
+      Spritesheet squiggle_17: 3213867921637293857
+      Spritesheet squiggle_23: -788117559908890853
+      Spritesheet squiggle_3: -433015203460469378
+      Spritesheet squiggle_4: 2651411731964058228
+      Spritesheet squiggle_9: 8255723003944228960
+      Spritesheet squiggle_20: 31407895532686662
+      Spritesheet squiggle_12: 7611820246044112891
+      Spritesheet squiggle_8: 3366623712617604879
+      Spritesheet squiggle_18: -2130077631294781287
+      Spritesheet squiggle_24: 4984103988914986105
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

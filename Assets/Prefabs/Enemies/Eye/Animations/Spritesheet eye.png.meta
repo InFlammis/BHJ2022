@@ -108,6 +108,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -784,6 +785,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet eye_26: -2544251598482806121
+      Spritesheet eye_12: -3206876734313007047
+      Spritesheet eye_17: 5038393701919235627
+      Spritesheet eye_21: 3196302060279661548
+      Spritesheet eye_24: 7718655289018987579
+      Spritesheet eye_3: 1181268223872673999
+      Spritesheet eye_22: -3084159621512288831
+      Spritesheet eye_11: -5204095099692979628
+      Spritesheet eye_19: 7916449529557141492
+      Spritesheet eye_25: 288364935524039180
+      Spritesheet eye_16: 5033744597434693299
+      Spritesheet eye_6: 4578195730418514073
+      Spritesheet eye_18: -1153429456720930893
+      Spritesheet eye_2: 2810932429607245977
+      Spritesheet eye_10: -7254665743873199490
+      Spritesheet eye_8: -3016188420314908197
+      Spritesheet eye_0: -1017248238651767184
+      Spritesheet eye_27: 2420144795608679773
+      Spritesheet eye_4: 8922778611247968682
+      Spritesheet eye_1: -7276138409080578125
+      Spritesheet eye_7: 5249706197392368006
+      Spritesheet eye_14: -1958306042079083271
+      Spritesheet eye_5: -279174113011507664
+      Spritesheet eye_13: 6354736724455063859
+      Spritesheet eye_20: 8466894703388733829
+      Spritesheet eye_9: -5765028986783394054
+      Spritesheet eye_23: -2144271940845230827
+      Spritesheet eye_15: -1485854336399004358
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

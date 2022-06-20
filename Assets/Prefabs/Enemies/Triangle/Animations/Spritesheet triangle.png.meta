@@ -108,6 +108,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -784,6 +785,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet triangle_17: -5593039128370387405
+      Spritesheet triangle_6: -3107662797939647239
+      Spritesheet triangle_13: 446296425763684367
+      Spritesheet triangle_24: -3510579097985734576
+      Spritesheet triangle_4: -6461847076471090130
+      Spritesheet triangle_10: -6962837077072838435
+      Spritesheet triangle_26: -3267421011038998144
+      Spritesheet triangle_3: 5835935901200597751
+      Spritesheet triangle_11: -4625969296198544043
+      Spritesheet triangle_2: 3062790975486631257
+      Spritesheet triangle_5: 367465638442829109
+      Spritesheet triangle_9: 9124491039308825340
+      Spritesheet triangle_23: -6240856622936995475
+      Spritesheet triangle_8: -3591208666206704537
+      Spritesheet triangle_0: 1286997230940301047
+      Spritesheet triangle_12: -221412818080479713
+      Spritesheet triangle_21: -3412271572441362055
+      Spritesheet triangle_25: -4195334681797033570
+      Spritesheet triangle_19: 1245858174940548038
+      Spritesheet triangle_16: 2148024626340885984
+      Spritesheet triangle_20: 5814004417898999548
+      Spritesheet triangle_22: -3967645680023889845
+      Spritesheet triangle_7: -420629798199176807
+      Spritesheet triangle_27: 5258905716815537669
+      Spritesheet triangle_18: 8164250229569332708
+      Spritesheet triangle_1: -5806147335610854330
+      Spritesheet triangle_14: 6726930576990968750
+      Spritesheet triangle_15: 5963836836528430060
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

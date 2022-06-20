@@ -77,7 +77,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// EventHandler invoked when the player collides with an enemy
         /// </summary>
         /// <param name="enemyController">Enemy which the player is colliding with</param>
-        void HandleCollisionWithEnemy(IEnemyControllerCore enemyController);
+        void HandleCollisionWithEnemy(IEnemyController enemyController);
         void SetPlayerRotation(Vector2 inputVector);
 
         /// <summary>

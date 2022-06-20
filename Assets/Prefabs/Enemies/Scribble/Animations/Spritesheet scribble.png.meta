@@ -108,6 +108,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -784,6 +785,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet scribble_21: 1731527881050756533
+      Spritesheet scribble_27: 5307859286047289338
+      Spritesheet scribble_19: 1800310637962240301
+      Spritesheet scribble_15: -1771149552244561574
+      Spritesheet scribble_6: -4117427957292127332
+      Spritesheet scribble_24: -7862425404986609869
+      Spritesheet scribble_12: 8758190544657609875
+      Spritesheet scribble_4: 8998580241784919825
+      Spritesheet scribble_7: -3012343365490212326
+      Spritesheet scribble_8: 7279058841892475693
+      Spritesheet scribble_13: -7149246032328385107
+      Spritesheet scribble_11: 5894085144910271430
+      Spritesheet scribble_17: 8738747227387479628
+      Spritesheet scribble_20: 1938691592399495018
+      Spritesheet scribble_3: -8497814382799636729
+      Spritesheet scribble_1: -2298826629162272100
+      Spritesheet scribble_2: 7611434538505367496
+      Spritesheet scribble_22: -5703576438347038054
+      Spritesheet scribble_25: -1480338618252423241
+      Spritesheet scribble_23: 910555609769659855
+      Spritesheet scribble_26: -5700456881461478680
+      Spritesheet scribble_16: 4244158064646383654
+      Spritesheet scribble_10: -8877637084064907682
+      Spritesheet scribble_5: 2621168545296467774
+      Spritesheet scribble_9: -7370102385213257790
+      Spritesheet scribble_18: 3238724797553183999
+      Spritesheet scribble_0: 61986849309467380
+      Spritesheet scribble_14: 9186877087247799996
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

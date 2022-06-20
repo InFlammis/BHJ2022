@@ -21,11 +21,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         [SerializeField] private EnemySettings _initSettings;
 
         /// <summary>
-        /// Core class for the EnemyController
-        /// </summary>
-        public IEnemyControllerCore Core { get; set; }
-
-        /// <summary>
         /// Instance of the HealthManager
         /// </summary>
         public IHealthManager HealthManager { get; set; }
@@ -41,16 +36,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies
         public EnemySettings InitSettings { get => _initSettings; }
 
         public string Target { get; protected set; }
-
-        /// <summary>
-        /// Instance of the explosion effect - This animation is activated when the enemy is destroyed.
-        /// </summary>
-        public GameObject ExplosionEffect;
-
-        /// <summary>
-        /// Instance of the Spawn activation effect - This animation is activated when the enemy is spawned.
-        /// </summary>
-        public GameObject SpawnActivationEffect;
 
         /// <summary>
         /// Manage the release of a power up when the enemy is destroyed

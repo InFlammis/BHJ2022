@@ -9,7 +9,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Scribble
 {
     public class ScribbleController : EnemyController
     {
-
         void Awake()
         {
             if (InitSettings == null)

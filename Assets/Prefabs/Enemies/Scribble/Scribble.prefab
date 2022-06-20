@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8884596755996062698}
   - component: {fileID: -418041986223028124}
+  - component: {fileID: 7592172700062130503}
   m_Layer: 6
   m_Name: Scribble
   m_TagString: Enemy
@@ -223,3 +224,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7592172700062130503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365512084176966079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8158f98e1389a8c45b2262a419b4e285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
+  _soundSettings: {fileID: 11400000, guid: bc91c6097a2089a4787f32a6f7a485e4, type: 2}
+  _initSettings: {fileID: 11400000, guid: cc538e2e78f69c84dafc7c0f064e4ebf, type: 2}

@@ -161,7 +161,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.OrchestrationManagement
         {
             var enemyController = publisher as IEnemyController;
 
-            var enemyType = EnemyTypes.Single(x => x.Settings.EnemyTypeEnum == enemyController.InitSettings.EnemyType);
+            var enemyType = EnemyTypes.SingleOrDefault(x => x.Settings.EnemyTypeEnum == enemyController.InitSettings.EnemyType);
+            if(enemyType == null)
+            {
+                return;
+            }
             enemyType.CurrentlySpawned--;
             TotEnemiesKilled++;
         }

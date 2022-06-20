@@ -9,51 +9,19 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye
 {
     public class EyeController : EnemyController
     {
-        #region Unity methods
-
         void Awake()
         {
+            if (InitSettings == null)
+            {
+                throw new NullReferenceException("InitSettings");
+            }
+
             Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
 
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
             HealthManager.Target = Target;
 
             SubscribeToHealthManagerEvents();
-
-            Core = new EyeControllerCore(this, HealthManager, InitSettings);
-        }
-
-        void Start()
-        {
-            var sceneManagerGO = GameObject.FindGameObjectWithTag("SceneManager");
-            var sceneManager = sceneManagerGO?.GetComponent<LevelManager>();
-
-            if (sceneManager == null)
-            {
-                Debug.LogError("SceneManager not found");
-            }
-
-            if (InitSettings == null)
-            {
-                throw new NullReferenceException("InitSettings");
-            }
-
-            Core.OnStart();
-        }
-
-
-        public virtual void SubscribeToHealthManagerEvents()
-        {
-            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.AddListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
-        }
-
-        public virtual void UnsubscribeToHealthManagerEvents()
-        {
-            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.RemoveListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -63,7 +31,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye
             {
                 case "Player":
                     {
-                        Core.HandleCollisionWithPlayer();
+                        this.HandleCollisionWithPlayer();
                         break;
                     }
                 case "Bullet":
@@ -75,9 +43,21 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye
             }
         }
 
-        private void FixedUpdate()
+        public void HandleCollisionWithPlayer()
         {
-            Core.Move();
+            HealthManager.Kill();
+        }
+
+        public virtual void SubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.AddListener(HealthManagerHasDied);
+        }
+
+        public virtual void UnsubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.RemoveListener(HealthManagerHasDied);
         }
 
         void HealthManagerHasDied(object publisher, string target)
@@ -91,18 +71,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Eye
 
             UnsubscribeToHealthManagerEvents();
 
-            var eeInstance = Instantiate(this.ExplosionEffect, this.gameObject.transform);
-            eeInstance.transform.SetParent(null);
+            (StaticObjects.Messenger as IEnemyEventsPublisher).PublishHasDied(this, $"{target},{this.GameObject.GetInstanceID()}");
+            StaticObjects.Messenger.PublishPlayerScored(this, $"{target},{this.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
 
             GameObject.Destroy(this.gameObject);
             ReleasePowerUp();
         }
-
-        void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
-        {
-        }
-
-        #endregion
-
     }
 }

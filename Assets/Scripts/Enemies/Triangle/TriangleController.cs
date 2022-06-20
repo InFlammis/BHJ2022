@@ -9,61 +9,28 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
 {
     public class TriangleController : EnemyController
     {
-        #region Unity methods
-
         void Awake()
         {
-            Target = $"{this.GetType().Name}:{ GameObject.GetInstanceID()}";
-
-            HealthManager = GameObject.GetComponentInChildren<HealthManager>();
-            HealthManager.Target = Target;
-
-            SubscribeToHealthManagerEvents();
-
-            Core = new TriangleControllerCore(this, HealthManager, InitSettings);
-        }
-
-        void Start()
-        {
-            var sceneManagerGO = GameObject.FindGameObjectWithTag("SceneManager");
-            var sceneManager = sceneManagerGO?.GetComponent<LevelManager>();
-
-            if (sceneManager == null)
-            {
-                Debug.LogError("SceneManager not found");
-            }
-
             if (InitSettings == null)
             {
                 throw new NullReferenceException("InitSettings");
             }
 
-            Core.OnStart();
-        }
+            Target = $"{this.GetType().Name}:{GameObject.GetInstanceID()}";
 
+            HealthManager = GameObject.GetComponentInChildren<HealthManager>();
+            HealthManager.Target = Target;
 
-        public virtual void SubscribeToHealthManagerEvents()
-        {
-            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.AddListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.AddListener(HealthManagerHealthLevelChanged);
-        }
-
-        public virtual void UnsubscribeToHealthManagerEvents()
-        {
-            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
-            messenger.HasDied.RemoveListener(HealthManagerHasDied);
-            messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
+            SubscribeToHealthManagerEvents();
         }
 
         void OnCollisionEnter2D(Collision2D col)
         {
-
             switch (col.gameObject.tag)
             {
                 case "Player":
                     {
-                        Core.HandleCollisionWithPlayer();
+                        this.HandleCollisionWithPlayer();
                         break;
                     }
                 case "Bullet":
@@ -75,12 +42,24 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
             }
         }
 
-        private void FixedUpdate()
+        public void HandleCollisionWithPlayer()
         {
-            Core.Move();
+            HealthManager.Kill();
         }
 
-        void HealthManagerHasDied(object publisher, string target)
+        public virtual void SubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.AddListener(HealthManager_HasDied);
+        }
+
+        public virtual void UnsubscribeToHealthManagerEvents()
+        {
+            var messenger = (_staticObjects.Messenger as IHealthManagerEventsMessenger);
+            messenger.HasDied.RemoveListener(HealthManager_HasDied);
+        }
+
+        void HealthManager_HasDied(object publisher, string target)
         {
             if (target != Target)
             {
@@ -91,18 +70,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Enemies.Triangle
 
             UnsubscribeToHealthManagerEvents();
 
-            var eeInstance = Instantiate(this.ExplosionEffect, this.gameObject.transform);
-            eeInstance.transform.SetParent(null);
+            (StaticObjects.Messenger as IEnemyEventsPublisher).PublishHasDied(this, $"{target},{this.GameObject.GetInstanceID()}");
+            StaticObjects.Messenger.PublishPlayerScored(this, $"{target},{this.GameObject.GetInstanceID()}", InitSettings.PlayerScoreWhenKilled);
 
             GameObject.Destroy(this.gameObject);
             ReleasePowerUp();
         }
-
-        void HealthManagerHealthLevelChanged(object publisher, string target, int healthLevel, int maxHealthLevel)
-        {
-        }
-
-        #endregion
-
     }
 }

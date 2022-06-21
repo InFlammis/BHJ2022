@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
   Spit: {fileID: 7072432505224223005, guid: 8420779d722ee0c4a85f01f50e52fa4f, type: 3}
-  InitSettings: {fileID: 11400000, guid: 9b7feba30da302a488a7be8ebed08cda, type: 2}
+  SpitterInitSettings: {fileID: 0}
+  SpitInitSettings: {fileID: 0}
   SpitSound:
     Name: 
     Clip: {fileID: 0}
@@ -64,4 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4264a34e085f0a4390e7bc1225c1815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitSettings: {fileID: 11400000, guid: d0877ef1ba451dd4fbdd6bef4be3997f, type: 2}
+  InitSettings: {fileID: 0}

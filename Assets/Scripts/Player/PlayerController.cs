@@ -177,6 +177,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             _staticObjects.Messenger.RequestForPlayerIsAliveEvent += Messenger_RequestForPlayerIsAliveEvent;
         }
 
+        private void UnSubscribeToRequestsForPlayer()
+        {
+            _staticObjects.Messenger.RequestForPlayerTransformEvent -= Messenger_RequestForPlayerTransformEvent;
+            _staticObjects.Messenger.RequestForPlayerIsAliveEvent -= Messenger_RequestForPlayerIsAliveEvent;
+        }
+
         private bool Messenger_RequestForPlayerIsAliveEvent(object publisher, string target)
         {
             return true;
@@ -290,6 +296,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             _staticObjects.Messenger.PublishPlaySound(this, null, _soundSettings.ExplodeSound);
 
             UnsubscribeToHealthManagerEvents();
+
+            UnSubscribeToRequestsForPlayer();
 
             var eeInstance = Instantiate(this.ExplosionEffect, this.gameObject.transform);
             eeInstance.transform.SetParent(null);

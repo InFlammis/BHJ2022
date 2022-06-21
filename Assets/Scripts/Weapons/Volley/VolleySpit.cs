@@ -10,6 +10,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons.Volley
 
         void Start()
         {
+            SetInitSettings();
+
             this.transform.localScale = Vector3.one * InitSettings.Scale;
             _velocity = transform.up * this.InitSettings.Speed;
 

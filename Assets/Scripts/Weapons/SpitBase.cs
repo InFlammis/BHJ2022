@@ -8,6 +8,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// <summary>
         /// Initial settings for the bullet
         /// </summary>
+        [HideInInspector]
         public SpitSettings InitSettings;
 
         /// <summary>
@@ -16,12 +17,15 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         [HideInInspector]
         public bool IsDestroyed = false;
 
-        void Awake()
+        protected void SetInitSettings()
         {
             if (InitSettings == null)
             {
                 throw new NullReferenceException("BulletSetting cannot be null");
             }
+
+            this.gameObject.layer = LayerMask.NameToLayer(InitSettings.Layer);
+            this.gameObject.tag = InitSettings.Tag;
         }
     }
 }

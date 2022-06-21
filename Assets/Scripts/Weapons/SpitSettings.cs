@@ -7,6 +7,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
     {
         public string SpitName;
 
+        public string Layer;
+        public string Tag;
+
         /// <summary>
         /// Speed of the bullet
         /// </summary>

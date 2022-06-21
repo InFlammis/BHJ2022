@@ -19,7 +19,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// Initial settings for the spitter
         /// </summary>
         [Header("Settings", order = 2)]
-        public SpitterSettings InitSettings;
+        public SpitterSettings SpitterInitSettings;
+
+        public SpitSettings SpitInitSettings;
 
         [Header("Sounds", order = 4)]
         [SerializeField] 
@@ -39,26 +41,33 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
 
         void Awake()
         {
-            if (this.InitSettings == null)
+            if (this.SpitterInitSettings == null)
             {
-                throw new NullReferenceException($"{nameof(InitSettings)} cannot be null for Spitter.");
+                throw new NullReferenceException($"{nameof(SpitterInitSettings)} cannot be null for Spitter.");
+            }
+
+            if (this.SpitInitSettings == null)
+            {
+                throw new NullReferenceException($"{nameof(SpitInitSettings)} cannot be null for Spitter.");
             }
 
             if (this.Spit == null)
             {
-                throw new NullReferenceException($"{nameof(Spit)} cannot be null for Weapon {this.InitSettings.SpitterName}");
+                throw new NullReferenceException($"{nameof(Spit)} cannot be null for Weapon {this.SpitterInitSettings.SpitterName}");
             }
+
+            //this.Spit.GetComponent<SpitBase>().InitSettings = this.SpitInitSettings;
 
             this.SpitStrategy = GetComponentInChildren<SpitStrategy>();
             if (this.SpitStrategy == null)
             {
-                throw new NullReferenceException($"{nameof(SpitStrategy)} cannot be null for Weapon {this.InitSettings.SpitterName}");
+                throw new NullReferenceException($"{nameof(SpitStrategy)} cannot be null for Weapon {this.SpitterInitSettings.SpitterName}");
             }
 
-            CurrentSpitAmount = InitSettings.InitSpitAmount;
+            CurrentSpitAmount = SpitterInitSettings.InitSpitAmount;
 
             // So the spitter can shoot immediately at start.
-            lastSpitTime = -InitSettings.InterSpitInterval;
+            lastSpitTime = -SpitterInitSettings.InterSpitInterval;
 
             SpitStrategy.SpitEvent += SpitEventHandler;
             SpitStrategy.EndSpitEvent += SpitStrategy_EndSpitEvent;
@@ -74,7 +83,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// </summary>
         public virtual void StartSpitting()
         {
-            if(Time.time - InitSettings.InterSpitInterval < lastSpitTime)
+            if(Time.time - SpitterInitSettings.InterSpitInterval < lastSpitTime)
             {
                 return;
             }
@@ -99,6 +108,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
                 return;
             }
             var spitGo = GameObject.Instantiate(this.Spit, transform.position + relPosition, transform.rotation * rotation);
+            spitGo.GetComponent<SpitBase>().InitSettings = SpitInitSettings;
+
             spitGo.transform.parent = null;
             
             // Play sound

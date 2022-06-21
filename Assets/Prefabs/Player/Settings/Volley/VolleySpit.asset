@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: VolleySpit
   m_EditorClassIdentifier: 
   SpitName: Volley
+  Layer: Player
+  Tag: Bullet
   Speed: 0.4
   Damage: 10
   Scale: 0.07

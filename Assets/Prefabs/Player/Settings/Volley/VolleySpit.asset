@@ -16,6 +16,6 @@ MonoBehaviour:
   Layer: Player
   Tag: Bullet
   Speed: 0.4
+  Distance: 4
   Damage: 10
   Scale: 0.07
-  Duration: 0.2

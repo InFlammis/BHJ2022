@@ -8,6 +8,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
     [CreateAssetMenu(fileName = "New SpitStrategy Settings", menuName = "Game/Settings/SpitStrategy Settings")]
     public class SpitStrategySettings : ScriptableObject
     {
+        [Header("Spread Spit Strategy")]
         public string SpitStrategyName;
         
         /// <summary>
@@ -20,6 +21,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         /// </summary>
         public int BurstSize;
 
+        [Header("Continuous Spit Strategy")]
         /// <summary>
         /// Speed at which the weapon fires up
         /// </summary>

@@ -31,8 +31,8 @@ TagManager:
   - EnemyBullets
   - Background
   - PlayerInRangeDetector
-  - 
-  - 
+  - PlayerGroundStains
+  - EnemyGroundStains
   - 
   - 
   - 

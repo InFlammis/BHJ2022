@@ -108,7 +108,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
                 return;
             }
             var spitGo = GameObject.Instantiate(this.Spit, transform.position + relPosition, transform.rotation * rotation);
-            spitGo.GetComponent<SpitBase>().InitSettings = SpitInitSettings;
+            var spitBase = spitGo.GetComponent<SpitBase>();
+            spitBase.InitSettings = SpitInitSettings;
+            spitBase.StaticObjects = this._staticObjects;
 
             spitGo.transform.parent = null;
             

@@ -30,14 +30,14 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
         }
 
         /// <inheritdoc/>
-        public void OnStart()
+        public new void OnStart()
         {
             base.OnStart();
             Core.OnStart();
         }
 
         /// <inheritdoc/>
-        public void OnAwake()
+        public new void OnAwake()
         {
             Core.OnAwake();
         }

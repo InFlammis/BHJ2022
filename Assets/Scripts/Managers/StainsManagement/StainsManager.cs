@@ -34,6 +34,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
 
             var collider = newGo.AddComponent<CircleCollider2D>();
             collider.radius = 0.5f;
+            collider.isTrigger = true;
 
             //-- WIP
         }

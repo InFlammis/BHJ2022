@@ -8,9 +8,15 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.PreRoll
 {
     public class PreRollManager : MenuManager, IPreRollManager
     {
+        #region Inspector
+        [Header("SO References")]
+        [SerializeField] VideoContainerSO videoContainerSO;
+        #endregion
 
+        #region Private variables
         private VideoPlayer _videoPlayer;
         private SpriteRenderer _foreground;
+        #endregion
 
         void Awake()
         {
@@ -27,6 +33,13 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.PreRoll
             _foreground = FindObjectsOfType<SpriteRenderer>().Single(x => x.name == "Foreground");
 
             _videoPlayer = FindObjectOfType<VideoPlayer>();
+
+            #if UNITY_EDITOR_LINUX || UNITY_STANDALONE_LINUX
+            _videoPlayer.clip = videoContainerSO.LogoAnimationWEBM;
+            #else
+            _videoPlayer.clip = videoContainerSO.LogoAnimationMP4;
+            #endif
+
             _videoPlayer.loopPointReached += VideoPlayer_loopPointReached;
         }
 

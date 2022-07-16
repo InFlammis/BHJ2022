@@ -15,6 +15,10 @@ TagManager:
   - SpawnPoint
   - EnemyBullet
   - SoundManager
+  - NorthAA
+  - SouthAA
+  - NorthNAA
+  - SouthNAA
   layers:
   - Default
   - TransparentFX

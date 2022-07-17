@@ -1,5 +1,7 @@
-﻿using System;
+﻿using InFlammis.Victoria.Assets.Scripts.Managers;
+using System;
 using UnityEngine;
+using System.Linq;
 
 namespace InFlammis.Victoria.Assets.Scripts.Layout
 {
@@ -17,7 +19,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
             Active
         }
 
-        public SectorState State = SectorState.Inactive;
+        private SectorState State;
+
+        [SerializeField] private StaticObjectsSO _staticObjects;
 
         private ActivationArea northAa;
         private ActivationArea southAa;
@@ -29,26 +33,59 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
         [SerializeField]private Color inactiveColor;
         [SerializeField]private Color awakenColor;
 
+        private Collider2D sectorCollider;
+
+        private bool playerInS1 = false;
+        private bool playerInNaa = false;
+        private bool playerInAa = false;
+
+        public bool PlayerInS1
+        {
+            get => playerInS1;
+            set
+            {
+                playerInS1 = value;
+                SetState();
+            }
+        }
+        public bool PlayerInNaa
+        {
+            get => playerInNaa;
+            set
+            {
+                playerInNaa = value;
+                SetState();
+            }
+        }
+        public bool PlayerInAa
+        {
+            get => playerInAa;
+            set
+            {
+                playerInAa = value;
+                SetState();
+            }
+        }
 
         public void NeighbourActivation(Sector neighbour)
         {
-            SetState(SectorState.Awaken);
+            PlayerInNaa = true;
+            SetState();
         }
         public void NeighbourDeactivation(Sector neighbour)
         {
-            SetState(SectorState.Inactive);
+            PlayerInNaa = false;
+            SetState();
         }
 
         private void Awake()
         {
-            northAa = GameObject.FindGameObjectWithTag("NorthAA").GetComponent<ActivationArea>();
-            southAa = GameObject.FindGameObjectWithTag("SouthAA").GetComponent<ActivationArea>();
+            sectorCollider = GetComponent<Collider2D>();
+            northAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA").GetComponent<ActivationArea>();
+            southAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA").GetComponent<ActivationArea>();
 
-            northNaa = GameObject.FindGameObjectWithTag("NorthNAA").GetComponent<NeighbourActivationArea>();
-            southNaa = GameObject.FindGameObjectWithTag("SouthNAA").GetComponent<NeighbourActivationArea>();
-
-            SetState(State);
-
+            northNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA").GetComponent<NeighbourActivationArea>();
+            southNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA").GetComponent<NeighbourActivationArea>();
         }
 
         private void Start()
@@ -56,11 +93,67 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
             northAa.ActivationEvent += ActivationEvent;
             southAa.ActivationEvent += ActivationEvent;
 
+            northAa.DeactivationEvent += DeactivationEvent;
+            southAa.DeactivationEvent += DeactivationEvent;
+
+            var playerTransform = _staticObjects.Messenger.RequestForPlayerTransform(this, null);
+
+            playerInS1 = sectorCollider.OverlapPoint(playerTransform.position);
+            SetState();
         }
 
         private void ActivationEvent(ActivationArea aa)
         {
-            SetState(SectorState.Active);
+            PlayerInAa = true;
+            SetState();
+        }
+        private void DeactivationEvent(ActivationArea aa)
+        {
+            PlayerInAa = false;
+            SetState();
+        }
+
+        private void SetState()
+        {
+            if (PlayerInS1 || PlayerInAa)
+                SetActive();
+            else if (!PlayerInS1 && !PlayerInAa && !PlayerInNaa)
+                SetInactive();
+            else if (!PlayerInS1 && !PlayerInAa && PlayerInNaa)
+                SetAwaken();
+        }
+
+        private void SetActive()
+        {
+            State = SectorState.Active;
+            northAa.SetActive(true);
+            southAa.SetActive(true);
+            northNaa.SetActive(true);
+            southNaa.SetActive(true);
+            sectorCollider.enabled = true;
+            ToggleStainColliderState(true);
+        }
+
+        private void SetInactive()
+        {
+            State = SectorState.Inactive;
+            northAa.SetActive(false);
+            southAa.SetActive(false);
+            northNaa.SetActive(false);
+            southNaa.SetActive(false);
+            sectorCollider.enabled = false;
+            ToggleStainColliderState(false);
+        }
+
+        private void SetAwaken()
+        {
+            State = SectorState.Awaken;
+            northAa.SetActive(true);
+            southAa.SetActive(true);
+            northNaa.SetActive(false);
+            southNaa.SetActive(false);
+            sectorCollider.enabled = true;
+            ToggleStainColliderState(false);
         }
 
         private void SetState(SectorState state)
@@ -68,31 +161,13 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
             switch (state)
             {
                 case SectorState.Inactive:
-                    {
-                        northAa.SetActive(false);
-                        southAa.SetActive(false);
-                        northNaa.SetActive(false);
-                        southNaa.SetActive(false);
-                        ToggleStainColliderState(false);
-                    }
+                    SetInactive();
                     break;
                 case SectorState.Awaken:
-                    {
-                        northAa.SetActive(true);
-                        southAa.SetActive(true);
-                        northNaa.SetActive(false);
-                        southNaa.SetActive(false);
-                        ToggleStainColliderState(false);
-                    }
+                    SetAwaken();
                     break;
                 case SectorState.Active:
-                    {
-                        northAa.SetActive(true);
-                        southAa.SetActive(true);
-                        northNaa.SetActive(true);
-                        southNaa.SetActive(true);
-                        ToggleStainColliderState(true);
-                    }
+                    SetActive();
                     break;
                 default:
                     throw new Exception("Unmanaged state");
@@ -111,6 +186,24 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
         private void EnableColliders()
         {
             Debug.Log($"Enabling colliders for {gameObject.name}");
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag != "Player")
+            {
+                return;
+            }
+            PlayerInS1 = true;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag != "Player")
+            {
+                return;
+            }
+            PlayerInS1 = false;
         }
 
         private void OnDrawGizmos()

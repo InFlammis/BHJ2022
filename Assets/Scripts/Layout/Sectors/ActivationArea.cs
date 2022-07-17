@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace InFlammis.Victoria.Assets.Scripts.Layout
+namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 {
     public class ActivationArea : MonoBehaviour
     {
@@ -21,7 +21,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
 
         private void Awake()
         {
-            _collider = this.GetComponent<Collider2D>();
+            _collider = GetComponent<Collider2D>();
         }
 
 
@@ -47,7 +47,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
 
         private void OnDrawGizmos()
         {
-            if (this._collider == null || !IsActive)
+            if (_collider == null || !IsActive)
             {
                 return;
             }

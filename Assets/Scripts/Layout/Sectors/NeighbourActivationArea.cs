@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace InFlammis.Victoria.Assets.Scripts.Layout
+namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 {
     public class NeighbourActivationArea : MonoBehaviour
     {
@@ -22,13 +22,13 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
 
         private void Awake()
         {
-            parent = this.GetComponentInParent<Sector>();
-            _collider = this.GetComponent<Collider2D>();
+            parent = GetComponentInParent<Sector>();
+            _collider = GetComponent<Collider2D>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(neighbour == null)
+            if (neighbour == null)
             {
                 return;
             }
@@ -47,7 +47,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout
         }
         private void OnDrawGizmos()
         {
-            if (this._collider == null || !IsActive)
+            if (_collider == null || !IsActive)
             {
                 return;
             }

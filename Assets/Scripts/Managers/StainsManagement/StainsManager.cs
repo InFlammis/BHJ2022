@@ -1,4 +1,7 @@
-﻿using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+﻿using InFlammis.Victoria.Assets.Scripts.Layout.Sectors;
+using InFlammis.Victoria.Assets.Scripts.MessageBroker.Events;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
@@ -9,9 +12,43 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
 
         [SerializeField] private StainsManagerSettings _initSettings;
 
+        private List<Sector> sectors = new List<Sector>();
+        private List<Sector> activeSectors = new List<Sector>();
+
         private void Awake()
         {
             SubscribeToStainsManagerEvents();
+        }
+
+        private void Start()
+        {
+            sectors.AddRange(gameObject.GetComponentsInChildren<Sector>());
+
+            foreach(var sector in sectors)
+            {
+                sector.OnSectorActivated += Sector_OnSectorActivated;
+                sector.OnSectorDectivated += Sector_OnSectorDectivated;
+            }
+        }
+
+        private void Sector_OnSectorDectivated(Sector sector)
+        {
+            if (!activeSectors.Contains(sector))
+            {
+                return;
+            }
+
+            activeSectors.Remove(sector);
+        }
+
+        private void Sector_OnSectorActivated(Sector sector)
+        {
+            if (activeSectors.Contains(sector))
+            {
+                return;
+            }
+
+            activeSectors.Add(sector);
         }
 
         public virtual void SubscribeToStainsManagerEvents()
@@ -25,10 +62,21 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
         {
             // WIP
             var publisherGo = (GameObject)publisher;
+
+            var parentSector = this.FindParentInActiveSectors(publisherGo.transform.position);
+            
+            if(parentSector == null)
+            {
+                return;
+            }
+
+            var parentGo = parentSector.GetComponentInChildren<StainCollidersCollection>().gameObject;
+
             var newGo = new GameObject("Stain");
             newGo.layer = LayerMask.NameToLayer("Background");
             //newGo.tag = "";
-            newGo.transform.parent = this.transform;
+
+            newGo.transform.parent = parentGo.transform;
             newGo.transform.position = publisherGo.transform.position;
             newGo.transform.rotation = publisherGo.transform.rotation;
 
@@ -37,6 +85,42 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
             collider.isTrigger = true;
 
             //-- WIP
+        }
+
+        private Sector FindParentInActiveSectors(Vector3 position)
+        {
+            var analysedSectors = new List<Sector>();
+            var sectorsQueue = new Queue<Sector>(activeSectors);
+            while(sectorsQueue.Count > 0)
+            {
+                var sector = sectorsQueue.Dequeue();
+                if (sector.areas.SectorCollider.OverlapPoint(position))
+                {
+                    return sector;
+                }
+                else
+                {
+                    analysedSectors.Add(sector);
+                    this.CheckEnqueueSector(sector.areas.NorthNaa.neighbour, analysedSectors, sectorsQueue);
+                    this.CheckEnqueueSector(sector.areas.SouthNaa.neighbour, analysedSectors, sectorsQueue);
+                }
+            }
+
+            return null;
+
+        }
+
+        private void CheckEnqueueSector(Sector sector, List<Sector> analysedSectors, Queue<Sector> sectorsQueue)
+        {
+            if (sector == null)
+            {
+                return;
+            }
+
+            if (!analysedSectors.Contains(sector) && !sectorsQueue.Contains(sector))
+            {
+                sectorsQueue.Enqueue(sector);
+            }
         }
     }
 }

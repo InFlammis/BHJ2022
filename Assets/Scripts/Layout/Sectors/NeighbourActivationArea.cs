@@ -5,7 +5,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 {
     public class NeighbourActivationArea : MonoBehaviour
     {
-        [SerializeField] Sector neighbour;
+        public Sector neighbour;
 
         [SerializeField] Color color;
 

@@ -6,8 +6,11 @@ using InFlammis.Victoria.Assets.Scripts.Layout.Sectors.StateMachine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 {
-    public partial class Sector : MonoBehaviour
+    public partial class Sector : MonoBehaviour, IEquatable<Sector>
     {
+        public event Action<Sector> OnSectorActivated;
+        public event Action<Sector> OnSectorDectivated;
+
         [SerializeField] private StaticObjectsSO _staticObjects;
 
         [SerializeField] private Color activeColor;
@@ -18,7 +21,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         private State CurrentState;
 
-        private Areas areas = new Areas();
+        [HideInInspector]public Areas areas = new Areas();
 
         private bool playerInSector = false;
         private bool playerInNaa = false;
@@ -59,6 +62,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA").GetComponent<ActivationArea>();
             areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA").GetComponent<NeighbourActivationArea>();
             areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA").GetComponent<NeighbourActivationArea>();
+            areas.StainColliders = gameObject.GetComponentInChildren<StainCollidersCollection>();
 
             _stateFactory = new StateFactory(this);
         }
@@ -97,15 +101,36 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
         private void SetState()
         {
             if (PlayerInSector || PlayerInAa)
-                SetCurrentState(_stateFactory.Active);
+            {
+                if (SetCurrentState(_stateFactory.Active))
+                {
+                    OnSectorActivated?.Invoke(this);
+                }
+            }
             else if (!PlayerInSector && !PlayerInAa && !PlayerInNaa)
-                SetCurrentState(_stateFactory.Inactive);
+            { 
+                if (SetCurrentState(_stateFactory.Inactive))
+                {
+                    OnSectorDectivated?.Invoke(this);
+                }
+            }
             else if (!PlayerInSector && !PlayerInAa && PlayerInNaa)
-                SetCurrentState(_stateFactory.Awaken);
+            { 
+                SetCurrentState(_stateFactory.Awaken); 
+            }
         }
 
-        private void SetCurrentState(State state)
+        private bool SetCurrentState(State state)
         {
+            if(state == null)
+            {
+                return false;
+            }
+            if(state == CurrentState)
+            {
+                return false;
+            }
+
             if(CurrentState != null)
             {
                 CurrentState.OnExit();
@@ -114,6 +139,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             CurrentState = state;
 
             CurrentState.OnEnter();
+
+            return true;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -149,6 +176,16 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             Gizmos.DrawCube(Vector3.zero, transform.localScale);
         }
 
+        public bool Equals(Sector other)
+        {
+            if(other == null)
+            {
+                return false;
+            }
+
+            return this.GetInstanceID() == other.GetInstanceID();
+        }
+
         public class Areas
         {
             public ActivationArea NorthAa { get; set; }
@@ -156,6 +193,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             public NeighbourActivationArea NorthNaa { get; set; }
             public NeighbourActivationArea SouthNaa { get; set; }
             public Collider2D SectorCollider { get; set; }
+            public StainCollidersCollection StainColliders { get; set; }
         }
     }
 }

@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
 
     private RawImage rawImage;
     private RenderTexture background;
-    private Camera camera;
+    private Camera mainCamera;
 
     public void OnSelect(Vector3 contactPoint)
     {
@@ -49,7 +49,7 @@ public class Tile : MonoBehaviour
 
     private void Awake()
     {
-        camera = FindObjectOfType<Camera>();
+        mainCamera = Camera.main;
         rawImage = GetComponent<RawImage>();
 
         background = new RenderTexture(bgTexture.width, bgTexture.height, 0);

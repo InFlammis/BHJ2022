@@ -16,6 +16,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         public void SetActive(bool isActive)
         {
+            if(_collider == null)
+            {
+                return;
+            }
+
             _collider.enabled = isActive;
         }
 

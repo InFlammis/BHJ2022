@@ -58,10 +58,10 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
         private void Awake()
         {
             areas.SectorCollider = GetComponent<Collider2D>();
-            areas.NorthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA").GetComponent<ActivationArea>();
-            areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA").GetComponent<ActivationArea>();
-            areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA").GetComponent<NeighbourActivationArea>();
-            areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA").GetComponent<NeighbourActivationArea>();
+            areas.NorthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA")?.GetComponent<ActivationArea>();
+            areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA")?.GetComponent<ActivationArea>();
+            areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA")?.GetComponent<NeighbourActivationArea>();
+            areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA")?.GetComponent<NeighbourActivationArea>();
             areas.StainColliders = gameObject.GetComponentInChildren<StainCollidersCollection>();
 
             _stateFactory = new StateFactory(this);

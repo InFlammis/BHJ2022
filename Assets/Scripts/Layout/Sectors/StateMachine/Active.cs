@@ -20,11 +20,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             public override void OnEnter()
             {
                 base.OnEnter();
-                _sector.areas.NorthAa.SetActive(true);
-                _sector.areas.SouthAa.SetActive(true);
-                _sector.areas.NorthNaa.SetActive(true);
-                _sector.areas.SouthNaa.SetActive(true);
-                _sector.areas.StainColliders.SetActive(true);
+                _sector.areas.NorthAa?.SetActive(true);
+                _sector.areas.SouthAa?.SetActive(true);
+                _sector.areas.NorthNaa?.SetActive(true);
+                _sector.areas.SouthNaa?.SetActive(true);
+                _sector.areas.StainColliders?.SetActive(true);
                 _sector.areas.SectorCollider.enabled = true;
             }
         }

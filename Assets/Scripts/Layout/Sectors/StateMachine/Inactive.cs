@@ -21,11 +21,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             {
                 base.OnEnter();
 
-                _sector.areas.NorthAa.SetActive(false);
-                _sector.areas.SouthAa.SetActive(false);
-                _sector.areas.NorthNaa.SetActive(false);
-                _sector.areas.SouthNaa.SetActive(false);
-                _sector.areas.StainColliders.SetActive(false);
+                _sector.areas.NorthAa?.SetActive(false);
+                _sector.areas.SouthAa?.SetActive(false);
+                _sector.areas.NorthNaa?.SetActive(false);
+                _sector.areas.SouthNaa?.SetActive(false);
+                _sector.areas.StainColliders?.SetActive(false);
                 _sector.areas.SectorCollider.enabled = false;
             }
         }

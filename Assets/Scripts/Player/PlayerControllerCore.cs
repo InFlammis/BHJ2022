@@ -27,6 +27,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         public Vector2 PlayerMovement { get; set; }
         public Vector2 PlayerRotation { get; set; }
 
+        public bool IsGamepad { get; set; }
+
         public Spitter CurrentWeapon { get; set; }
 
         public PlayerControllerCore(IPlayerController parent)
@@ -47,9 +49,10 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             PlayerMovement = playerMovement;
         }
 
-        public void SetPlayerRotation(Vector2 playerRotation)
+        public void SetPlayerRotation(Vector2 playerRotation, bool isGamepad)
         {
             PlayerRotation = playerRotation;
+            IsGamepad = isGamepad;
         }
 
         public void Move()
@@ -74,23 +77,36 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             }
         }
 
-        public void Rotate()
+        public void Rotate(Vector2 mousePosition, bool isGamepad)
         {
-            float angle = Mathf.Atan2(PlayerRotation.y, PlayerRotation.x) - Mathf.PI / 2;
-            
-            var rotationQuat = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
-
-            var rotationMagnitude = PlayerRotation.magnitude;
-
-            //Debug.Log($"Rotation magnitude: {rotationMagnitude}");
-
-            if (rotationMagnitude < InitSettings.RotationTolerance)
+            // GAMEPAD
+            if (IsGamepad)
             {
-                return;
-            }
+                float angle = Mathf.Atan2(PlayerRotation.y, PlayerRotation.x) - Mathf.PI / 2;
+            
+                var rotationQuat = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
 
-            var rotation = Quaternion.Slerp(Transform.rotation, rotationQuat, rotationMagnitude * InitSettings.RotationSpeed);
-            RigidBody.SetRotation(rotation);
+                var rotationMagnitude = PlayerRotation.magnitude;
+
+                //Debug.Log($"Rotation magnitude: {rotationMagnitude}");
+
+                if (rotationMagnitude < InitSettings.RotationTolerance)
+                {
+                    return;
+                }
+
+                var rotation = Quaternion.Slerp(Transform.rotation, rotationQuat, rotationMagnitude * InitSettings.RotationSpeed);
+                RigidBody.SetRotation(rotation);
+            }
+            else
+            {
+                // MOUSE AND KEYBOARD
+                PlayerRotation = mousePosition;
+
+                Vector2 aimDirection = PlayerRotation - RigidBody.position;
+                float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+                RigidBody.rotation = aimAngle;
+            }      
         }
 
         public void StartFiring()

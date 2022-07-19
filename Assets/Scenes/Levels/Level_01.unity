@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!60 &50640641
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27957,7 +27957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!60 &140913459
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -28063,7 +28063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 317218028}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!1001 &186441149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28195,7 +28195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!1001 &212502729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29537,7 +29537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 1298118312}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!1001 &511023069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29902,7 +29902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!60 &708972245
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -30094,7 +30094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 1158785219}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!60 &783425808
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -31304,7 +31304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 331308627}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!60 &1089445470
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -42777,7 +42777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!1001 &1429262605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43711,7 +43711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed126615d91ff1049a38bd5a3ff6748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 1, a: 0.5019608}
 --- !u!60 &1787281962
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -43787,7 +43787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 121163099}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!60 &1861787254
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -44173,7 +44173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbour: {fileID: 1280079213}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!1001 &1951664536
 PrefabInstance:
   m_ObjectHideFlags: 0

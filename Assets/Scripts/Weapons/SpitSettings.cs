@@ -17,6 +17,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         public float Speed;
 
         /// <summary>
+        /// Max distance reached by the bullet
+        /// </summary>
+        [Range(0.1f, 20)]
+        public float Distance;
+
+        /// <summary>
         /// Damage applied on collision
         /// </summary>
         public int Damage;
@@ -27,8 +33,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons
         [Range(0, 1)]
         public float Scale;
 
-        [Range(0.01f, 10)]
-        public float Duration;
 
     }
 }

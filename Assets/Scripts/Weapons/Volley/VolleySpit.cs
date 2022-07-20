@@ -1,5 +1,6 @@
 using InFlammis.Victoria.Assets.Scripts.Enemies;
 using InFlammis.Victoria.Assets.Scripts.Player;
+using System.Collections;
 using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Weapons.Volley
@@ -8,14 +9,19 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons.Volley
     {
         private Vector3 _velocity = Vector3.zero;
 
+        private Vector3 startPosition;
+
         void Start()
         {
+            InitCheck();
             SetInitSettings();
 
             this.transform.localScale = Vector3.one * InitSettings.Scale;
             _velocity = transform.up * this.InitSettings.Speed;
 
-            Destroy(this.GameObject, InitSettings.Duration);
+            startPosition = transform.position;
+
+            StartCoroutine(CheckForDestruction());
         }
         void FixedUpdate()
         {
@@ -37,6 +43,14 @@ namespace InFlammis.Victoria.Assets.Scripts.Weapons.Volley
 
             IsDestroyed = true;
             GameObject.Destroy(this.GameObject);
+        }
+
+        IEnumerator CheckForDestruction()
+        {
+            yield return new WaitUntil(() => Vector3.Distance(startPosition, transform.position) > InitSettings.Distance);
+
+            StaticObjects.Messenger.PublishSpitHasDied(this.GameObject, null);
+            Destroy(this.GameObject);
         }
     }
 }

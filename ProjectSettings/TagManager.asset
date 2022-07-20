@@ -15,6 +15,12 @@ TagManager:
   - SpawnPoint
   - EnemyBullet
   - SoundManager
+  - NorthAA
+  - SouthAA
+  - NorthNAA
+  - SouthNAA
+  - Sector
+  - StainColliders
   layers:
   - Default
   - TransparentFX
@@ -31,9 +37,9 @@ TagManager:
   - EnemyBullets
   - Background
   - PlayerInRangeDetector
-  - 
-  - 
-  - 
+  - PlayerGroundStains
+  - EnemyGroundStains
+  - GroundSectors
   - 
   - 
   - 

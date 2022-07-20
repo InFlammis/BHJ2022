@@ -21,7 +21,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         private State CurrentState;
 
-        [HideInInspector]public Areas areas = new Areas();
+        [HideInInspector]public Areas areas;
 
         private bool playerInSector = false;
         private bool playerInNaa = false;
@@ -57,22 +57,32 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         private void Awake()
         {
-            areas.SectorCollider = GetComponent<Collider2D>();
-            areas.NorthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA")?.GetComponent<ActivationArea>();
-            areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA")?.GetComponent<ActivationArea>();
-            areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA")?.GetComponent<NeighbourActivationArea>();
-            areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA")?.GetComponent<NeighbourActivationArea>();
-            areas.StainColliders = gameObject.GetComponentInChildren<StainCollidersCollection>();
+            var sectorCollider = GetComponent<Collider2D>();
+            var aa = gameObject.GetComponentsInChildren<ActivationArea>(true);
+            var naa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true);
+            var stainCollidersCollection = gameObject.GetComponentInChildren<StainCollidersCollection>();
+
+            //areas.NorthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA")?.GetComponent<ActivationArea>();
+            //areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA")?.GetComponent<ActivationArea>();
+            //areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA")?.GetComponent<NeighbourActivationArea>();
+            //areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA")?.GetComponent<NeighbourActivationArea>();
+
+            areas = new Areas(aa, naa, sectorCollider, stainCollidersCollection);
 
             _stateFactory = new StateFactory(this);
         }
 
         private void Start()
         {
-            areas.NorthAa.ActivationEvent += ActivationEvent;
-            areas.SouthAa.ActivationEvent += ActivationEvent;
-            areas.NorthAa.DeactivationEvent += DeactivationEvent;
-            areas.SouthAa.DeactivationEvent += DeactivationEvent;
+            foreach(var aa in areas.ActivationAreas)
+            {
+                aa.ActivationEvent += ActivationEvent;
+                aa.DeactivationEvent += DeactivationEvent;
+            }
+            //areas.NorthAa.ActivationEvent += ActivationEvent;
+            //areas.SouthAa.ActivationEvent += ActivationEvent;
+            //areas.NorthAa.DeactivationEvent += DeactivationEvent;
+            //areas.SouthAa.DeactivationEvent += DeactivationEvent;
 
             var playerTransform = _staticObjects.Messenger.RequestForPlayerTransform(this, null);
 
@@ -188,12 +198,57 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         public class Areas
         {
-            public ActivationArea NorthAa { get; set; }
-            public ActivationArea SouthAa { get; set; }
-            public NeighbourActivationArea NorthNaa { get; set; }
-            public NeighbourActivationArea SouthNaa { get; set; }
+            public Areas(ActivationArea[] activationAreas, NeighbourActivationArea[] neighbourActivationAreas, Collider2D sectorCollider, StainCollidersCollection stainColliders)
+            {
+                this.ActivationAreas = activationAreas;
+                this.NeighbourActivationAreas = neighbourActivationAreas;
+                this.SectorCollider = sectorCollider;
+                this.stainCollidersCollection = stainColliders;
+            }
+
+            public void SetActive(bool isActive)
+            {
+                this.SetActivationAreasActive(isActive);
+                this.SetNeighbourActivationAreasActive(isActive);
+                this.SetSectorColliderActive(isActive);
+                this.SetStainCollidersActive(isActive);
+            }
+
+            public void SetActivationAreasActive(bool isActive)
+            {
+                foreach (var naa in this.NeighbourActivationAreas)
+                {
+                    naa.SetActive(isActive);
+                }
+            }
+
+            public void SetNeighbourActivationAreasActive(bool isActive)
+            {
+                foreach(var aa in this.ActivationAreas)
+                {
+                    aa.SetActive(isActive);
+                }
+            }
+
+            public void SetSectorColliderActive(bool isActive)
+            {
+                this.SectorCollider.enabled = isActive;
+            }
+
+            public void SetStainCollidersActive(bool isActive)
+            {
+                this.stainCollidersCollection?.SetActive(isActive);
+            }
+
+            public ActivationArea[] ActivationAreas { get;}
+            public NeighbourActivationArea[] NeighbourActivationAreas { get; }
+
+            //public ActivationArea NorthAa { get; set; }
+            //public ActivationArea SouthAa { get; set; }
+            //public NeighbourActivationArea NorthNaa { get; set; }
+            //public NeighbourActivationArea SouthNaa { get; set; }
             public Collider2D SectorCollider { get; set; }
-            public StainCollidersCollection StainColliders { get; set; }
+            public StainCollidersCollection stainCollidersCollection { get; set; }
         }
     }
 }

@@ -101,8 +101,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
                 else
                 {
                     analysedSectors.Add(sector);
-                    this.CheckEnqueueSector(sector.areas.NorthNaa.neighbour, analysedSectors, sectorsQueue);
-                    this.CheckEnqueueSector(sector.areas.SouthNaa.neighbour, analysedSectors, sectorsQueue);
+                    foreach(var naa in sector.areas.NeighbourActivationAreas)
+                    {
+                        this.CheckEnqueueSector(naa.neighbour, analysedSectors, sectorsQueue);
+                    }
+                    //this.CheckEnqueueSector(sector.areas.NorthNaa.neighbour, analysedSectors, sectorsQueue);
+                    //this.CheckEnqueueSector(sector.areas.SouthNaa.neighbour, analysedSectors, sectorsQueue);
                 }
             }
 

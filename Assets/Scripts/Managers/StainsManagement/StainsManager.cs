@@ -60,7 +60,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
 
         private void Spit_HasDied(object publisher, string target)
         {
-            // WIP
             var publisherGo = (GameObject)publisher;
 
             var parentSector = this.FindParentInActiveSectors(publisherGo.transform.position);
@@ -74,7 +73,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
 
             var newGo = new GameObject("Stain");
             newGo.layer = LayerMask.NameToLayer("Background");
-            //newGo.tag = "";
 
             newGo.transform.parent = parentGo.transform;
             newGo.transform.position = publisherGo.transform.position;
@@ -83,8 +81,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
             var collider = newGo.AddComponent<CircleCollider2D>();
             collider.radius = 0.5f;
             collider.isTrigger = true;
-
-            //-- WIP
         }
 
         private Sector FindParentInActiveSectors(Vector3 position)
@@ -105,8 +101,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
                     {
                         this.CheckEnqueueSector(naa.neighbour, analysedSectors, sectorsQueue);
                     }
-                    //this.CheckEnqueueSector(sector.areas.NorthNaa.neighbour, analysedSectors, sectorsQueue);
-                    //this.CheckEnqueueSector(sector.areas.SouthNaa.neighbour, analysedSectors, sectorsQueue);
                 }
             }
 

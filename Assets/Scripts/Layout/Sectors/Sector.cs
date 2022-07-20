@@ -62,11 +62,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             var naa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true);
             var stainCollidersCollection = gameObject.GetComponentInChildren<StainCollidersCollection>();
 
-            //areas.NorthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "NorthAA")?.GetComponent<ActivationArea>();
-            //areas.SouthAa = gameObject.GetComponentsInChildren<ActivationArea>(true).SingleOrDefault(x => x.tag == "SouthAA")?.GetComponent<ActivationArea>();
-            //areas.NorthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "NorthNAA")?.GetComponent<NeighbourActivationArea>();
-            //areas.SouthNaa = gameObject.GetComponentsInChildren<NeighbourActivationArea>(true).SingleOrDefault(x => x.tag == "SouthNAA")?.GetComponent<NeighbourActivationArea>();
-
             areas = new Areas(aa, naa, sectorCollider, stainCollidersCollection);
 
             _stateFactory = new StateFactory(this);
@@ -79,10 +74,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
                 aa.ActivationEvent += ActivationEvent;
                 aa.DeactivationEvent += DeactivationEvent;
             }
-            //areas.NorthAa.ActivationEvent += ActivationEvent;
-            //areas.SouthAa.ActivationEvent += ActivationEvent;
-            //areas.NorthAa.DeactivationEvent += DeactivationEvent;
-            //areas.SouthAa.DeactivationEvent += DeactivationEvent;
 
             var playerTransform = _staticObjects.Messenger.RequestForPlayerTransform(this, null);
 
@@ -173,6 +164,49 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
 
         private void OnDrawGizmos()
         {
+            if(this.areas == null)
+            {
+                return;
+            }
+
+            var rotationMatrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
+
+
+            GizmoDrawBoxCollider(this.areas.SectorCollider);
+
+            //var polygonCollider = this.areas.SectorCollider as PolygonCollider2D;
+            //GizmoDrawPolygonCollider(polygonCollider);
+
+            //if (polygonCollider != null)
+            //{
+            //    GizmoDrawPolygonCollider(polygonCollider);
+            //}
+            //else
+            //{
+            //    GizmoDrawBoxCollider(this.areas.SectorCollider);
+            //}
+        }
+
+        private void GizmoDrawPolygonCollider(PolygonCollider2D collider)
+        {
+            var rotationMatrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
+
+            Gizmos.matrix = rotationMatrix;
+            Gizmos.color = CurrentState switch
+            {
+                AwakenState => awakenColor,
+                ActiveState => activeColor,
+                _ => inactiveColor
+            };
+
+            var mesh = new Mesh();
+            mesh.SetVertices(collider.points.Select(x => new Vector3(x.x, x.y, 0)).ToArray());
+            mesh.RecalculateNormals();
+            Gizmos.DrawMesh(mesh);
+        }
+
+        private void GizmoDrawBoxCollider(Collider2D collider)
+        {
             var rotationMatrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
 
             Gizmos.matrix = rotationMatrix;
@@ -243,10 +277,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Layout.Sectors
             public ActivationArea[] ActivationAreas { get;}
             public NeighbourActivationArea[] NeighbourActivationAreas { get; }
 
-            //public ActivationArea NorthAa { get; set; }
-            //public ActivationArea SouthAa { get; set; }
-            //public NeighbourActivationArea NorthNaa { get; set; }
-            //public NeighbourActivationArea SouthNaa { get; set; }
             public Collider2D SectorCollider { get; set; }
             public StainCollidersCollection stainCollidersCollection { get; set; }
         }

@@ -50,7 +50,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// </summary>
         void Move();
 
-        void Rotate();
+        void Rotate(Vector2 mousePosition, bool isGamepad);
 
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// </summary>
         /// <param name="enemyController">Enemy which the player is colliding with</param>
         void HandleCollisionWithEnemy(IEnemyController enemyController);
-        void SetPlayerRotation(Vector2 inputVector);
+        void SetPlayerRotation(Vector2 inputVector, bool isGamepad);
 
         /// <summary>
         /// Turn left

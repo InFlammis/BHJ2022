@@ -28782,6 +28782,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 420153996349222509, guid: 6d2ebf83af878014f91c5f20df03c4fb, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 420153996349222509, guid: 6d2ebf83af878014f91c5f20df03c4fb, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d2ebf83af878014f91c5f20df03c4fb, type: 3}
 --- !u!1001 &317218026
@@ -44315,6 +44323,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7645537738796717715, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717715, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645537738796717715, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7645537738796717716, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
       propertyPath: _soundSettings
       value: 
@@ -44371,7 +44391,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7645537738796717715, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8cb9d94e691492448211980bbfa5e19, type: 3}
 --- !u!1001 &8314202308669417412
 PrefabInstance:

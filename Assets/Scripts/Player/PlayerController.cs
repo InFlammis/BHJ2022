@@ -29,6 +29,18 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
 
         private readonly string _Target = "Player";
+        private Camera mainCamera;
+        private PlayerActionAsset playerActionAsset;
+        private PlayerInput playerInput;
+
+        [SerializeField]
+        private Vector2 inputMovement;
+
+        [SerializeField]
+        private Vector2 inputRotation;
+
+        [SerializeField]
+        private bool isGamepad;
 
         [SerializeField]
         private GameObject ExplosionEffect;
@@ -38,35 +50,45 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            var inputVector = context.ReadValue<Vector2>();
+            inputMovement = context.ReadValue<Vector2>();
 
             if (context.performed)
             {
-                Core.SetPlayerMovement(inputVector);
-                //Debug.Log($"Moving {inputVector}");
+                Core.SetPlayerMovement(inputMovement);
+                //Debug.Log($"Moving {inputMovement}");
             }
             else if (context.canceled)
             {
                 //Debug.Log("Not moving");
-                Core.SetPlayerMovement(inputVector);
+                Core.SetPlayerMovement(inputMovement);
             }
         }
 
         public void OnRotate(InputAction.CallbackContext context)
         {
-            var inputVector = context.ReadValue<Vector2>();
-
             if (context.performed)
             {
-                Core.SetPlayerRotation(inputVector);
-                //Debug.Log($"Rotating {inputVector}");
-
+                if(isGamepad)
+                {
+                    inputRotation = context.ReadValue<Vector2>();
+                    Core.SetPlayerRotation(inputRotation, isGamepad);
+                }
+                else
+                {
+                    //Debug.Log("InputPosition: " + context.ReadValue<Vector2>());
+                    //inputRotation = mainCamera.ScreenToWorldPoint(context.ReadValue<Vector2>());
+                    //Debug.Log("Input World position: " + inputRotation);
+                    inputRotation = context.ReadValue<Vector2>();
+                    Core.SetPlayerRotation(inputRotation, isGamepad);
+                    //Debug.Log($"Rotating {inputRotation}");
+                }
             }
-            else if (context.canceled)
+            /*else if (context.canceled)
             {
-                //Debug.Log("Not rotating");
-                Core.SetPlayerRotation(inputVector);
-            }
+                inputRotation = Vector2.zero;
+
+                Core.SetPlayerRotation(inputRotation);
+            }*/
         }
 
         public void OnFire(InputAction.CallbackContext context)
@@ -148,20 +170,30 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             {
             }
         }
+        
+        public void OnDeviceChange(PlayerInput playerInput)
+        {
+            isGamepad = playerInput.currentControlScheme.Equals("Gamepad") ? true : false;
+        }
 
         #region Unity methods
 
-        private InputAction leftMouseClick;
+        //private InputAction leftMouseClick;
 
-        private void LeftMouseClicked()
+        /*private void LeftMouseClicked()
         {
             print("LeftMouseClicked");
-        }
+        }*/
+
         void Awake()
         {
-            leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
-            leftMouseClick.performed += ctx => LeftMouseClicked();
-            leftMouseClick.Enable();
+            mainCamera = Camera.main;
+            playerActionAsset = new PlayerActionAsset();
+            playerInput = GetComponent<PlayerInput>();
+
+            //leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
+            //leftMouseClick.performed += ctx => LeftMouseClicked();
+            //leftMouseClick.Enable();
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
 
             SubscribeToHealthManagerEvents();
@@ -169,6 +201,16 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             CheckWeaponsConfiguration();
 
             Core = new PlayerControllerCore(this);
+        }
+
+        void OnEnable()
+        {
+            playerActionAsset.Enable();
+        }
+
+        void OnDisable()
+        {
+            playerActionAsset.Disable();
         }
 
         private void SubscribeToRequestsForPlayer()
@@ -206,7 +248,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             messenger.HasDied.RemoveListener(HealthManagerHasDied);
             messenger.HealthLevelChanged.RemoveListener(HealthManagerHealthLevelChanged);
         }
-
 
         void Start()
         {
@@ -247,10 +288,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         void FixedUpdate()
         {
+            // Player Movement
             Core.Move();
-            Core.Rotate();
-        }
 
+            // Player Rotation/Aim
+            Core.Rotate(mainCamera.ScreenToWorldPoint(playerActionAsset.Player.Rotate.ReadValue<Vector2>()), isGamepad);
+        }
         #endregion
 
         /// <summary>

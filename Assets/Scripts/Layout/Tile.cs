@@ -6,31 +6,30 @@ public class Tile : MonoBehaviour
 {
     public event Action<Vector2, RectTransform> CollisionDetectedEvent;
 
+    /// <summary>
+    /// Background Texture
+    /// </summary>
     [SerializeField] private Texture bgTexture;
+
+    /// <summary>
+    /// Foreground texture
+    /// </summary>
     [SerializeField] private Texture stainTexture;
+
+    /// <summary>
+    /// Shader to merge the foreground texture onto the background texture
+    /// </summary>
     [SerializeField] private ComputeShader bgTextureComputeShader;
 
     private RawImage rawImage;
     private RenderTexture background;
     private Camera mainCamera;
 
-    public void OnSelect(Vector3 contactPoint)
-    {
-        //TODO: REVIEW THIS SCRIPT
-        var rectTransform = this.gameObject.transform as RectTransform;
-        var xMin = rectTransform.offsetMin.x;
-        var yMin = rectTransform.offsetMin.y;
-
-        var mouseX = (contactPoint.x - xMin)/ rectTransform.rect.width;
-        var mouseY = (contactPoint.y - yMin)/rectTransform.rect.height;
-
-        var mouseRelPos = new Vector2(mouseX, mouseY);
-
-        CollisionDetectedEvent?.Invoke(mouseRelPos, rectTransform);
-
-        ApplyForeground(mouseRelPos);
-    }
-
+    /// <summary>
+    /// Apply the foreground to the current tile.
+    /// Invoke the Shader passing the textures and the position.
+    /// </summary>
+    /// <param name="offset">The position on the background where to apply the foreground</param>
     public void ApplyForeground(Vector2 offset)
     {
         offset = new Vector2((stainTexture.width * offset.x * 4) - stainTexture.width / 2, (stainTexture.height * offset.y * 4) - stainTexture.height / 2);
@@ -40,11 +39,9 @@ public class Tile : MonoBehaviour
         bgTextureComputeShader.SetTexture(0, "SpotTxt", stainTexture);
         bgTextureComputeShader.SetInts("offset", new int[] { (int)(offset.x), (int)(offset.y) });
 
-
         var dispatchSize = new Vector3Int(Mathf.CeilToInt((stainTexture.width) / 8f), Mathf.CeilToInt((stainTexture.height) / 8f), 1);
 
         bgTextureComputeShader.Dispatch(0, dispatchSize.x, dispatchSize.y, dispatchSize.z);
-
     }
 
     private void Awake()

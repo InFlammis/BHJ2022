@@ -17,7 +17,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
 
         private void Awake()
         {
-            SubscribeToStainsManagerEvents();
+            SubscribeToSpitEvents();
         }
 
         private void Start()
@@ -51,7 +51,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.StainsManagement
             activeSectors.Add(sector);
         }
 
-        public virtual void SubscribeToStainsManagerEvents()
+        public virtual void SubscribeToSpitEvents()
         {
             var messenger = (_staticObjects.Messenger as ISpitEventsMessenger);
 

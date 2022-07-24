@@ -77,6 +77,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             }
         }
 
+        /// <summary>
+        /// Execute a Rotate action on the player object, spanned on multiple frames
+        /// </summary>
+        /// <param name="quaternion">Rotation</param>
+        /// <returns></returns>
         public void Rotate(Vector2 mousePosition, bool isGamepad)
         {
             // GAMEPAD
@@ -127,36 +132,15 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         {
         }
 
+        public void TogglePause()
+        {
+            
+        }
+
         public void HandleCollisionWithEnemy(IEnemyController enemyController)
         {
             var damage = enemyController.InitSettings.DamageAppliedOnCollision;
             HealthManager.Damage(damage);
         }
-
-        public void TurnLeft()
-        {
-            PlayerRotation = new Vector2(-1, 0);
-        }
-
-        public void TurnRight()
-        {
-            PlayerRotation = new Vector2(1, 0);
-        }
-
-        public void TurnUp()
-        {
-            PlayerRotation = new Vector2(0, 1);
-        }
-
-        public void TurnDown()
-        {
-            PlayerRotation = new Vector2(0, 1);
-        }
-
-        /// <summary>
-        /// Execute a Rotate action on the player object, spanned on multiple frames
-        /// </summary>
-        /// <param name="quaternion">Rotation</param>
-        /// <returns></returns>
     }
 }

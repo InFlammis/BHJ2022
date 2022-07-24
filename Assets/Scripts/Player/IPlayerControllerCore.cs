@@ -81,23 +81,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         void SetPlayerRotation(Vector2 inputVector, bool isGamepad);
 
         /// <summary>
-        /// Turn left
+        /// Open the pause menu
         /// </summary>
-        void TurnLeft();
-
-        /// <summary>
-        /// Turn right
-        /// </summary>
-        void TurnRight();
-
-        /// <summary>
-        /// Turn up
-        /// </summary>
-        void TurnUp();
-
-        /// <summary>
-        /// Turn Down
-        /// </summary>
-        void TurnDown();
+        void TogglePause();
     }
 }

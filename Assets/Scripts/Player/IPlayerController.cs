@@ -59,29 +59,5 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         /// </summary>
         /// <param name="context">The inputAction context</param>
         void OnOpenSelectionMenu(InputAction.CallbackContext context);
-
-        /// <summary>
-        /// Invoked by the Input manager to start a turn left action
-        /// </summary>
-        /// <param name="context">The inputAction context</param>
-        void OnTurnLeft(InputAction.CallbackContext context);
-
-        /// <summary>
-        /// Invoked by the Input manager to start a turn right action
-        /// </summary>
-        /// <param name="context">The inputAction context</param>
-        void OnTurnRight(InputAction.CallbackContext context);
-
-        /// <summary>
-        /// Invoked by the Input manager to start a turn up action
-        /// </summary>
-        /// <param name="context">The inputAction context</param>
-        void OnTurnUp(InputAction.CallbackContext context);
-
-        /// <summary>
-        /// Invoked by the Input manager to start a turn down action
-        /// </summary>
-        /// <param name="context">The inputAction context</param>
-        void OnTurnDown(InputAction.CallbackContext context);
     }
 }

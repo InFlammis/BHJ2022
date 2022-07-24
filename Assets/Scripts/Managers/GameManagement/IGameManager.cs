@@ -1,5 +1,6 @@
 ﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
-using UnityEngine.InputSystem;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
+
 
 namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
@@ -15,6 +16,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 
         #endregion
 
-        void OnPauseResumeGame(InputAction.CallbackContext context);
+        void OnPauseResumeGame();
     }
 }

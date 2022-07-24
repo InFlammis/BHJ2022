@@ -16,8 +16,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 
         public bool SpawnEnemiesEnabled = true;
 
-        protected PlayerInput _playerInput;
-
         private StateConfiguration _stateConfiguration;
 
         /// <summary>
@@ -66,7 +64,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 
         public void OnAwake() 
         {
-            _playerInput = LevelManager.GameObject.GetComponent<PlayerInput>();
             LevelManager.StaticObjects.Messenger.ChangeStateRequest.AddListener(ChangeStateRequestEventHandler);
 
         }
@@ -91,12 +88,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Levels
 
         public void DisablePlayerInput()
         {
-            _playerInput.enabled = false;
+            
         }
 
         public void EnablePlayerInput()
         {
-            _playerInput.enabled = true;
+            
         }
 
         private void GameOver()

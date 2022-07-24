@@ -1,5 +1,6 @@
 using InFlammis.Victoria.Assets.Scripts.Managers.SceneManagement;
 using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
+using InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +8,17 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 {
     public class GameManager : SceneManager, IGameManager
     {
+        #region Inspector
+        #endregion
+
+        #region Interfaces
+
         public IGameManager Core { get; protected set; }
+        
+        #endregion
 
-        #region MonoBehaviour methods
-
+        #region Unity methods
+        
         void Awake()
         {
             OnAwake();
@@ -20,18 +28,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
         {
             OnStart();
         }
-
+        
         #endregion
 
-        #region Input Event Handlers
-
-        public void PauseResumeGame(InputAction.CallbackContext context)
-        {
-            OnPauseResumeGame(context);
-        }
-
-        #endregion
-
+        #region Internal methods
+        
         public void OnAwake()
         {
             Core = new GameManagerCore(this);
@@ -43,9 +44,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
             Core.OnStart();
         }
 
-        public void OnPauseResumeGame(InputAction.CallbackContext context)
+        public void OnPauseResumeGame()
         {
-            Core.OnPauseResumeGame(context);
+            Core.OnPauseResumeGame();
         }
+        
+        #endregion
     }
 }

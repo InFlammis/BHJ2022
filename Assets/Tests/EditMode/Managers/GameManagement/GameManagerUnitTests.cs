@@ -22,10 +22,10 @@ namespace FightshipArena.Assets.Tests.EditMode.Managers.GameManagement
             gameManager.SetCore(core);
 
             //act
-            gameManager.PauseResumeGame(new InputAction.CallbackContext());
+            //gameManager.PauseResumeGame(new InputAction.CallbackContext());
 
             //assert
-            coreMock.Verify(x=>x.OnPauseResumeGame(It.IsAny<InputAction.CallbackContext>()), Times.Once());
+            //coreMock.Verify(x=>x.OnPauseResumeGame(It.IsAny<InputAction.CallbackContext>()), Times.Once());
 
             yield return null;
         }

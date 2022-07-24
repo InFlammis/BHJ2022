@@ -19,8 +19,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 
         private float _timeScale;
 
-        private EventSystem _eventSystem;
-
         public override void OnEnter()
         {
             base.OnEnter();
@@ -28,11 +26,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
             _timeScale = Time.timeScale;
             SetTimeScale();
 
-            _eventSystem = GameObject.FindObjectOfType<EventSystem>();
-            if(_eventSystem != null)
-            {
-                _eventSystem.enabled = false;
-            }
             SceneManagerWrapper.LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
         }
 
@@ -41,11 +34,6 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
             base.OnExit();
 
             SceneManagerWrapper.UnloadSceneAsync(_sceneName);
-
-            if (_eventSystem != null)
-            {
-                _eventSystem.enabled = true;
-            }
 
             ResetTimeScale();
         }
@@ -80,7 +68,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
 
         private void SetTimeScale()
         {
-            Time.timeScale = 0;
+            Time.timeScale = 1;
         }
         
         private void ResetTimeScale()

@@ -1,5 +1,6 @@
 ﻿using InFlammis.Victoria.Assets.Scripts.Managers.SoundManagement;
 using System;
+using UnityEngine;
 
 namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause
 {
@@ -32,6 +33,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.Pause
 
         public void ResumeGame()
         {
+            Debug.Log("[RESUME BTN]: resume game");
             StaticObjects.Messenger.PublishResumeGame(this, null);
         }
 

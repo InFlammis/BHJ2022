@@ -28,6 +28,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement.StateMachine
     /// The Play state now returns to the top of the stack and its OnActivate method is invoked
     /// </example>
     /// </summary>
+    [Serializable]
     public abstract class State
     {
         public IGameManager GameManager { get; private set; }

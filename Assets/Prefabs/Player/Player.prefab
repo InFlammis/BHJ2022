@@ -51,6 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _staticObjects: {fileID: 11400000, guid: 59426cde641c275458ce576ce2305a6a, type: 2}
   _soundSettings: {fileID: 11400000, guid: 5a1f163eec2ff0f4faa4f1ead1487818, type: 2}
+  rawInputMovement: {x: 0, y: 0}
+  inputRotation: {x: 0, y: 0}
+  isGamepad: 0
   ExplosionEffect: {fileID: 5544043527086907277, guid: 123dcdb519cae984fb5b5dffd5fc356f, type: 3}
   initSettings: {fileID: 11400000, guid: 7d3c1c0a8739f7d4c8daf78ae1105488, type: 2}
 --- !u!114 &420153996349222509
@@ -92,18 +95,27 @@ MonoBehaviour:
         m_CallState: 2
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d2ed8da1-6c65-4bfc-b56a-2b866f64a6b3
-    m_ActionName: GameManager/PauseResume[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 420153996349222508}
+        m_TargetAssemblyTypeName: FightShipArena.Assets.Scripts.Player.PlayerController,
+          FightShipArena
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6968d789-3b4d-42d4-b790-912e82f372f9
     m_ActionName: Test/SpawnPawn[/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 420153996349222508}
-        m_TargetAssemblyTypeName: FightShipArena.Assets.Scripts.Player.PlayerController,
-          FightShipArena
+        m_TargetAssemblyTypeName: InFlammis.Victoria.Assets.Scripts.Player.PlayerController,
+          InFlammis.Victoria
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -119,8 +131,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 420153996349222508}
-        m_TargetAssemblyTypeName: BulletHellJam2022.Assets.Scripts.Player.PlayerController,
-          BulletHellJam2022
+        m_TargetAssemblyTypeName: InFlammis.Victoria.Assets.Scripts.Player.PlayerController,
+          InFlammis.Victoria
         m_MethodName: OnRotate
         m_Mode: 0
         m_Arguments:
@@ -136,8 +148,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 420153996349222508}
-        m_TargetAssemblyTypeName: FightShipArena.Assets.Scripts.Player.PlayerController,
-          FightShipArena
+        m_TargetAssemblyTypeName: InFlammis.Victoria.Assets.Scripts.Player.PlayerController,
+          InFlammis.Victoria
         m_MethodName: OnFire
         m_Mode: 0
         m_Arguments:
@@ -150,6 +162,60 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bd47bf42-33b7-47db-8cec-f9e0a3a6b337
     m_ActionName: Player/Fire[/Keyboard/j,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 420153996349222508}
+        m_TargetAssemblyTypeName: InFlammis.Victoria.Assets.Scripts.Player.PlayerController,
+          InFlammis.Victoria
+        m_MethodName: OnPauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8d43f67a-0057-478d-9dba-6815b50163a3
+    m_ActionName: Player/TogglePause[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 16eec222-b94b-4a97-af1e-6d6a22390aa4
+    m_ActionName: Menu/Navigate[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c5c227eb-3d15-46b6-85ef-7b20904fa3f7
+    m_ActionName: Menu/Left Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6088187c-23e6-47e4-aa03-ee20df356ca3
+    m_ActionName: Menu/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a3b92aa-14d7-4982-a123-6b65919da88d
+    m_ActionName: Menu/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4621f3bd-e895-4d24-abd3-b3a896bb78f4
+    m_ActionName: Menu/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 420153996349222508}
+        m_TargetAssemblyTypeName: InFlammis.Victoria.Assets.Scripts.Player.PlayerController,
+          InFlammis.Victoria
+        m_MethodName: OnResumeGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 51cd69eb-29bc-4e2c-902e-e426bfa2337d
+    m_ActionName: Menu/TogglePause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

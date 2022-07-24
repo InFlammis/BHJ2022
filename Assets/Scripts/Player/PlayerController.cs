@@ -27,6 +27,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public Spitter[] Weapons { get; protected set; }
 
+        //Action Maps
+        private string actionMapPlayerControls = "Player";
+        private string actionMapMenuControls = "Menu";
+        
+        //Current Control Scheme
+        private string currentControlScheme;
 
         private readonly string _Target = "Player";
         private Camera mainCamera;
@@ -34,7 +40,7 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         private PlayerInput playerInput;
 
         [SerializeField]
-        private Vector2 inputMovement;
+        private Vector2 rawInputMovement;
 
         [SerializeField]
         private Vector2 inputRotation;
@@ -50,17 +56,17 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            inputMovement = context.ReadValue<Vector2>();
+            rawInputMovement = context.ReadValue<Vector2>();
 
             if (context.performed)
             {
-                Core.SetPlayerMovement(inputMovement);
+                Core.SetPlayerMovement(rawInputMovement);
                 //Debug.Log($"Moving {inputMovement}");
             }
             else if (context.canceled)
             {
                 //Debug.Log("Not moving");
-                Core.SetPlayerMovement(inputMovement);
+                Core.SetPlayerMovement(rawInputMovement);
             }
         }
 
@@ -68,20 +74,9 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         {
             if (context.performed)
             {
-                if(isGamepad)
-                {
-                    inputRotation = context.ReadValue<Vector2>();
-                    Core.SetPlayerRotation(inputRotation, isGamepad);
-                }
-                else
-                {
-                    //Debug.Log("InputPosition: " + context.ReadValue<Vector2>());
-                    //inputRotation = mainCamera.ScreenToWorldPoint(context.ReadValue<Vector2>());
-                    //Debug.Log("Input World position: " + inputRotation);
-                    inputRotation = context.ReadValue<Vector2>();
-                    Core.SetPlayerRotation(inputRotation, isGamepad);
-                    //Debug.Log($"Rotating {inputRotation}");
-                }
+                inputRotation = context.ReadValue<Vector2>();
+
+                Core.SetPlayerRotation(inputRotation, isGamepad);
             }
             /*else if (context.canceled)
             {
@@ -127,63 +122,35 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             }
         }
 
-        public void OnTurnLeft(InputAction.CallbackContext context)
+        public void OnPauseGame(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if(context.performed)
             {
-                Core.TurnLeft();
-            }
-            else if (context.canceled)
-            {
+                Debug.Log("OnPauseGame");
+                // DAVID: dentro a core non c'è una reference per _staticObjects, come procedere?
+                playerInput.SwitchCurrentActionMap(actionMapMenuControls);
+                _staticObjects.Messenger.PublishPauseGame(this, null);
             }
         }
 
-        public void OnTurnRight(InputAction.CallbackContext context)
+        public void OnResumeGame(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if(context.performed)
             {
-                Core.TurnRight();
-            }
-            else if (context.canceled)
-            {
+                Debug.Log("OnResumePause");
+                // DAVID: dentro a core non c'è una reference per _staticObjects, come procedere?
+                playerInput.SwitchCurrentActionMap(actionMapPlayerControls);
+                _staticObjects.Messenger.PublishResumeGame(this, null);
             }
         }
 
-        public void OnTurnUp(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                Core.TurnUp();
-            }
-            else if (context.canceled)
-            {
-            }
-        }
-
-        public void OnTurnDown(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                Core.TurnDown();
-            }
-            else if (context.canceled)
-            {
-            }
-        }
-        
         public void OnDeviceChange(PlayerInput playerInput)
         {
+            currentControlScheme = playerInput.currentControlScheme;
             isGamepad = playerInput.currentControlScheme.Equals("Gamepad") ? true : false;
         }
 
         #region Unity methods
-
-        //private InputAction leftMouseClick;
-
-        /*private void LeftMouseClicked()
-        {
-            print("LeftMouseClicked");
-        }*/
 
         void Awake()
         {
@@ -191,13 +158,13 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             playerActionAsset = new PlayerActionAsset();
             playerInput = GetComponent<PlayerInput>();
 
-            //leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
-            //leftMouseClick.performed += ctx => LeftMouseClicked();
-            //leftMouseClick.Enable();
+            currentControlScheme = playerInput.currentControlScheme;
+
             HealthManager = GameObject.GetComponentInChildren<HealthManager>();
 
             SubscribeToHealthManagerEvents();
             SubscribeToRequestsForPlayer();
+            SubscribeToResumeGame();
             CheckWeaponsConfiguration();
 
             Core = new PlayerControllerCore(this);
@@ -223,6 +190,16 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
         {
             _staticObjects.Messenger.RequestForPlayerTransformEvent -= Messenger_RequestForPlayerTransformEvent;
             _staticObjects.Messenger.RequestForPlayerIsAliveEvent -= Messenger_RequestForPlayerIsAliveEvent;
+        }
+
+        private void Messenger_ResumeGame()
+        {
+
+        }
+
+        private void SubscribeToResumeGame()
+        {
+            //_staticObjects.Messenger.ResumeGame.AddListener(Messenger_ResumeGame);
         }
 
         private bool Messenger_RequestForPlayerIsAliveEvent(object publisher, string target)
@@ -263,6 +240,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Player
             {
                 Debug.LogError("SceneManager not found");
             }
+
+            Debug.Log(currentControlScheme);
         }
 
         void OnCollisionEnter2D(Collision2D col)

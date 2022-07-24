@@ -50,6 +50,12 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.Menus.PreRoll
 
         public void OnStart()
         {
+            if (_staticObjects.SkipIntro)
+            {
+                StaticObjects.Messenger.PublishPreRollFinished(this, null);
+                return;
+            }
+
             this.StartCoroutine(CheckPositionInVideo());
             _videoPlayer?.Play();
         }

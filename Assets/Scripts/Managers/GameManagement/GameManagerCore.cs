@@ -46,7 +46,8 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
         public void OnStart()
         {
             //PushState(new Init(this, _sceneManagerWrapper));
-            PushState(new PreRoll(this, _sceneManagerWrapper));
+            //PushState(new Pause(this, _sceneManagerWrapper));
+            PushState(new Init(this, _sceneManagerWrapper));
 
         }
 
@@ -222,16 +223,11 @@ namespace InFlammis.Victoria.Assets.Scripts.Managers.GameManagement
 
         //#endregion
 
-        #region Input Event Handlers
+        #region Pause
 
-        public void OnPauseResumeGame(InputAction.CallbackContext context)
+        public void OnPauseResumeGame()
         {
-            switch (context.phase)
-            {
-                case InputActionPhase.Performed:
-                    _stateStack.Peek()?.PauseResumeGame();
-                    break;
-            }
+            _stateStack.Peek()?.PauseResumeGame();
         }
         #endregion
     }
